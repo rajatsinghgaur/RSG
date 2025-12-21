@@ -186,6 +186,30 @@ h2{
     0 0 40px rgba(52,168,83,1),
     0 0 80px rgba(52,168,83,1);
 }
+  /* 🎵 Music Player Style */
+.music-player{
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+}
+
+.music-player button{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg,#1a73e8,#34a853);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.music-player button:hover{
+  transform: scale(1.1);
+}
 </style>
 </head>
 
@@ -314,6 +338,16 @@ h2{
     </a>
   </div>
 </section>
+<!-- 🎵 Background Music Player -->
+<div class="music-player">
+  <button id="musicBtn">
+    <i class="fas fa-play"></i>
+  </button>
+
+  <audio id="bgMusic" loop>
+    <source src="Where_Is_My_Mind.mp3" type="audio/mpeg">
+  </audio>
+</div>
 
 <script>
 /* THEME TOGGLE */
@@ -362,11 +396,28 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
+/* 🎵 MUSIC CONTROL SCRIPT */
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+let isPlaying = false;
+
+btn.addEventListener("click", () => {
+  if (!isPlaying) {
+    music.play();
+    btn.innerHTML = '<i class="fas fa-pause"></i>';
+  } else {
+    music.pause();
+    btn.innerHTML = '<i class="fas fa-play"></i>';
+  }
+  isPlaying = !isPlaying;
+});
+
 </script>
 
 </body>
 
 </html>
+
 
 
 
