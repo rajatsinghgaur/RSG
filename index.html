@@ -32,18 +32,55 @@ body{
 }
 
 /* NEON BACKGROUND */
-#neonParticles{position:fixed;inset:0;z-index:-1;}
+#neonParticles{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+}
 
-.container{width:90%;max-width:1100px;margin:auto;}
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
 section{padding:100px 0;}
-h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
+h2{
+  text-align:center;
+  margin-bottom:50px;
+  font-size:36px;
+  color:var(--primary);
+}
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
+  position:relative;
   background:linear-gradient(135deg,var(--primary),var(--accent));
   color:#fff;
-  padding:140px 0 100px;
+  padding:160px 0 120px;
   text-align:center;
+  overflow:hidden;
+}
+
+/* 🔥 MIRROR ANALYTICS TEXT */
+.analytics-bg{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scaleY(-1);
+  font-size:160px;
+  font-weight:700;
+  letter-spacing:12px;
+  color:rgba(255,255,255,0.08);
+  white-space:nowrap;
+  filter:blur(1.5px);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* HERO CONTENT ABOVE */
+.hero-content{
+  position:relative;
+  z-index:2;
 }
 
 /* PROFILE + BATMAN RING */
@@ -60,7 +97,9 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
   border:5px solid #be6c6c;
   position:relative;
   z-index:2;
-  box-shadow:0 0 30px rgba(49,101,18,.8),0 0 60px rgba(52,168,83,.6);
+  box-shadow:
+    0 0 30px rgba(49,101,18,.8),
+    0 0 60px rgba(52,168,83,.6);
 }
 
 .batman-ring{
@@ -90,14 +129,18 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
   to{transform:translate(-50%,-50%) rotate(360deg);}
 }
 
-.hero h1{font-size:58px;margin-top:25px;}
-.hero p{font-size:22px;}
+.hero h1{
+  font-size:58px;
+  margin-top:30px;
+}
+.hero p{
+  font-size:22px;
+  opacity:.9;
+}
 
-/* Ring Speed Control */
+/* RING SPEED CONTROL */
 .ring-control{
-  margin-top:20px;
-  text-align:center;
-  color:#fff;
+  margin-top:18px;
   font-size:14px;
 }
 .ring-control input{
@@ -106,14 +149,24 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 }
 
 /* SOCIAL */
+.social-links{
+  margin-top:25px;
+}
 .social-links a{
-  display:inline-block;margin:0 10px;width:45px;height:45px;
-  line-height:45px;border-radius:50%;background:#fff;
-  color:var(--primary);transition:.3s;
+  display:inline-block;
+  margin:0 10px;
+  width:45px;
+  height:45px;
+  line-height:45px;
+  border-radius:50%;
+  background:#fff;
+  color:var(--primary);
+  transition:.3s;
 }
 .social-links a:hover{
   transform:translateY(-6px);
-  background:var(--accent);color:#fff;
+  background:var(--accent);
+  color:#fff;
 }
 
 /* PANEL */
@@ -121,13 +174,28 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
   background:rgba(255,255,255,.75);
   backdrop-filter:blur(16px);
 }
-[data-theme="dark"] .panel{background:rgba(0,0,0,.45);}
-.panel .container{
-  display:flex;justify-content:center;flex-wrap:wrap;padding:18px 0;
+[data-theme="dark"] .panel{
+  background:rgba(0,0,0,.45);
 }
-.panel a{margin:10px 18px;text-decoration:none;font-weight:600;color:var(--text);}
+.panel .container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:18px 0;
+}
+.panel a{
+  margin:10px 18px;
+  text-decoration:none;
+  font-weight:600;
+  color:var(--text);
+}
 .panel a:hover{color:var(--accent);}
-.theme-toggle{padding:8px 16px;border:none;border-radius:20px;cursor:pointer;}
+.theme-toggle{
+  padding:8px 16px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+}
 
 /* CARDS */
 .grid{
@@ -138,11 +206,14 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 .card{
   background:rgba(255,255,255,.75);
   backdrop-filter:blur(18px);
-  padding:32px;border-radius:18px;
+  padding:32px;
+  border-radius:18px;
   box-shadow:0 0 20px rgba(0,229,255,.35);
   transition:.35s;
 }
-[data-theme="dark"] .card{background:rgba(0,0,0,.5);}
+[data-theme="dark"] .card{
+  background:rgba(0,0,0,.5);
+}
 .card:hover{
   transform:translateY(-12px);
   box-shadow:0 0 65px rgba(52,168,83,.6);
@@ -150,19 +221,32 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 
 /* RESUME */
 .resume-btn{
-  display:inline-block;padding:16px 40px;font-size:18px;
-  font-weight:600;background:linear-gradient(135deg,#00e5ff,#34a853);
-  color:#fff;text-decoration:none;border-radius:40px;
+  display:inline-block;
+  padding:16px 40px;
+  font-size:18px;
+  font-weight:600;
+  background:linear-gradient(135deg,#00e5ff,#34a853);
+  color:#fff;
+  text-decoration:none;
+  border-radius:40px;
 }
 
 /* MUSIC BUTTON */
 .music-player{
-  position:fixed;bottom:25px;right:25px;z-index:999;
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  z-index:999;
 }
 .music-player button{
-  width:55px;height:55px;border-radius:50%;
-  border:none;background:linear-gradient(135deg,#34a853,#1a73e8);
-  color:#fff;font-size:20px;cursor:pointer;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  border:none;
+  background:linear-gradient(135deg,#34a853,#1a73e8);
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
   box-shadow:0 0 25px rgba(52,168,83,.8);
 }
 </style>
@@ -174,7 +258,11 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="container">
+
+  <!-- 🔥 MIRROR TEXT -->
+  <div class="analytics-bg">ANALYTICS</div>
+
+  <div class="container hero-content">
 
     <div class="profile-wrapper">
       <img src="IMG_20251115_185859.jpg" class="profile-pic">
@@ -185,7 +273,7 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
     <p>Business Analytics</p>
 
     <div class="ring-control">
-      Ring Speed
+      Ring Speed<br>
       <input type="range" id="ringSpeed" min="2" max="12" value="6">
     </div>
 
@@ -193,6 +281,7 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
       <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
+
   </div>
 </section>
 
@@ -209,9 +298,11 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
   </div>
 </div>
 
+<!-- ABOUT -->
 <section id="about"><div class="container"><h2>About Me</h2>
 <div class="card">I am a MBA (Business Analytics) student. Interested in data analysis, finance & business intelligence.</div></div></section>
 
+<!-- SKILLS -->
 <section id="skills"><div class="container"><h2>Skills</h2>
 <div class="grid">
 <div class="card">Advanced Microsoft Excel</div>
@@ -220,12 +311,14 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 <div class="card">Python</div>
 </div></div></section>
 
+<!-- EDUCATION -->
 <section id="education"><div class="container"><h2>Education</h2>
 <div class="grid">
 <div class="card">MBA – Business Analytics (2024–2026)</div>
 <div class="card">B.Sc. Computer Science (2021–2024)</div>
 </div></div></section>
 
+<!-- EXPERIENCE -->
 <section id="experience"><div class="container"><h2>Experience & Achievements</h2>
 <div class="grid">
 <div class="card">NCC ‘A’ Certificate</div>
@@ -234,9 +327,11 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 <div class="card">Google AI Conference</div>
 </div></div></section>
 
+<!-- CONTACT -->
 <section id="contact"><div class="container"><h2>Contact</h2>
 <div class="card">Email: gaurrajat58@gmail.com<br>Phone: +91 7027092835</div></div></section>
 
+<!-- RESUME -->
 <section id="resume"><div class="container resume-section"><h2>Download Resume</h2>
 <a href="RAJAT SINGH GAUR Resume update.pdf" download class="resume-btn">
 <i class="fas fa-download"></i> Download Resume</a></div></section>
@@ -254,34 +349,56 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 /* THEME */
 function toggleTheme(){
   const html=document.documentElement;
-  html.setAttribute("data-theme",
-    html.getAttribute("data-theme")==="dark"?"light":"dark");
+  html.setAttribute(
+    "data-theme",
+    html.getAttribute("data-theme")==="dark"?"light":"dark"
+  );
 }
 
 /* PARTICLES */
-const c=document.getElementById("neonParticles"),x=c.getContext("2d");
-function r(){c.width=innerWidth;c.height=innerHeight;}r();addEventListener("resize",r);
-const p=[...Array(80)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:2+Math.random()*2,dx:(Math.random()-.5),dy:(Math.random()-.5)}));
-(function a(){x.clearRect(0,0,c.width,c.height);
-p.forEach(o=>{o.x+=o.dx;o.y+=o.dy;
-if(o.x<0||o.x>c.width)o.dx*=-1;
-if(o.y<0||o.y>c.height)o.dy*=-1;
-x.beginPath();x.arc(o.x,o.y,o.r,0,Math.PI*2);
-x.fillStyle="rgba(0,229,255,.8)";x.fill();});
-requestAnimationFrame(a);})();
+const c=document.getElementById("neonParticles"),
+      x=c.getContext("2d");
+function r(){c.width=innerWidth;c.height=innerHeight;}
+r();addEventListener("resize",r);
+
+const p=[...Array(80)].map(()=>({
+  x:Math.random()*c.width,
+  y:Math.random()*c.height,
+  r:2+Math.random()*2,
+  dx:(Math.random()-.5),
+  dy:(Math.random()-.5)
+}));
+
+(function a(){
+  x.clearRect(0,0,c.width,c.height);
+  p.forEach(o=>{
+    o.x+=o.dx;o.y+=o.dy;
+    if(o.x<0||o.x>c.width)o.dx*=-1;
+    if(o.y<0||o.y>c.height)o.dy*=-1;
+    x.beginPath();
+    x.arc(o.x,o.y,o.r,0,Math.PI*2);
+    x.fillStyle="rgba(0,229,255,.8)";
+    x.fill();
+  });
+  requestAnimationFrame(a);
+})();
 
 /* MUSIC */
 const music=document.getElementById("bgMusic");
 const muteBtn=document.getElementById("muteBtn");
-document.addEventListener("click",()=>{music.muted=false;music.play();},{once:true});
+document.addEventListener("click",()=>{
+  music.muted=false;
+  music.play();
+},{once:true});
+
 muteBtn.onclick=()=>{
   music.muted=!music.muted;
-  muteBtn.innerHTML=music.muted?
-  '<i class="fas fa-volume-mute"></i>':
-  '<i class="fas fa-volume-up"></i>';
+  muteBtn.innerHTML=music.muted
+    ?'<i class="fas fa-volume-mute"></i>'
+    :'<i class="fas fa-volume-up"></i>';
 };
 
-/* RING SPEED CONTROL */
+/* RING SPEED */
 const ring=document.querySelector(".batman-ring");
 const speed=document.getElementById("ringSpeed");
 speed.addEventListener("input",()=>{
@@ -291,6 +408,3 @@ speed.addEventListener("input",()=>{
 
 </body>
 </html>
-
-
-
