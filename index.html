@@ -60,28 +60,46 @@ h2{
   overflow:hidden;
 }
 
-/* SIMPLE ANALYTICS TEXT (NO MIRROR) */
+/* ANALYTICS BACKGROUND WITH GLOW */
 .analytics-bg{
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
   font-size:160px;
-  font-weight:700;
-  letter-spacing:12px;
-  color:rgba(255,255,255,0.07);
+  font-weight:800;
+  letter-spacing:14px;
+  color:rgba(255,255,255,0.12);
   white-space:nowrap;
   pointer-events:none;
   z-index:0;
+  text-shadow:
+    0 0 20px rgba(0,229,255,0.4),
+    0 0 40px rgba(0,229,255,0.3),
+    0 0 80px rgba(52,168,83,0.25);
+  animation:glowPulse 6s ease-in-out infinite;
 }
 
-/* HERO CONTENT ABOVE */
+@keyframes glowPulse{
+  0%,100%{
+    opacity:0.6;
+  }
+  50%{
+    opacity:1;
+    text-shadow:
+      0 0 35px rgba(0,229,255,0.8),
+      0 0 70px rgba(0,229,255,0.6),
+      0 0 120px rgba(52,168,83,0.5);
+  }
+}
+
+/* HERO CONTENT */
 .hero-content{
   position:relative;
   z-index:2;
 }
 
-/* PROFILE + BATMAN RING */
+/* PROFILE */
 .profile-wrapper{
   position:relative;
   display:inline-block;
@@ -100,7 +118,7 @@ h2{
     0 0 60px rgba(52,168,83,.6);
 }
 
-/* BATMAN ROTATING RING */
+/* BATMAN RING */
 .batman-ring{
   position:absolute;
   top:50%;
@@ -208,7 +226,10 @@ h2{
   box-shadow:0 0 65px rgba(52,168,83,.6);
 }
 
-/* RESUME */
+/* RESUME CENTER */
+.resume-section{
+  text-align:center;
+}
 .resume-btn{
   display:inline-block;
   padding:16px 40px;
@@ -245,29 +266,22 @@ h2{
 
 <canvas id="neonParticles"></canvas>
 
-<!-- HERO -->
 <section class="hero">
   <div class="analytics-bg">ANALYTICS</div>
-
   <div class="container hero-content">
-
     <div class="profile-wrapper">
       <img src="IMG_20251115_185859.jpg" class="profile-pic">
       <span class="batman-ring"></span>
     </div>
-
     <h1>Rajat Singh Gaur</h1>
     <p>Business Analytics</p>
-
     <div class="social-links">
       <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-
   </div>
 </section>
 
-<!-- PANEL -->
 <div class="panel">
   <div class="container">
     <a href="#about">About</a>
@@ -308,12 +322,15 @@ h2{
 <section id="contact"><div class="container"><h2>Contact</h2>
 <div class="card">Email: gaurrajat58@gmail.com<br>Phone: +91 7027092835</div></div></section>
 
-<section id="resume"><div class="container resume-section">
-<h2>Download Resume</h2>
-<a href="RAJAT SINGH GAUR Resume update.pdf" download class="resume-btn">
-<i class="fas fa-download"></i> Download Resume</a></div></section>
+<section id="resume">
+  <div class="container resume-section">
+    <h2>Download Resume</h2>
+    <a href="RAJAT SINGH GAUR Resume update.pdf" download class="resume-btn">
+      <i class="fas fa-download"></i> Download Resume
+    </a>
+  </div>
+</section>
 
-<!-- MUSIC -->
 <audio id="bgMusic" autoplay loop muted>
   <source src="Pixies_Where_Is_My_Mind_Ringtone_(by Fringster.com).mp3">
 </audio>
@@ -323,60 +340,54 @@ h2{
 </div>
 
 <script>
-/* THEME */
 function toggleTheme(){
   const html=document.documentElement;
-  html.setAttribute(
-    "data-theme",
-    html.getAttribute("data-theme")==="dark"?"light":"dark"
-  );
+  html.setAttribute("data-theme",
+    html.getAttribute("data-theme")==="dark"?"light":"dark");
 }
 
-/* PARTICLES */
 const c=document.getElementById("neonParticles"),
-      x=c.getContext("2d");
+x=c.getContext("2d");
 function r(){c.width=innerWidth;c.height=innerHeight;}
 r();addEventListener("resize",r);
 
 const p=[...Array(80)].map(()=>({
-  x:Math.random()*c.width,
-  y:Math.random()*c.height,
-  r:2+Math.random()*2,
-  dx:(Math.random()-.5),
-  dy:(Math.random()-.5)
+x:Math.random()*c.width,
+y:Math.random()*c.height,
+r:2+Math.random()*2,
+dx:(Math.random()-.5),
+dy:(Math.random()-.5)
 }));
 
 (function a(){
-  x.clearRect(0,0,c.width,c.height);
-  p.forEach(o=>{
-    o.x+=o.dx;o.y+=o.dy;
-    if(o.x<0||o.x>c.width)o.dx*=-1;
-    if(o.y<0||o.y>c.height)o.dy*=-1;
-    x.beginPath();
-    x.arc(o.x,o.y,o.r,0,Math.PI*2);
-    x.fillStyle="rgba(0,229,255,.8)";
-    x.fill();
-  });
-  requestAnimationFrame(a);
+x.clearRect(0,0,c.width,c.height);
+p.forEach(o=>{
+o.x+=o.dx;o.y+=o.dy;
+if(o.x<0||o.x>c.width)o.dx*=-1;
+if(o.y<0||o.y>c.height)o.dy*=-1;
+x.beginPath();
+x.arc(o.x,o.y,o.r,0,Math.PI*2);
+x.fillStyle="rgba(0,229,255,.8)";
+x.fill();
+});
+requestAnimationFrame(a);
 })();
 
-/* MUSIC */
 const music=document.getElementById("bgMusic");
 const muteBtn=document.getElementById("muteBtn");
 
 document.addEventListener("click",()=>{
-  music.muted=false;
-  music.play();
+music.muted=false;
+music.play();
 },{once:true});
 
 muteBtn.onclick=()=>{
-  music.muted=!music.muted;
-  muteBtn.innerHTML=music.muted
-    ?'<i class="fas fa-volume-mute"></i>'
-    :'<i class="fas fa-volume-up"></i>';
+music.muted=!music.muted;
+muteBtn.innerHTML=music.muted
+?'<i class="fas fa-volume-mute"></i>'
+:'<i class="fas fa-volume-up"></i>';
 };
 </script>
 
 </body>
 </html>
-
