@@ -338,15 +338,12 @@ h2{
     </a>
   </div>
 </section>
-<!-- 🎵 Background Music Player -->
-<div class="music-player">
-  <button id="musicBtn">
-    <i class="fas fa-play"></i>
-  </button>
+  
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" autoplay loop muted>
+  <source src="Pixies_Where_Is_My_Mind_Ringtone_(by Fringster.com).mp3" type="audio/mpeg">
+</audio>
 
-  <audio id="bgMusic" loop>
-    <source src="Pixies_Where_Is_My_Mind_Ringtone_(by Fringster.com).mp3" type="audio/mpeg">
-  </audio>
 </div>
 
 <script>
@@ -396,27 +393,19 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
-/* 🎵 MUSIC CONTROL SCRIPT */
-const music = document.getElementById("bgMusic");
-const btn = document.getElementById("musicBtn");
-let isPlaying = false;
-
-btn.addEventListener("click", () => {
-  if (!isPlaying) {
-    music.play();
-    btn.innerHTML = '<i class="fas fa-pause"></i>';
-  } else {
-    music.pause();
-    btn.innerHTML = '<i class="fas fa-play"></i>';
-  }
-  isPlaying = !isPlaying;
-});
+ /* 🎵 AUTO UNMUTE & PLAY AFTER FIRST CLICK */
+document.addEventListener("click", () => {
+  const music = document.getElementById("bgMusic");
+  music.muted = false;
+  music.play();
+}, { once: true });
 
 </script>
 
 </body>
 
 </html>
+
 
 
 
