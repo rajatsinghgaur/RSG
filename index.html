@@ -28,13 +28,14 @@ body{
   overflow-x:hidden;
 }
 
-/* PARTICLES */
+/* NEON PARTICLES */
 #neonParticles{
   position:fixed;
   inset:0;
   z-index:-1;
 }
 
+/* COMMON */
 .container{
   width:90%;
   max-width:1100px;
@@ -56,13 +57,12 @@ h2{
   background:
     radial-gradient(circle at top, rgba(245,197,24,0.15), transparent 60%),
     linear-gradient(180deg,#020202,#060709);
-  color:white;
   padding:160px 0 120px;
   text-align:center;
   overflow:hidden;
 }
 
-/* BIG BACKGROUND TEXT */
+/* BIG BACKGROUND TEXT (GLOW ADDED) */
 .bg-text{
   position:absolute;
   top:50%;
@@ -71,11 +71,14 @@ h2{
   font-size:180px;
   font-weight:800;
   letter-spacing:12px;
-  color:rgba(245,197,24,0.06);
+  color:rgba(245,197,24,0.08);
   text-transform:uppercase;
   white-space:nowrap;
   z-index:0;
   pointer-events:none;
+  text-shadow:
+    0 0 25px rgba(245,197,24,0.35),
+    0 0 60px rgba(245,197,24,0.25);
 }
 
 .hero .container{
@@ -83,50 +86,17 @@ h2{
   z-index:2;
 }
 
-/* PHOTO ORBIT */
-.photo-orbit{
-  position:relative;
-  width:340px;
-  height:340px;
-  margin:0 auto 30px;
-}
-
-.photo-orbit span{
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  border:2px solid rgba(0,229,255,0.6);
-  animation:orbit 6s linear infinite;
-}
-
-.photo-orbit span:nth-child(2){
-  inset:12px;
-  border-color:rgba(245,197,24,0.6);
-  animation-duration:8s;
-}
-
-.photo-orbit span:nth-child(3){
-  inset:24px;
-  border-color:rgba(0,229,255,0.4);
-  animation-duration:10s;
-}
-
-@keyframes orbit{
-  from{ transform:rotate(0deg); }
-  to{ transform:rotate(360deg); }
-}
-
+/* PROFILE PIC (NO ORBIT NOW) */
 .profile-pic{
   width:320px;
   height:320px;
   border-radius:50%;
   object-fit:cover;
   border:5px solid var(--primary);
+  margin-bottom:25px;
   box-shadow:
-    0 0 30px rgba(245,197,24,0.9),
-    0 0 60px rgba(0,229,255,0.6);
-  position:relative;
-  z-index:3;
+    0 0 35px rgba(245,197,24,0.9),
+    0 0 70px rgba(0,229,255,0.6);
 }
 
 .hero h1{
@@ -136,7 +106,6 @@ h2{
     0 0 15px rgba(245,197,24,0.9),
     0 0 35px rgba(0,229,255,0.7);
 }
-
 .hero p{ font-size:22px; }
 
 /* SOCIAL */
@@ -195,9 +164,31 @@ h2{
   padding:32px;
   border-radius:18px;
   border:1px solid rgba(245,197,24,0.15);
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 35px rgba(245,197,24,0.8);
 }
 
-/* ================= BODY ================= */
+/* RESUME */
+.resume-section{ text-align:center; }
+.resume-btn{
+  display:inline-block;
+  padding:16px 40px;
+  font-size:18px;
+  font-weight:600;
+  background:linear-gradient(135deg,#f5c518,#00e5ff);
+  color:#000;
+  text-decoration:none;
+  border-radius:40px;
+  box-shadow:
+    0 0 30px rgba(245,197,24,0.9),
+    0 0 60px rgba(0,229,255,0.8);
+}
+.resume-btn:hover{
+  transform:translateY(-10px) scale(1.05);
+}
 
 </style>
 </head>
@@ -206,17 +197,12 @@ h2{
 
 <canvas id="neonParticles"></canvas>
 
+<!-- HERO -->
 <section class="hero">
   <div class="bg-text">ANALYTICS</div>
 
   <div class="container">
-
-    <div class="photo-orbit">
-      <span></span>
-      <span></span>
-      <span></span>
-      <img src="IMG_20251115_185859.jpg" class="profile-pic">
-    </div>
+    <img src="IMG_20251115_185859.jpg" class="profile-pic">
 
     <h1>Rajat Singh Gaur</h1>
     <p>Business Analytics</p>
@@ -225,10 +211,10 @@ h2{
       <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-
   </div>
 </section>
 
+<!-- PANEL -->
 <div class="panel">
   <div class="container">
     <a href="#about">About</a>
@@ -238,8 +224,53 @@ h2{
   </div>
 </div>
 
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <div class="card">
+      MBA (Business Analytics) student with strong interest in data analysis,
+      business intelligence and finance-driven insights.
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="card">Advanced Microsoft Excel</div>
+      <div class="card">Power BI</div>
+      <div class="card">Tableau</div>
+      <div class="card">Python</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <h2>Education</h2>
+    <div class="grid">
+      <div class="card">MBA – Business Analytics (2024–2026)</div>
+      <div class="card">B.Sc. Computer Science (2021–2024)</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="container resume-section">
+    <h2>Download Resume</h2>
+    <a href="RAJAT SINGH GAUR Resume update.pdf" download class="resume-btn">
+      <i class="fas fa-download"></i> Download Resume
+    </a>
+  </div>
+</section>
+
 <script>
-/* PARTICLES */
+/* NEON PARTICLES */
 const canvas = document.getElementById("neonParticles");
 const ctx = canvas.getContext("2d");
 
@@ -264,6 +295,7 @@ function animate(){
     p.x+=p.dx; p.y+=p.dy;
     if(p.x<0||p.x>canvas.width) p.dx*=-1;
     if(p.y<0||p.y>canvas.height) p.dy*=-1;
+
     ctx.beginPath();
     ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
     ctx.fillStyle="rgba(245,197,24,0.8)";
@@ -278,3 +310,5 @@ animate();
 
 </body>
 </html>
+
+
