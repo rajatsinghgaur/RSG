@@ -60,7 +60,7 @@ h2{
   overflow:hidden;
 }
 
-/* ANALYTICS BACKGROUND WITH GLOW */
+/* ANALYTICS BACKGROUND (GLOW + MOVE) */
 .analytics-bg{
   position:absolute;
   top:50%;
@@ -77,58 +77,44 @@ h2{
     0 0 20px rgba(0,229,255,0.4),
     0 0 40px rgba(0,229,255,0.3),
     0 0 80px rgba(52,168,83,0.25);
-  animation:glowPulse 6s ease-in-out infinite;
+  animation:glowPulse 6s ease-in-out infinite,
+             floatMove 18s linear infinite;
 }
 
 @keyframes glowPulse{
-  0%,100%{
-    opacity:0.6;
-  }
+  0%,100%{opacity:.6;}
   50%{
     opacity:1;
     text-shadow:
-      0 0 35px rgba(0,229,255,0.8),
-      0 0 70px rgba(0,229,255,0.6),
-      0 0 120px rgba(52,168,83,0.5);
+      0 0 35px rgba(0,229,255,.8),
+      0 0 70px rgba(0,229,255,.6),
+      0 0 120px rgba(52,168,83,.5);
   }
 }
 
-/* HERO CONTENT */
-.hero-content{
-  position:relative;
-  z-index:2;
+@keyframes floatMove{
+  0%{transform:translate(-55%,-50%);}
+  50%{transform:translate(-45%,-50%);}
+  100%{transform:translate(-55%,-50%);}
 }
+
+/* HERO CONTENT */
+.hero-content{position:relative;z-index:2;}
 
 /* PROFILE */
-.profile-wrapper{
-  position:relative;
-  display:inline-block;
-}
-
+.profile-wrapper{position:relative;display:inline-block;}
 .profile-pic{
-  width:340px;
-  height:340px;
-  border-radius:50%;
-  object-fit:cover;
-  border:5px solid #be6c6c;
-  position:relative;
-  z-index:2;
-  box-shadow:
-    0 0 30px rgba(49,101,18,.8),
-    0 0 60px rgba(52,168,83,.6);
+  width:340px;height:340px;border-radius:50%;
+  object-fit:cover;border:5px solid #be6c6c;
+  box-shadow:0 0 30px rgba(49,101,18,.8),
+             0 0 60px rgba(52,168,83,.6);
 }
 
 /* BATMAN RING */
 .batman-ring{
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:370px;
-  height:370px;
-  border-radius:50%;
+  position:absolute;top:50%;left:50%;
+  width:370px;height:370px;border-radius:50%;
   transform:translate(-50%,-50%);
-  z-index:1;
-  pointer-events:none;
   background:conic-gradient(
     transparent 0deg,
     rgba(0,229,255,0.9) 60deg,
@@ -140,34 +126,20 @@ h2{
   filter:blur(4px);
   animation:batRotate 6s linear infinite;
 }
-
 @keyframes batRotate{
   from{transform:translate(-50%,-50%) rotate(0deg);}
   to{transform:translate(-50%,-50%) rotate(360deg);}
 }
 
-.hero h1{
-  font-size:58px;
-  margin-top:30px;
-}
-.hero p{
-  font-size:22px;
-  opacity:.9;
-}
+.hero h1{font-size:58px;margin-top:30px;}
+.hero p{font-size:22px;opacity:.9;}
 
 /* SOCIAL */
-.social-links{
-  margin-top:25px;
-}
+.social-links{margin-top:25px;}
 .social-links a{
-  display:inline-block;
-  margin:0 10px;
-  width:45px;
-  height:45px;
-  line-height:45px;
-  border-radius:50%;
-  background:#fff;
-  color:var(--primary);
+  margin:0 10px;width:45px;height:45px;
+  line-height:45px;border-radius:50%;
+  background:#fff;color:var(--primary);
   transition:.3s;
 }
 .social-links a:hover{
@@ -177,32 +149,15 @@ h2{
 }
 
 /* PANEL */
-.panel{
-  background:rgba(255,255,255,.75);
-  backdrop-filter:blur(16px);
-}
-[data-theme="dark"] .panel{
-  background:rgba(0,0,0,.45);
-}
+.panel{background:rgba(255,255,255,.75);backdrop-filter:blur(16px);}
+[data-theme="dark"] .panel{background:rgba(0,0,0,.45);}
 .panel .container{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  padding:18px 0;
+  display:flex;justify-content:center;
+  flex-wrap:wrap;padding:18px 0;
 }
-.panel a{
-  margin:10px 18px;
-  text-decoration:none;
-  font-weight:600;
-  color:var(--text);
-}
+.panel a{margin:10px 18px;font-weight:600;color:var(--text);}
 .panel a:hover{color:var(--accent);}
-.theme-toggle{
-  padding:8px 16px;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
-}
+.theme-toggle{padding:8px 16px;border-radius:20px;cursor:pointer;}
 
 /* CARDS */
 .grid{
@@ -213,51 +168,47 @@ h2{
 .card{
   background:rgba(255,255,255,.75);
   backdrop-filter:blur(18px);
-  padding:32px;
-  border-radius:18px;
+  padding:32px;border-radius:18px;
   box-shadow:0 0 20px rgba(0,229,255,.35);
   transition:.35s;
-}
-[data-theme="dark"] .card{
-  background:rgba(0,0,0,.5);
 }
 .card:hover{
   transform:translateY(-12px);
   box-shadow:0 0 65px rgba(52,168,83,.6);
 }
 
-/* RESUME CENTER */
-.resume-section{
-  text-align:center;
-}
+/* RESUME (CENTER + HOVER ANIMATION) */
+.resume-section{text-align:center;}
 .resume-btn{
-  display:inline-block;
   padding:16px 40px;
-  font-size:18px;
-  font-weight:600;
+  font-size:18px;font-weight:600;
   background:linear-gradient(135deg,#00e5ff,#34a853);
-  color:#fff;
-  text-decoration:none;
-  border-radius:40px;
+  color:#fff;border-radius:40px;
+  transition:.4s;
+}
+.resume-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 30px rgba(0,229,255,.9),
+             0 0 60px rgba(52,168,83,.7);
 }
 
-/* MUSIC BUTTON */
+/* MUSIC */
 .music-player{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  z-index:999;
+  position:fixed;bottom:25px;right:25px;
 }
 .music-player button{
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  border:none;
+  width:55px;height:55px;border-radius:50%;
   background:linear-gradient(135deg,#34a853,#1a73e8);
-  color:#fff;
-  font-size:20px;
-  cursor:pointer;
-  box-shadow:0 0 25px rgba(52,168,83,.8);
+  color:#fff;box-shadow:0 0 25px rgba(52,168,83,.8);
+}
+
+/* 📱 MOBILE OPTIMIZATION */
+@media(max-width:768px){
+  .analytics-bg{font-size:90px;}
+  .profile-pic{width:220px;height:220px;}
+  .batman-ring{width:250px;height:250px;}
+  .hero h1{font-size:38px;}
+  section{padding:70px 0;}
 }
 </style>
 </head>
@@ -282,46 +233,6 @@ h2{
   </div>
 </section>
 
-<div class="panel">
-  <div class="container">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-    <a href="#resume">Resume</a>
-    <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
-  </div>
-</div>
-
-<section id="about"><div class="container"><h2>About Me</h2>
-<div class="card">I am a MBA (Business Analytics) student. Interested in data analysis, finance & business intelligence.</div></div></section>
-
-<section id="skills"><div class="container"><h2>Skills</h2>
-<div class="grid">
-<div class="card">Advanced Microsoft Excel</div>
-<div class="card">Power BI</div>
-<div class="card">Tableau</div>
-<div class="card">Python</div>
-</div></div></section>
-
-<section id="education"><div class="container"><h2>Education</h2>
-<div class="grid">
-<div class="card">MBA – Business Analytics (2024–2026)</div>
-<div class="card">B.Sc. Computer Science (2021–2024)</div>
-</div></div></section>
-
-<section id="experience"><div class="container"><h2>Experience & Achievements</h2>
-<div class="grid">
-<div class="card">NCC ‘A’ Certificate</div>
-<div class="card">NSS Volunteer</div>
-<div class="card">Student Union (MDU)</div>
-<div class="card">Google AI Conference</div>
-</div></div></section>
-
-<section id="contact"><div class="container"><h2>Contact</h2>
-<div class="card">Email: gaurrajat58@gmail.com<br>Phone: +91 7027092835</div></div></section>
-
 <section id="resume">
   <div class="container resume-section">
     <h2>Download Resume</h2>
@@ -330,64 +241,6 @@ h2{
     </a>
   </div>
 </section>
-
-<audio id="bgMusic" autoplay loop muted>
-  <source src="Pixies_Where_Is_My_Mind_Ringtone_(by Fringster.com).mp3">
-</audio>
-
-<div class="music-player">
-  <button id="muteBtn"><i class="fas fa-volume-mute"></i></button>
-</div>
-
-<script>
-function toggleTheme(){
-  const html=document.documentElement;
-  html.setAttribute("data-theme",
-    html.getAttribute("data-theme")==="dark"?"light":"dark");
-}
-
-const c=document.getElementById("neonParticles"),
-x=c.getContext("2d");
-function r(){c.width=innerWidth;c.height=innerHeight;}
-r();addEventListener("resize",r);
-
-const p=[...Array(80)].map(()=>({
-x:Math.random()*c.width,
-y:Math.random()*c.height,
-r:2+Math.random()*2,
-dx:(Math.random()-.5),
-dy:(Math.random()-.5)
-}));
-
-(function a(){
-x.clearRect(0,0,c.width,c.height);
-p.forEach(o=>{
-o.x+=o.dx;o.y+=o.dy;
-if(o.x<0||o.x>c.width)o.dx*=-1;
-if(o.y<0||o.y>c.height)o.dy*=-1;
-x.beginPath();
-x.arc(o.x,o.y,o.r,0,Math.PI*2);
-x.fillStyle="rgba(0,229,255,.8)";
-x.fill();
-});
-requestAnimationFrame(a);
-})();
-
-const music=document.getElementById("bgMusic");
-const muteBtn=document.getElementById("muteBtn");
-
-document.addEventListener("click",()=>{
-music.muted=false;
-music.play();
-},{once:true});
-
-muteBtn.onclick=()=>{
-music.muted=!music.muted;
-muteBtn.innerHTML=music.muted
-?'<i class="fas fa-volume-mute"></i>'
-:'<i class="fas fa-volume-up"></i>';
-};
-</script>
 
 </body>
 </html>
