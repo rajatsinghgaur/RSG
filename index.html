@@ -60,7 +60,6 @@ h2{
   overflow:hidden;
 }
 
-/* ANALYTICS BACKGROUND WITH GLOW */
 .analytics-bg{
   position:absolute;
   top:50%;
@@ -81,9 +80,7 @@ h2{
 }
 
 @keyframes glowPulse{
-  0%,100%{
-    opacity:0.6;
-  }
+  0%,100%{opacity:0.6;}
   50%{
     opacity:1;
     text-shadow:
@@ -93,42 +90,24 @@ h2{
   }
 }
 
-/* HERO CONTENT */
-.hero-content{
-  position:relative;
-  z-index:2;
-}
+.hero-content{position:relative;z-index:2;}
 
-/* PROFILE */
-.profile-wrapper{
-  position:relative;
-  display:inline-block;
-}
-
+.profile-wrapper{position:relative;display:inline-block;}
 .profile-pic{
   width:340px;
   height:340px;
   border-radius:50%;
   object-fit:cover;
   border:5px solid #be6c6c;
-  position:relative;
-  z-index:2;
-  box-shadow:
-    0 0 30px rgba(49,101,18,.8),
-    0 0 60px rgba(52,168,83,.6);
+  box-shadow:0 0 30px rgba(49,101,18,.8),0 0 60px rgba(52,168,83,.6);
 }
 
-/* BATMAN RING */
 .batman-ring{
   position:absolute;
-  top:50%;
-  left:50%;
-  width:370px;
-  height:370px;
+  top:50%;left:50%;
+  width:370px;height:370px;
   border-radius:50%;
   transform:translate(-50%,-50%);
-  z-index:1;
-  pointer-events:none;
   background:conic-gradient(
     transparent 0deg,
     rgba(0,229,255,0.9) 60deg,
@@ -140,30 +119,21 @@ h2{
   filter:blur(4px);
   animation:batRotate 6s linear infinite;
 }
-
 @keyframes batRotate{
   from{transform:translate(-50%,-50%) rotate(0deg);}
   to{transform:translate(-50%,-50%) rotate(360deg);}
 }
 
-.hero h1{
-  font-size:58px;
-  margin-top:30px;
-}
-.hero p{
-  font-size:22px;
-  opacity:.9;
-}
+.hero h1{font-size:58px;margin-top:30px;}
+.hero p{font-size:22px;opacity:.9;}
 
-/* SOCIAL */
 .social-links{
   margin-top:25px;
 }
 .social-links a{
   display:inline-block;
   margin:0 10px;
-  width:45px;
-  height:45px;
+  width:45px;height:45px;
   line-height:45px;
   border-radius:50%;
   background:#fff;
@@ -181,9 +151,7 @@ h2{
   background:rgba(255,255,255,.75);
   backdrop-filter:blur(16px);
 }
-[data-theme="dark"] .panel{
-  background:rgba(0,0,0,.45);
-}
+[data-theme="dark"] .panel{background:rgba(0,0,0,.45);}
 .panel .container{
   display:flex;
   justify-content:center;
@@ -218,18 +186,14 @@ h2{
   box-shadow:0 0 20px rgba(0,229,255,.35);
   transition:.35s;
 }
-[data-theme="dark"] .card{
-  background:rgba(0,0,0,.5);
-}
+[data-theme="dark"] .card{background:rgba(0,0,0,.5);}
 .card:hover{
   transform:translateY(-12px);
   box-shadow:0 0 65px rgba(52,168,83,.6);
 }
 
-/* RESUME CENTER */
-.resume-section{
-  text-align:center;
-}
+/* RESUME */
+.resume-section{text-align:center;}
 .resume-btn{
   display:inline-block;
   padding:16px 40px;
@@ -241,7 +205,32 @@ h2{
   border-radius:40px;
 }
 
-/* MUSIC BUTTON */
+/* CONTACT CUSTOM */
+.contact-card{text-align:center;font-size:18px;}
+.contact-card p{margin:10px 0;font-weight:500;}
+.contact-card i{margin-right:10px;color:var(--accent);}
+.contact-social{margin-top:25px;}
+.contact-social a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:55px;height:55px;
+  margin:0 12px;
+  border-radius:50%;
+  font-size:22px;
+  color:#fff;
+  transition:.35s;
+}
+.contact-social .linkedin{background:#0077b5;}
+.contact-social .instagram{
+  background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);
+}
+.contact-social a:hover{
+  transform:translateY(-8px) scale(1.1);
+  box-shadow:0 0 35px rgba(52,168,83,.8);
+}
+
+/* MUSIC */
 .music-player{
   position:fixed;
   bottom:25px;
@@ -249,15 +238,13 @@ h2{
   z-index:999;
 }
 .music-player button{
-  width:55px;
-  height:55px;
+  width:55px;height:55px;
   border-radius:50%;
   border:none;
   background:linear-gradient(135deg,#34a853,#1a73e8);
   color:#fff;
   font-size:20px;
   cursor:pointer;
-  box-shadow:0 0 25px rgba(52,168,83,.8);
 }
 </style>
 </head>
@@ -310,33 +297,20 @@ h2{
 <div class="card">MBA – Business Analytics (2024–2026)</div>
 <div class="card">B.Sc. Computer Science (2021–2024)</div>
 </div></div></section>
-<!-- CERTIFICATIONS (DETAIL ADDED) -->
-<section id="certifications">
+
+<section id="contact">
   <div class="container">
-    <h2>Certifications</h2>
-    <div class="grid">
-      <div class="card animate">Advanced Excel</div>
-      <div class="card animate">Power BI</div>
-      <div class="card animate">Tableau Certification</div>
-      <div class="card animate">Python for Data Analysis</div>
+    <h2>Contact</h2>
+    <div class="card contact-card">
+      <p><i class="fas fa-envelope"></i> gaurrajat58@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +91 7027092835</p>
+      <div class="contact-social">
+        <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
   </div>
 </section>
-
-<section id="experience"><div class="container"><h2>Experience & Achievements</h2>
-<div class="grid">
-<div class="card">NCC ‘A’ Certificate</div>
-<div class="card">NSS Volunteer</div>
-<div class="card">Student Union (MDU)</div>
-<div class="card">Google AI Conference</div>
-</div></div></section>
-
-<section id="contact"><div class="container"><h2>Contact</h2>
-<div class="card">Email: gaurrajat58@gmail.com<br>Phone: +91 7027092835</div></div></section>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
 
 <section id="resume">
   <div class="container resume-section">
@@ -361,52 +335,7 @@ function toggleTheme(){
   html.setAttribute("data-theme",
     html.getAttribute("data-theme")==="dark"?"light":"dark");
 }
-
-const c=document.getElementById("neonParticles"),
-x=c.getContext("2d");
-function r(){c.width=innerWidth;c.height=innerHeight;}
-r();addEventListener("resize",r);
-
-const p=[...Array(80)].map(()=>({
-x:Math.random()*c.width,
-y:Math.random()*c.height,
-r:2+Math.random()*2,
-dx:(Math.random()-.5),
-dy:(Math.random()-.5)
-}));
-
-(function a(){
-x.clearRect(0,0,c.width,c.height);
-p.forEach(o=>{
-o.x+=o.dx;o.y+=o.dy;
-if(o.x<0||o.x>c.width)o.dx*=-1;
-if(o.y<0||o.y>c.height)o.dy*=-1;
-x.beginPath();
-x.arc(o.x,o.y,o.r,0,Math.PI*2);
-x.fillStyle="rgba(0,229,255,.8)";
-x.fill();
-});
-requestAnimationFrame(a);
-})();
-
-const music=document.getElementById("bgMusic");
-const muteBtn=document.getElementById("muteBtn");
-
-document.addEventListener("click",()=>{
-music.muted=false;
-music.play();
-},{once:true});
-
-muteBtn.onclick=()=>{
-music.muted=!music.muted;
-muteBtn.innerHTML=music.muted
-?'<i class="fas fa-volume-mute"></i>'
-:'<i class="fas fa-volume-up"></i>';
-};
 </script>
 
 </body>
 </html>
-
-
-
