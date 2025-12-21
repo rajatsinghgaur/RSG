@@ -15,6 +15,7 @@
   --bg:#f4f6f9;
   --card:#ffffff;
   --text:#202124;
+  --ring-speed:6s;
 }
 [data-theme="dark"]{
   --bg:#0f1115;
@@ -45,7 +46,7 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
   text-align:center;
 }
 
-/* 🔥 PROFILE + BATMAN RING */
+/* PROFILE + BATMAN RING */
 .profile-wrapper{
   position:relative;
   display:inline-block;
@@ -57,13 +58,11 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
   border-radius:50%;
   object-fit:cover;
   border:5px solid #be6c6c;
-  margin-bottom:25px;
   position:relative;
   z-index:2;
   box-shadow:0 0 30px rgba(49,101,18,.8),0 0 60px rgba(52,168,83,.6);
 }
 
-/* 🦇 Rotating Light Ring */
 .batman-ring{
   position:absolute;
   top:50%;
@@ -72,9 +71,8 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
   height:370px;
   border-radius:50%;
   transform:translate(-50%,-50%);
-  pointer-events:none;
   z-index:1;
-
+  pointer-events:none;
   background:conic-gradient(
     transparent 0deg,
     rgba(0,229,255,0.9) 60deg,
@@ -83,9 +81,8 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
     rgba(0,229,255,0.9) 240deg,
     transparent 300deg
   );
-
   filter:blur(4px);
-  animation:batRotate 6s linear infinite;
+  animation:batRotate var(--ring-speed) linear infinite;
 }
 
 @keyframes batRotate{
@@ -93,8 +90,20 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
   to{transform:translate(-50%,-50%) rotate(360deg);}
 }
 
-.hero h1{font-size:58px;}
+.hero h1{font-size:58px;margin-top:25px;}
 .hero p{font-size:22px;}
+
+/* Ring Speed Control */
+.ring-control{
+  margin-top:20px;
+  text-align:center;
+  color:#fff;
+  font-size:14px;
+}
+.ring-control input{
+  width:180px;
+  cursor:pointer;
+}
 
 /* SOCIAL */
 .social-links a{
@@ -167,7 +176,6 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 <section class="hero">
   <div class="container">
 
-    <!-- 🔥 UPDATED IMAGE AREA -->
     <div class="profile-wrapper">
       <img src="IMG_20251115_185859.jpg" class="profile-pic">
       <span class="batman-ring"></span>
@@ -175,6 +183,11 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 
     <h1>Rajat Singh Gaur</h1>
     <p>Business Analytics</p>
+
+    <div class="ring-control">
+      Ring Speed
+      <input type="range" id="ringSpeed" min="2" max="12" value="6">
+    </div>
 
     <div class="social-links">
       <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -196,11 +209,9 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about"><div class="container"><h2>About Me</h2>
 <div class="card">I am a MBA (Business Analytics) student. Interested in data analysis, finance & business intelligence.</div></div></section>
 
-<!-- SKILLS -->
 <section id="skills"><div class="container"><h2>Skills</h2>
 <div class="grid">
 <div class="card">Advanced Microsoft Excel</div>
@@ -209,14 +220,12 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 <div class="card">Python</div>
 </div></div></section>
 
-<!-- EDUCATION -->
 <section id="education"><div class="container"><h2>Education</h2>
 <div class="grid">
 <div class="card">MBA – Business Analytics (2024–2026)</div>
 <div class="card">B.Sc. Computer Science (2021–2024)</div>
 </div></div></section>
 
-<!-- EXPERIENCE -->
 <section id="experience"><div class="container"><h2>Experience & Achievements</h2>
 <div class="grid">
 <div class="card">NCC ‘A’ Certificate</div>
@@ -225,11 +234,9 @@ h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 <div class="card">Google AI Conference</div>
 </div></div></section>
 
-<!-- CONTACT -->
 <section id="contact"><div class="container"><h2>Contact</h2>
 <div class="card">Email: gaurrajat58@gmail.com<br>Phone: +91 7027092835</div></div></section>
 
-<!-- RESUME -->
 <section id="resume"><div class="container resume-section"><h2>Download Resume</h2>
 <a href="RAJAT SINGH GAUR Resume update.pdf" download class="resume-btn">
 <i class="fas fa-download"></i> Download Resume</a></div></section>
@@ -263,22 +270,27 @@ x.beginPath();x.arc(o.x,o.y,o.r,0,Math.PI*2);
 x.fillStyle="rgba(0,229,255,.8)";x.fill();});
 requestAnimationFrame(a);})();
 
-/* MUSIC ONE-CLICK TOGGLE */
+/* MUSIC */
 const music=document.getElementById("bgMusic");
 const muteBtn=document.getElementById("muteBtn");
-
-document.addEventListener("click",()=>{
-  music.muted=false;
-  music.play();
-},{once:true});
-
+document.addEventListener("click",()=>{music.muted=false;music.play();},{once:true});
 muteBtn.onclick=()=>{
   music.muted=!music.muted;
   muteBtn.innerHTML=music.muted?
   '<i class="fas fa-volume-mute"></i>':
   '<i class="fas fa-volume-up"></i>';
 };
+
+/* RING SPEED CONTROL */
+const ring=document.querySelector(".batman-ring");
+const speed=document.getElementById("ringSpeed");
+speed.addEventListener("input",()=>{
+  ring.style.setProperty("--ring-speed",speed.value+"s");
+});
 </script>
 
 </body>
 </html>
+
+
+
