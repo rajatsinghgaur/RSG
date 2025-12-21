@@ -30,27 +30,14 @@ body{
   overflow-x:hidden;
 }
 
-/* NEON BACKGROUND */
-#neonParticles{
-  position:fixed;
-  inset:0;
-  z-index:-2;
-}
+/* BACKGROUND */
+#neonParticles{position:fixed;inset:0;z-index:-2;}
 
-.container{
-  width:90%;
-  max-width:1100px;
-  margin:auto;
-}
+.container{width:90%;max-width:1100px;margin:auto;}
 section{padding:100px 0;}
-h2{
-  text-align:center;
-  margin-bottom:50px;
-  font-size:36px;
-  color:var(--primary);
-}
+h2{text-align:center;margin-bottom:50px;font-size:36px;color:var(--primary);}
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   position:relative;
   background:linear-gradient(135deg,var(--primary),var(--accent));
@@ -60,7 +47,6 @@ h2{
   overflow:hidden;
 }
 
-/* SIMPLE ANALYTICS TEXT (NO MIRROR) */
 .analytics-bg{
   position:absolute;
   top:50%;
@@ -71,52 +57,31 @@ h2{
   letter-spacing:12px;
   color:rgba(255,255,255,0.07);
   white-space:nowrap;
-  pointer-events:none;
   z-index:0;
 }
 
-/* HERO CONTENT ABOVE */
-.hero-content{
-  position:relative;
-  z-index:2;
-}
+.hero-content{position:relative;z-index:2;}
 
-/* PROFILE + BATMAN RING */
-.profile-wrapper{
-  position:relative;
-  display:inline-block;
-}
+.profile-wrapper{position:relative;display:inline-block;}
 
 .profile-pic{
-  width:340px;
-  height:340px;
-  border-radius:50%;
-  object-fit:cover;
-  border:5px solid #be6c6c;
-  position:relative;
-  z-index:2;
-  box-shadow:
-    0 0 30px rgba(49,101,18,.8),
-    0 0 60px rgba(52,168,83,.6);
+  width:340px;height:340px;border-radius:50%;
+  object-fit:cover;border:5px solid #be6c6c;
+  box-shadow:0 0 30px rgba(49,101,18,.8),0 0 60px rgba(52,168,83,.6);
 }
 
-/* BATMAN ROTATING RING */
 .batman-ring{
   position:absolute;
-  top:50%;
-  left:50%;
-  width:370px;
-  height:370px;
+  top:50%;left:50%;
+  width:370px;height:370px;
   border-radius:50%;
   transform:translate(-50%,-50%);
-  z-index:1;
-  pointer-events:none;
   background:conic-gradient(
     transparent 0deg,
-    rgba(0,229,255,0.9) 60deg,
+    rgba(0,229,255,.9) 60deg,
     rgba(52,168,83,1) 120deg,
     transparent 180deg,
-    rgba(0,229,255,0.9) 240deg,
+    rgba(0,229,255,.9) 240deg,
     transparent 300deg
   );
   filter:blur(4px);
@@ -128,63 +93,30 @@ h2{
   to{transform:translate(-50%,-50%) rotate(360deg);}
 }
 
-.hero h1{
-  font-size:58px;
-  margin-top:30px;
-}
-.hero p{
-  font-size:22px;
-  opacity:.9;
-}
+.hero h1{font-size:58px;margin-top:30px;}
+.hero p{font-size:22px;}
 
-/* SOCIAL */
-.social-links{
-  margin-top:25px;
-}
+.social-links{margin-top:25px;}
 .social-links a{
-  display:inline-block;
-  margin:0 10px;
-  width:45px;
-  height:45px;
-  line-height:45px;
-  border-radius:50%;
-  background:#fff;
-  color:var(--primary);
-  transition:.3s;
+  display:inline-block;margin:0 10px;
+  width:45px;height:45px;line-height:45px;
+  border-radius:50%;background:#fff;
+  color:var(--primary);transition:.3s;
 }
 .social-links a:hover{
   transform:translateY(-6px);
-  background:var(--accent);
-  color:#fff;
+  background:var(--accent);color:#fff;
 }
 
-/* PANEL */
-.panel{
-  background:rgba(255,255,255,.75);
-  backdrop-filter:blur(16px);
-}
-[data-theme="dark"] .panel{
-  background:rgba(0,0,0,.45);
-}
+/* NAV PANEL */
+.panel{background:rgba(255,255,255,.75);backdrop-filter:blur(16px);}
+[data-theme="dark"] .panel{background:rgba(0,0,0,.45);}
 .panel .container{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  padding:18px 0;
+  display:flex;justify-content:center;flex-wrap:wrap;padding:18px 0;
 }
-.panel a{
-  margin:10px 18px;
-  text-decoration:none;
-  font-weight:600;
-  color:var(--text);
-}
+.panel a{margin:10px 18px;text-decoration:none;font-weight:600;color:var(--text);}
 .panel a:hover{color:var(--accent);}
-.theme-toggle{
-  padding:8px 16px;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
-}
+.theme-toggle{padding:8px 16px;border:none;border-radius:20px;cursor:pointer;}
 
 /* CARDS */
 .grid{
@@ -195,20 +127,17 @@ h2{
 .card{
   background:rgba(255,255,255,.75);
   backdrop-filter:blur(18px);
-  padding:32px;
-  border-radius:18px;
+  padding:32px;border-radius:18px;
   box-shadow:0 0 20px rgba(0,229,255,.35);
   transition:.35s;
 }
-[data-theme="dark"] .card{
-  background:rgba(0,0,0,.5);
-}
+[data-theme="dark"] .card{background:rgba(0,0,0,.5);}
 .card:hover{
   transform:translateY(-12px);
   box-shadow:0 0 65px rgba(52,168,83,.6);
 }
 
-/* RESUME */
+/* BUTTONS */
 .resume-btn{
   display:inline-block;
   padding:16px 40px;
@@ -220,23 +149,14 @@ h2{
   border-radius:40px;
 }
 
-/* MUSIC BUTTON */
+/* MUSIC */
 .music-player{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  z-index:999;
+  position:fixed;bottom:25px;right:25px;z-index:999;
 }
 .music-player button{
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  border:none;
-  background:linear-gradient(135deg,#34a853,#1a73e8);
-  color:#fff;
-  font-size:20px;
-  cursor:pointer;
-  box-shadow:0 0 25px rgba(52,168,83,.8);
+  width:55px;height:55px;border-radius:50%;
+  border:none;background:linear-gradient(135deg,#34a853,#1a73e8);
+  color:#fff;font-size:20px;cursor:pointer;
 }
 </style>
 </head>
@@ -248,26 +168,21 @@ h2{
 <!-- HERO -->
 <section class="hero">
   <div class="analytics-bg">ANALYTICS</div>
-
   <div class="container hero-content">
-
     <div class="profile-wrapper">
       <img src="IMG_20251115_185859.jpg" class="profile-pic">
       <span class="batman-ring"></span>
     </div>
-
     <h1>Rajat Singh Gaur</h1>
     <p>Business Analytics</p>
-
     <div class="social-links">
       <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-
   </div>
 </section>
 
-<!-- PANEL -->
+<!-- NAV -->
 <div class="panel">
   <div class="container">
     <a href="#about">About</a>
@@ -276,6 +191,7 @@ h2{
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
     <a href="#resume">Resume</a>
+    <a href="me.html">ME</a>
     <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
   </div>
 </div>
@@ -308,11 +224,19 @@ h2{
 <section id="contact"><div class="container"><h2>Contact</h2>
 <div class="card">Email: gaurrajat58@gmail.com<br>Phone: +91 7027092835</div></div></section>
 
-<section id="resume"><div class="container resume-section"><h2>Download Resume</h2>
-<a href="RAJAT SINGH GAUR Resume update.pdf" download class="resume-btn">
-<i class="fas fa-download"></i> Download Resume</a></div></section>
+<section id="resume">
+  <div class="container resume-section">
+    <h2>Download Resume</h2>
+    <a href="RAJAT SINGH GAUR Resume update.pdf" download class="resume-btn">
+      <i class="fas fa-download"></i> Download Resume
+    </a>
+    <br><br>
+    <a href="me.html" class="resume-btn" style="background:linear-gradient(135deg,#34a853,#1a73e8)">
+      <i class="fas fa-user"></i> Explore ME
+    </a>
+  </div>
+</section>
 
-<!-- MUSIC -->
 <audio id="bgMusic" autoplay loop muted>
   <source src="Pixies_Where_Is_My_Mind_Ringtone_(by Fringster.com).mp3">
 </audio>
@@ -322,44 +246,12 @@ h2{
 </div>
 
 <script>
-/* THEME */
 function toggleTheme(){
   const html=document.documentElement;
-  html.setAttribute(
-    "data-theme",
-    html.getAttribute("data-theme")==="dark"?"light":"dark"
-  );
+  html.setAttribute("data-theme",
+    html.getAttribute("data-theme")==="dark"?"light":"dark");
 }
 
-/* PARTICLES */
-const c=document.getElementById("neonParticles"),
-      x=c.getContext("2d");
-function r(){c.width=innerWidth;c.height=innerHeight;}
-r();addEventListener("resize",r);
-
-const p=[...Array(80)].map(()=>({
-  x:Math.random()*c.width,
-  y:Math.random()*c.height,
-  r:2+Math.random()*2,
-  dx:(Math.random()-.5),
-  dy:(Math.random()-.5)
-}));
-
-(function a(){
-  x.clearRect(0,0,c.width,c.height);
-  p.forEach(o=>{
-    o.x+=o.dx;o.y+=o.dy;
-    if(o.x<0||o.x>c.width)o.dx*=-1;
-    if(o.y<0||o.y>c.height)o.dy*=-1;
-    x.beginPath();
-    x.arc(o.x,o.y,o.r,0,Math.PI*2);
-    x.fillStyle="rgba(0,229,255,.8)";
-    x.fill();
-  });
-  requestAnimationFrame(a);
-})();
-
-/* MUSIC */
 const music=document.getElementById("bgMusic");
 const muteBtn=document.getElementById("muteBtn");
 
