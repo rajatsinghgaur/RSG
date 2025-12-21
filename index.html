@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajat Singh Gaur | Business Analytics</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --primary:#314055;
+  --accent:#25863e;
+  --bg:#f4f6f9;
+  --card:#ec0f0f;
+  --text:#000000;
+}
+
+[data-theme="dark"]{
+  --bg:#0f1115;
+  --card:#1c1f26;
+  --text:#f1f1f1;
+}
+
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* ===== NEON PARTICLES CANVAS ===== */
+#neonParticles{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
+section{ padding:100px 0; }
+
+h2{
+  text-align:center;
+  margin-bottom:50px;
+  font-size:36px;
+  color:var(--primary);
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:white;
+  padding:140px 0 100px;
+  text-align:center;
+}
+.profile-pic{
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #be6c6c;
+  margin-bottom:25px;
+  box-shadow:
+    0 0 30px rgba(49, 101, 18, 0.8),
+    0 0 60px rgba(52,168,83,0.6);
+}
+.hero h1{
+  font-size:58px;
+  text-shadow:
+    0 0 15px rgba(53, 153, 17, 0.8),
+    0 0 35px rgba(52,168,83,0.7);
+}
+.hero p{ font-size:22px; }
+
+/* SOCIAL */
+.social-links{
+  margin-top:20px;
+}
+.social-links a{
+  display:inline-block;
+  margin:0 10px;
+  font-size:22px;
+  width:45px;
+  height:45px;
+  line-height:45px;
+  border-radius:50%;
+  background:white;
+  color:var(--primary);
+  transition:0.3s;
+  box-shadow:0 0 15px rgba(110, 37, 106, 0.6);
+}
+.social-links a:hover{
+  transform:translateY(-6px);
+  background:var(--accent);
+  color:rgb(142, 74, 162);
+  box-shadow:
+    0 0 25px rgb(147, 71, 71),
+    0 0 50px rgba(71, 141, 88, 0.9);
+}
+
+/* PANEL */
+.panel{
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(16px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+[data-theme="dark"] .panel{
+  background:rgba(0,0,0,0.45);
+}
+
+.panel .container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:18px 0;
+}
+.panel a{
+  margin:10px 18px;
+  text-decoration:none;
+  font-weight:600;
+  color:var(--text);
+}
+.panel a:hover{ color:var(--accent); }
+
+.theme-toggle{
+  margin-left:20px;
+  padding:8px 16px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* CARD */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(18px);
+  padding:32px;
+  border-radius:18px;
+  box-shadow:
+    0 0 20px rgba(49, 152, 163, 0.35),
+    inset 0 0 20px rgba(255,255,255,0.3);
+  transition:0.35s;
+}
+[data-theme="dark"] .card{
+  background:rgba(0,0,0,0.5);
+}
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:
+    0 0 35px rgba(0, 0, 0, 0.9),
+    0 0 65px rgba(52,168,83,0.6);
+}
+
+/* RESUME */
+.resume-section{ text-align:center; }
+.resume-btn{
+  display:inline-block;
+  padding:16px 40px;
+  font-size:18px;
+  font-weight:600;
+  background:linear-gradient(135deg,#070b0c,#34a853);
+  color:white;
+  text-decoration:none;
+  border-radius:40px;
+  box-shadow:
+    0 0 25px rgba(12, 20, 21, 0.9),
+    0 0 55px rgba(52,168,83,0.8);
+  transition:0.3s;
+}
+.resume-btn:hover{
+  transform:translateY(-8px);
+  box-shadow:
+    0 0 40px rgba(52,168,83,1),
+    0 0 80px rgba(52,168,83,1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NEON PARTICLES -->
+<canvas id="neonParticles"></canvas>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <img src="C:\Users\gaurr\Downloads\portfolioo\media\image\IMG_20251115_185859.jpg" alt="Rajat Singh Gaur" class="profile-pic">
+    <h1>Rajat Singh Gaur</h1>
+    <p>Business Analytics</p>
+
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PANEL -->
+<div class="panel">
+  <div class="container">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+    <a href="#resume">Resume</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <div class="card">
+      I am a MBA (Business Analytics) student.
+      Interested in data analysis, finance & business intelligence.
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="card">Advanced Microsoft Excel</div>
+      <div class="card">Power BI</div>
+      <div class="card">Tableau</div>
+      <div class="card">Python</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <h2>Education</h2>
+    <div class="grid">
+      <div class="card">MBA – Business Analytics (2024–2026)</div>
+      <div class="card">B.Sc. Computer Science (2021–2024)</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS (DETAIL ADDED) -->
+<section id="certifications">
+  <div class="container">
+    <h2>Certifications</h2>
+    <div class="grid">
+      <div class="card animate">Advanced Excel</div>
+      <div class="card animate">Power BI</div>
+      <div class="card animate">Tableau Certification</div>
+      <div class="card animate">Python for Data Analysis</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <h2>Experience & Achievements</h2>
+    <div class="grid">
+      <div class="card">NCC ‘A’ Certificate</div>
+      <div class="card">NSS Volunteer</div>
+      <div class="card">Student Union (MDU)</div>
+      <div class="card">Google AI Conference</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="card">
+      Email: gaurrajat58@gmail.com<br>
+      Phone: +91 7027092835
+       <div class="social-links">
+      <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank">
+        <i class="fab fa-instagram"></i>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="container resume-section">
+    <h2>Download Resume</h2>
+    <a href="C:\Users\gaurr\Downloads\portfolioo\media\resume\Rajat_Singh_Gaur_Resume.pdf" download class="resume-btn">
+      <i class="fas fa-download"></i> Download Resume
+    </a>
+  </div>
+</section>
+
+<script>
+/* THEME TOGGLE */
+function toggleTheme(){
+  const html=document.documentElement;
+  html.setAttribute(
+    "data-theme",
+    html.getAttribute("data-theme")==="dark" ? "light" : "dark"
+  );
+}
+
+/* ===== NEON PARTICLES SCRIPT ===== */
+const canvas = document.getElementById("neonParticles");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+}
+resize();
+addEventListener("resize", resize);
+
+const particles = Array.from({length:80},()=>({
+  x:Math.random()*canvas.width,
+  y:Math.random()*canvas.height,
+  r:Math.random()*2+1,
+  dx:(Math.random()-0.5)*0.8,
+  dy:(Math.random()-0.5)*0.8
+}));
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.x+=p.dx;
+    p.y+=p.dy;
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+    if(p.y<0||p.y>canvas.height) p.dy*=-1;
+
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle="rgba(0,229,255,0.8)";
+    ctx.shadowBlur=15;
+    ctx.shadowColor="#00e5ff";
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
