@@ -15,7 +15,6 @@
   --bg:#f4f6f9;
   --card:#ffffff;
   --text:#202124;
-  --ring-speed:6s;
 }
 [data-theme="dark"]{
   --bg:#0f1115;
@@ -61,18 +60,17 @@ h2{
   overflow:hidden;
 }
 
-/* 🔥 MIRROR ANALYTICS TEXT */
+/* SIMPLE ANALYTICS TEXT (NO MIRROR) */
 .analytics-bg{
   position:absolute;
   top:50%;
   left:50%;
-  transform:translate(-50%,-50%) scaleY(-1);
+  transform:translate(-50%,-50%);
   font-size:160px;
   font-weight:700;
   letter-spacing:12px;
-  color:rgba(255,255,255,0.08);
+  color:rgba(255,255,255,0.07);
   white-space:nowrap;
-  filter:blur(1.5px);
   pointer-events:none;
   z-index:0;
 }
@@ -102,6 +100,7 @@ h2{
     0 0 60px rgba(52,168,83,.6);
 }
 
+/* BATMAN ROTATING RING */
 .batman-ring{
   position:absolute;
   top:50%;
@@ -121,7 +120,7 @@ h2{
     transparent 300deg
   );
   filter:blur(4px);
-  animation:batRotate var(--ring-speed) linear infinite;
+  animation:batRotate 6s linear infinite;
 }
 
 @keyframes batRotate{
@@ -136,16 +135,6 @@ h2{
 .hero p{
   font-size:22px;
   opacity:.9;
-}
-
-/* RING SPEED CONTROL */
-.ring-control{
-  margin-top:18px;
-  font-size:14px;
-}
-.ring-control input{
-  width:180px;
-  cursor:pointer;
 }
 
 /* SOCIAL */
@@ -258,8 +247,6 @@ h2{
 
 <!-- HERO -->
 <section class="hero">
-
-  <!-- 🔥 MIRROR TEXT -->
   <div class="analytics-bg">ANALYTICS</div>
 
   <div class="container hero-content">
@@ -271,11 +258,6 @@ h2{
 
     <h1>Rajat Singh Gaur</h1>
     <p>Business Analytics</p>
-
-    <div class="ring-control">
-      Ring Speed<br>
-      <input type="range" id="ringSpeed" min="2" max="12" value="6">
-    </div>
 
     <div class="social-links">
       <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -298,11 +280,9 @@ h2{
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about"><div class="container"><h2>About Me</h2>
 <div class="card">I am a MBA (Business Analytics) student. Interested in data analysis, finance & business intelligence.</div></div></section>
 
-<!-- SKILLS -->
 <section id="skills"><div class="container"><h2>Skills</h2>
 <div class="grid">
 <div class="card">Advanced Microsoft Excel</div>
@@ -311,14 +291,12 @@ h2{
 <div class="card">Python</div>
 </div></div></section>
 
-<!-- EDUCATION -->
 <section id="education"><div class="container"><h2>Education</h2>
 <div class="grid">
 <div class="card">MBA – Business Analytics (2024–2026)</div>
 <div class="card">B.Sc. Computer Science (2021–2024)</div>
 </div></div></section>
 
-<!-- EXPERIENCE -->
 <section id="experience"><div class="container"><h2>Experience & Achievements</h2>
 <div class="grid">
 <div class="card">NCC ‘A’ Certificate</div>
@@ -327,11 +305,9 @@ h2{
 <div class="card">Google AI Conference</div>
 </div></div></section>
 
-<!-- CONTACT -->
 <section id="contact"><div class="container"><h2>Contact</h2>
 <div class="card">Email: gaurrajat58@gmail.com<br>Phone: +91 7027092835</div></div></section>
 
-<!-- RESUME -->
 <section id="resume"><div class="container resume-section"><h2>Download Resume</h2>
 <a href="RAJAT SINGH GAUR Resume update.pdf" download class="resume-btn">
 <i class="fas fa-download"></i> Download Resume</a></div></section>
@@ -386,6 +362,7 @@ const p=[...Array(80)].map(()=>({
 /* MUSIC */
 const music=document.getElementById("bgMusic");
 const muteBtn=document.getElementById("muteBtn");
+
 document.addEventListener("click",()=>{
   music.muted=false;
   music.play();
@@ -397,13 +374,6 @@ muteBtn.onclick=()=>{
     ?'<i class="fas fa-volume-mute"></i>'
     :'<i class="fas fa-volume-up"></i>';
 };
-
-/* RING SPEED */
-const ring=document.querySelector(".batman-ring");
-const speed=document.getElementById("ringSpeed");
-speed.addEventListener("input",()=>{
-  ring.style.setProperty("--ring-speed",speed.value+"s");
-});
 </script>
 
 </body>
