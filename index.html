@@ -3,147 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Rajat Singh Gaur | Portfolio</title>
+<title>Rajat Singh Gaur | Business Analytics</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* ===== GLOBAL ===== */
-*{ margin:0; padding:0; box-sizing:border-box; }
-body{
-  font-family:'Inter', sans-serif;
-  background:#0f1115;
-  color:#e6e6e6;
-  line-height:1.6;
-  scroll-behavior:smooth;
+/* ================= BASE THEME ================= */
+:root{
+  --primary:#34a853;
+  --bg:#0f1115;
+  --card:#16181d;
+  --text:#e6e6e6;
+  --muted:#9aa0a6;
 }
 
-/* ===== NAVBAR ===== */
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* ================= NAVBAR ================= */
 nav{
-  width:100%;
-  background:#0b0c10;
-  padding:15px 0;
   position:fixed;
   top:0;
-  left:0;
+  width:100%;
+  background:#0b0c10;
   z-index:999;
-  box-shadow:0 2px 10px rgba(0,0,0,0.6);
+  border-bottom:1px solid #222;
 }
 nav .container{
+  max-width:1100px;
+  margin:auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:16px 20px;
 }
 nav a{
-  color:#e6e6e6;
+  color:var(--text);
   text-decoration:none;
-  margin:0 15px;
+  margin-left:20px;
   font-weight:500;
 }
-nav a:hover{ color:#34a853; }
+nav a:hover{ color:var(--primary); }
 
-/* ===== HERO ===== */
+/* ================= SECTIONS ================= */
+section{
+  padding:100px 0;
+}
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
+h2{
+  font-size:36px;
+  margin-bottom:15px;
+  color:var(--primary);
+}
+.subtitle{
+  color:var(--muted);
+  max-width:650px;
+}
+
+/* ================= HERO ================= */
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
-  justify-content:center;
-  background:#000;
-  text-align:center;
-  padding-top:80px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:50px;
+  align-items:center;
 }
 .hero h1{
-  font-size:3rem;
+  font-size:56px;
   margin-bottom:10px;
-  color:#34a853;
 }
-.hero p{ font-size:1.2rem; color:#a0a0a0; }
-
-/* ===== ABOUT ===== */
-section{ padding:80px 0; }
-.container{ width:90%; max-width:1000px; margin:auto; }
-
-#about .title,
-#skills .title,
-#projects .title,
-#contact .title{
-  font-size:2.2rem;
-  color:#34a853;
-  text-align:center;
-  margin-bottom:15px;
+.hero p{
+  font-size:20px;
+  color:var(--muted);
+  margin-bottom:25px;
 }
-
-/* ABOUT */
-#about p{ margin-top:15px; font-size:1rem; color:#c0c0c0; }
-
-/* SKILLS */
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:20px;
-}
-.skills-grid .skill{
-  background:#181a1f;
-  padding:18px;
-  border-radius:8px;
-  text-align:center;
-  font-weight:600;
-}
-
-/* PROJECTS */
-.project-card{
-  background:#181a1f;
-  border-radius:8px;
-  padding:20px;
-  box-shadow:0 0 8px rgba(52,168,83,0.6);
-  margin-bottom:20px;
-}
-.project-card h3{ color:#34a853; }
-.project-card p{ color:#c0c0c0; margin:10px 0; }
-
-/* CONTACT */
-#contact input,
-#contact textarea{
+.hero img{
   width:100%;
-  padding:12px;
-  border:1px solid #444;
-  background:#0f1115;
-  color:#e6e6e6;
-  margin-bottom:15px;
-  border-radius:6px;
+  max-width:320px;
+  border-radius:50%;
+  border:4px solid var(--primary);
 }
-#contact button{
-  background:#34a853;
+
+/* ================= BUTTON ================= */
+.btn{
+  display:inline-block;
+  padding:14px 34px;
+  background:var(--primary);
   color:#000;
-  padding:12px 20px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
+  border-radius:30px;
+  text-decoration:none;
   font-weight:600;
 }
-#contact button:hover{ background:#2fa548; }
 
-/* FOOTER */
+/* ================= CARDS ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:14px;
+  border:1px solid #222;
+}
+.card h3{
+  margin-top:0;
+  color:var(--primary);
+}
+
+/* ================= FOOTER ================= */
 footer{
+  padding:40px 0;
   text-align:center;
-  padding:20px 0;
-  color:#777;
-  font-size:0.9rem;
-  background:#0b0c10;
+  color:var(--muted);
+  border-top:1px solid #222;
 }
 
 </style>
-
 </head>
+
 <body>
 
 <!-- NAV -->
 <nav>
   <div class="container">
-    <div><a href="#hero">Rajat Singh Gaur</a></div>
+    <strong>Rajat Singh Gaur</strong>
     <div>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -154,31 +154,39 @@ footer{
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="hero">
-  <div>
-    <h1>Hello, I’m Rajat</h1>
-    <p>MBA (Business Analytics) | Data Analytics | BI | Python | Power BI</p>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Hi, I’m Rajat 👋</h1>
+      <p>MBA (Business Analytics) student focused on data analysis, business intelligence & finance.</p>
+      <a href="#contact" class="btn">Contact Me</a>
+    </div>
+    <div>
+      <img src="IMG_20251115_185859.jpg" alt="Rajat">
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="title">About Me</div>
-    <p>I am MBA (Business Analytics) student passionate about data analytics and business intelligence. I create solutions with Python, Power BI, Tableau and Excel.</p>
+    <h2>About Me</h2>
+    <p class="subtitle">
+      I am an MBA (Business Analytics) student with hands-on experience in Excel, Power BI, Tableau and Python.
+      I enjoy solving business problems using data.
+    </p>
   </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
   <div class="container">
-    <div class="title">Skills</div>
-    <div class="skills-grid">
-      <div class="skill">Python</div>
-      <div class="skill">Power BI</div>
-      <div class="skill">Tableau</div>
-      <div class="skill">Excel</div>
-      <div class="skill">SQL</div>
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="card"><h3>Excel</h3>Advanced formulas, dashboards & analysis</div>
+      <div class="card"><h3>Power BI</h3>Interactive reports & KPIs</div>
+      <div class="card"><h3>Tableau</h3>Data visualization</div>
+      <div class="card"><h3>Python</h3>Data analysis & automation</div>
     </div>
   </div>
 </section>
@@ -186,39 +194,30 @@ footer{
 <!-- PROJECTS -->
 <section id="projects">
   <div class="container">
-    <div class="title">Projects</div>
-
-    <div class="project-card">
-      <h3>Business Analytics Dashboard</h3>
-      <p>Interactive BI Dashboard with Power BI to analyze sales and KPIs.</p>
-      <a href="#" style="color:#34a853;">View Project</a>
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Sales Dashboard</h3>
+        Power BI dashboard for sales & performance tracking.
+      </div>
+      <div class="card">
+        <h3>Python Data Analysis</h3>
+        Data cleaning, EDA & visualization using Python.
+      </div>
     </div>
-
-    <div class="project-card">
-      <h3>Python Data Analysis</h3>
-      <p>Project on data cleaning, analysis & visualization using Pandas & Matplotlib.</p>
-      <a href="#" style="color:#34a853;">View Project</a>
-    </div>
-
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="title">Contact Me</div>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <h2>Contact</h2>
+    <p class="subtitle">Email: gaurrajat58@gmail.com<br>Phone: +91 7027092835</p>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  &copy; 2025 Rajat Singh Gaur — All Rights Reserved
+  © 2025 Rajat Singh Gaur
 </footer>
 
 </body>
