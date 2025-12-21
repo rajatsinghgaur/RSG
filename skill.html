@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skills & Resume | Rajat Singh Gaur</title>
+<title>Personal Details | Rajat Singh Gaur</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -23,77 +23,48 @@ body{
   color:var(--text);
 }
 
+section{ padding:100px 0; }
+
 .container{
   width:90%;
-  max-width:1100px;
+  max-width:900px;
   margin:auto;
 }
 
-section{
-  padding:100px 0;
-}
-
-h1,h2{
+h1{
   text-align:center;
   color:var(--primary);
+  font-size:48px;
   text-shadow:0 0 15px rgba(245,197,24,0.8);
-}
-
-h1{
-  font-size:52px;
-  margin-bottom:15px;
-}
-
-h2{
-  font-size:36px;
-  margin-bottom:50px;
 }
 
 .subtitle{
   text-align:center;
-  font-size:18px;
   opacity:0.85;
+  margin-bottom:60px;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-
-/* CARD */
 .card{
   background:rgba(15,17,22,0.95);
-  padding:35px;
-  border-radius:20px;
-  border:1px solid rgba(245,197,24,0.2);
-  box-shadow:0 0 25px rgba(245,197,24,0.25);
-  transition:0.3s;
+  padding:40px;
+  border-radius:22px;
+  border:1px solid rgba(245,197,24,0.25);
+  box-shadow:0 0 30px rgba(245,197,24,0.35);
 }
 
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 40px rgba(245,197,24,0.7);
-}
-
-.card h3{
-  color:var(--primary);
-  margin-bottom:15px;
-}
-
-/* HERO */
-.hero{
-  min-height:100vh;
+.row{
   display:flex;
-  align-items:center;
-  justify-content:center;
-  background:
-    radial-gradient(circle at top, rgba(245,197,24,0.15), transparent 60%),
-    linear-gradient(180deg,#020202,#060709);
+  justify-content:space-between;
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.row:last-child{ border-bottom:none; }
+
+.label{
+  font-weight:600;
+  color:var(--primary);
 }
 
-/* BACK BUTTON */
 .back{
   text-align:center;
   margin-top:70px;
@@ -114,84 +85,47 @@ h2{
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <h1>Skills & Professional Summary</h1>
-    <p class="subtitle">
-      A snapshot of my education, skills, certifications, and strengths
-    </p>
-  </div>
-</section>
-
-<!-- CONTENT -->
 <section>
   <div class="container">
-    <h2>What I Bring to the Table</h2>
+    <h1>Personal Details</h1>
+    <p class="subtitle">Basic personal & background information</p>
 
-    <div class="grid">
-
-      <div class="card">
-        <h3>Education</h3>
-        <p><strong>MBA – Business Analytics</strong><br>
-        Amity Business School, Gurugram<br>
-        (2024 – Pursuing)</p>
-
-        <p><strong>B.Sc. Computer Science</strong><br>
-        Vaish College, Rohtak – MDU<br>
-        67%</p>
+    <div class="card">
+      <div class="row">
+        <span class="label">Full Name</span>
+        <span>Rajat Singh Gaur</span>
       </div>
-
-      <div class="card">
-        <h3>Technical Skills</h3>
-        <p>• Advanced Microsoft Excel (Pivot Tables, VLOOKUP, Data Analysis)</p>
-        <p>• Power BI & Tableau (Dashboards & Visualisation)</p>
-        <p>• Python (Data handling & basics)</p>
+      <div class="row">
+        <span class="label">Age</span>
+        <span>22 Years</span>
       </div>
-
-      <div class="card">
-        <h3>Certifications</h3>
-        <p>• Microsoft Excel – Coursera</p>
-        <p>• Deloitte Tableau Certification – Forage</p>
-        <p>• Power BI Certification</p>
-        <p>• Python Certification</p>
+      <div class="row">
+        <span class="label">Father’s Name</span>
+        <span>Bhuvnesh Singh</span>
       </div>
-
-      <div class="card">
-        <h3>Leadership & Responsibility</h3>
-        <p>• Member – Vaish College Student Union</p>
-        <p>• Volunteer – National Service Scheme (NSS)</p>
-        <p>• Cadet – National Cadet Corps (NCC)</p>
+      <div class="row">
+        <span class="label">Mother’s Name</span>
+        <span>Uma Devi</span>
       </div>
-
-      <div class="card">
-        <h3>Achievements</h3>
-        <p>• NCC “A” Certificate – Govt. of India</p>
-        <p>• NSS Certificate – Govt. of India</p>
-        <p>• 2nd Position – Innovation Nexus, Amity University</p>
+      <div class="row">
+        <span class="label">Location</span>
+        <span>Sanjarwas, Bhiwani (Haryana)</span>
       </div>
-
-      <div class="card">
-        <h3>Personal Strengths</h3>
-        <p>• Strong communication (Hindi, English, Tamil)</p>
-        <p>• Leadership & teamwork mindset</p>
-        <p>• Time management & discipline</p>
+      <div class="row">
+        <span class="label">Nationality</span>
+        <span>Indian</span>
       </div>
-
+      <div class="row">
+        <span class="label">Languages</span>
+        <span>Hindi, English, Tamil</span>
+      </div>
     </div>
 
     <div class="back">
-  <a href="personal.html">View Personal Details →</a>
-</div>
-
-<div class="back">
-  <a href="../index.html">← Back to Home</a>
-</div>
-
-
+      <a href="index.html">← Back to Skills</a>
+    </div>
   </div>
 </section>
 
 </body>
 </html>
-
