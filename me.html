@@ -207,6 +207,46 @@ body{
   color:#fff;
   cursor:pointer;
 }
+/* ===== SCROLL ANIMATION ===== */
+.animate{
+  opacity:0;
+  transform:translateY(60px);
+  transition:all 0.9s ease;
+}
+
+.animate.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== IMAGE AUTO SIZE ===== */
+.story-card img{
+  max-width:100%;
+  height:auto;
+  object-fit:cover;
+  transition:transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+/* Portrait photo (seedhi photo) */
+.story-card img.portrait{
+  width:240px;
+}
+
+/* Landscape photo (chodi photo) */
+.story-card img.landscape{
+  width:320px;
+}
+
+/* Hover effect */
+.story-card img:hover{
+  transform:scale(1.07);
+  box-shadow:0 0 40px rgba(0,229,255,0.8);
+}
+
+/* Mobile fix */
+@media(max-width:768px){
+  .stor
+  
 </style>
 </head>
 
@@ -393,10 +433,26 @@ document.querySelectorAll(".collage-item").forEach(item=>{
     setTimeout(()=>heart.classList.remove("show"),1000);
   });
 });
+<script>
+/* ===== SCROLL ANIMATION ===== */
+const sections = document.querySelectorAll(".story-card, .hero, .photo-collage");
+
+const revealOnScroll = () => {
+  sections.forEach(sec => {
+    if(sec.getBoundingClientRect().top < window.innerHeight - 120){
+      sec.classList.add("animate","show");
+    }
+  });
+};
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>  
 </script>
 
 </body>
 </html>
+
 
 
 
