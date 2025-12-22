@@ -96,6 +96,106 @@ body{
   color:#000;
   box-shadow:0 0 25px rgba(245,197,24,0.9);
 }
+
+/* PHOTO COLLAGE */
+.photo-collage{
+  padding:100px 0;
+  text-align:center;
+}
+
+.photo-collage h2{
+  color:var(--primary);
+  font-size:36px;
+  margin-bottom:50px;
+  text-shadow:0 0 15px rgba(245,197,24,0.8);
+}
+
+.collage-grid{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:220px;
+  gap:20px;
+}
+
+.collage-item{
+  overflow:hidden;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(245,197,24,0.4);
+  transition:0.5s;
+
+  /* SCROLL REVEAL DEFAULT */
+  opacity:0;
+  transform:translateY(60px);
+}
+
+.collage-item.show{
+  opacity:1;
+  transform:translateY(0);
+  transition:0.8s ease;
+}
+
+.collage-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.6s;
+  cursor:pointer;
+}
+
+.collage-item.big{
+  grid-column:span 2;
+  grid-row:span 2;
+}
+
+.collage-item.wide{
+  grid-column:span 2;
+}
+
+.collage-item:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 40px rgba(0,229,255,0.8);
+}
+.collage-item:hover img{
+  transform:scale(1.15);
+}
+
+@media(max-width:768px){
+  .collage-grid{
+    grid-template-columns:repeat(2,1fr);
+    grid-auto-rows:180px;
+  }
+}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:20px;
+  box-shadow:0 0 40px rgba(245,197,24,0.8);
+}
+
+.lightbox .close{
+  position:absolute;
+  top:25px;
+  right:35px;
+  font-size:40px;
+  color:#fff;
+  cursor:pointer;
+}
+
 </style>
 </head>
 
@@ -114,20 +214,20 @@ body{
 <section class="story">
   <div class="container">
     <div class="story-card">
+      <p>Hi, I’m <span>Rajat Singh Gaur</span>.</p>
+
       <p>
-        Hi, I’m <span>Rajat Singh Gaur</span>.
+        Main ek normal background se aata hoon, jahan opportunities limited thi,
+        lekin curiosity unlimited.
       </p>
 
       <p>
-        I am a motivated and disciplined individual, 
-        always eager to learn and apply my skills in a professional environment. 
-        I am looking forward to opportunities where 
-        I can contribute to the organization while gaining practical industry experience.
+        College ke time se hi maine Excel, Python, Power BI jaise tools ke saath kaam
+        karna start kiya.
       </p>
 
       <p>
-        Ye page meri kahani ka ek chapter hai —
-        aur aage ke chapters abhi likhne baaki hain.
+        Aaj main MBA (Business Analytics) pursue kar raha hoon.
       </p>
 
       <a href="index.html" class="back-btn">← Back to Home</a>
@@ -135,6 +235,55 @@ body{
   </div>
 </section>
 
+<!-- PHOTO COLLAGE -->
+<section class="photo-collage">
+  <h2>My Moments</h2>
+
+  <div class="collage-grid">
+    <div class="collage-item big"><img src="photo1.jpg"></div>
+    <div class="collage-item"><img src="photo2.jpg"></div>
+    <div class="collage-item"><img src="photo3.jpg"></div>
+    <div class="collage-item wide"><img src="photo4.jpg"></div>
+    <div class="collage-item"><img src="photo5.jpg"></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX HTML -->
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <img id="lightbox-img">
+</div>
+
+<!-- JS -->
+<script>
+/* LIGHTBOX */
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".lightbox .close");
+
+document.querySelectorAll(".collage-item img").forEach(img=>{
+  img.addEventListener("click",()=>{
+    lightbox.style.display="flex";
+    lightboxImg.src = img.src;
+  });
+});
+
+closeBtn.onclick = ()=> lightbox.style.display="none";
+lightbox.onclick = (e)=>{ if(e.target===lightbox) lightbox.style.display="none"; };
+
+/* SCROLL REVEAL */
+const items = document.querySelectorAll(".collage-item");
+const reveal = ()=>{
+  items.forEach(item=>{
+    const rect = item.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100){
+      item.classList.add("show");
+    }
+  });
+};
+window.addEventListener("scroll", reveal);
+reveal();
+</script>
+
 </body>
 </html>
-
