@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajat Singh Gaur | Skills</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --primary:#f5c518;
+  --accent:#00e5ff;
+  --bg:#060709;
+  --card:#0f1116;
+  --text:#f1f1f1;
+}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* HEADER */
+.header{
+  padding:80px 0;
+  text-align:center;
+}
+.header h1{
+  font-size:48px;
+  color:var(--primary);
+  text-shadow:0 0 20px rgba(245,197,24,0.8);
+}
+.header p{
+  font-size:20px;
+  opacity:0.85;
+}
+
+/* BACK BUTTON */
+.back-btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 30px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#f5c518,#00e5ff);
+  color:#000;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  padding-bottom:100px;
+}
+
+.card{
+  background:rgba(15,17,22,0.95);
+  padding:35px;
+  border-radius:20px;
+  border:1px solid rgba(245,197,24,0.2);
+  transition:0.3s;
+  text-align:center;
+}
+.card i{
+  font-size:38px;
+  color:var(--primary);
+  margin-bottom:15px;
+}
+.card h3{
+  margin:10px 0;
+}
+.card p{
+  opacity:0.8;
+  font-size:15px;
+}
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 35px rgba(245,197,24,0.8);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="header">
+  <div class="container">
+    <h1>My Skills</h1>
+    <p>Tools & technologies I work with</p>
+    <a href="../index.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </div>
+</section>
+
+<!-- SKILLS GRID -->
+<section>
+  <div class="container">
+    <div class="grid">
+
+      <div class="card">
+        <i class="fas fa-file-excel"></i>
+        <h3>Microsoft Excel</h3>
+        <p>Advanced formulas, Pivot Tables, dashboards & data analysis</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Power BI</h3>
+        <p>Interactive dashboards, DAX basics, business reporting</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-chart-pie"></i>
+        <h3>Tableau</h3>
+        <p>Data visualization, charts & storytelling with data</p>
+      </div>
+
+      <div class="card">
+        <i class="fab fa-python"></i>
+        <h3>Python</h3>
+        <p>Data cleaning, analysis, automation & basics of ML</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-database"></i>
+        <h3>SQL</h3>
+        <p>Queries, joins, filtering & database handling</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-briefcase"></i>
+        <h3>Business Analytics</h3>
+        <p>Data-driven decision making & business insights</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
