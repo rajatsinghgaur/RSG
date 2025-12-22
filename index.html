@@ -335,11 +335,40 @@ h2{
   filter:grayscale(0%);
 }
 
+/* ===== MUSIC BUTTON ===== */
+.music-player{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  z-index:9999;
+}
+
+.music-player button{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  border:none;
+  background:linear-gradient(135deg,#f5c518,#00e5ff);
+  color:#000;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 0 25px rgba(245,197,24,0.9);
+}
+
 
 </style>
 </head>
 
 <body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" autoplay loop muted>
+  <source src="Pixies_Where_Is_My_Mind_Ringtone_(by Fringster.com).mp3" type="audio/mpeg">
+</audio>
+<!-- MUSIC CONTROL BUTTON -->
+<div class="music-player">
+  <button id="muteBtn">🔊</button>
+</div>
 
 <canvas id="neonParticles"></canvas>
 
@@ -512,6 +541,23 @@ h2{
 <footer class="copyright">
   © 2025 Rajat Singh Gaur. All Rights Reserved.
 </footer>
+
+<script>
+const music = document.getElementById("bgMusic");
+const muteBtn = document.getElementById("muteBtn");
+
+/* browser policy fix */
+document.addEventListener("click", () => {
+  music.muted = false;
+  music.play();
+}, { once:true });
+
+muteBtn.addEventListener("click", () => {
+  music.muted = !music.muted;
+  muteBtn.innerText = music.muted ? "🔇" : "🔊";
+});
+</script>
+
 
 </body>
 </html>
