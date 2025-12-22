@@ -63,7 +63,7 @@ h2{
   position:absolute;
   top:65%;
   left:50%;
-  transform:translate(-50%,-50%);
+  transform:translate(-50%, 0);
   font-size:180px;
   font-weight:800;
   letter-spacing:12px;
@@ -75,21 +75,18 @@ h2{
     0 0 25px rgba(245,197,24,0.35),
     0 0 60px rgba(245,197,24,0.25);
 
-  /* 🔥 ADD THIS */
-  animation: zoomGlow 10s ease-in-out infinite;
+  /* 🔥 NEW ANIMATION */
+  animation: verticalFloat 30s linear infinite;
 }
-@keyframes zoomGlow {
-  0%{
-    transform:translate(-50%,-50%) scale(1);
-    opacity:0.7;
-  }
-  50%{
-    transform:translate(-50%,-50%) scale(1.08);
-    opacity:1;
-  }
-  100%{
-    transform:translate(-50%,-50%) scale(1);
-    opacity:0.7;
+
+}
+100%{
+  transform:translate(-50%, 1600px);
+  opacity:0.4;
+}
+
+}
+
   }
 }
 
