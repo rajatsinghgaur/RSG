@@ -142,24 +142,16 @@ body{
   cursor:pointer;
 }
 
-.collage-item.big{
-  grid-column:span 2;
-  grid-row:span 2;
-}
-
-.collage-item.wide{
-  grid-column:span 2;
-}
+.collage-item.big{ grid-column:span 2; grid-row:span 2; }
+.collage-item.wide{ grid-column:span 2; }
 
 .collage-item:hover{
   transform:scale(1.05);
   box-shadow:0 0 40px rgba(0,229,255,0.8);
 }
-.collage-item:hover img{
-  transform:scale(1.15);
-}
+.collage-item:hover img{ transform:scale(1.15); }
 
-/* ❤️ LIKE HEART */
+/* ❤️ LIKE */
 .heart{
   position:absolute;
   top:50%;
@@ -170,15 +162,12 @@ body{
   opacity:0;
   pointer-events:none;
 }
-
-.heart.show{
-  animation: likePop 1s ease forwards;
-}
+.heart.show{ animation:likePop 1s ease forwards; }
 
 @keyframes likePop{
-  0%{ transform:translate(-50%,-50%) scale(0.2); opacity:0; }
-  30%{ transform:translate(-50%,-50%) scale(1.2); opacity:1; }
-  100%{ transform:translate(-50%,-50%) scale(1.8); opacity:0; }
+  0%{transform:translate(-50%,-50%) scale(0.2);opacity:0;}
+  30%{transform:translate(-50%,-50%) scale(1.2);opacity:1;}
+  100%{transform:translate(-50%,-50%) scale(1.8);opacity:0;}
 }
 
 /* LIGHTBOX */
@@ -191,14 +180,11 @@ body{
   justify-content:center;
   z-index:9999;
 }
-
 .lightbox img{
   max-width:90%;
   max-height:90%;
   border-radius:20px;
-  box-shadow:0 0 40px rgba(245,197,24,0.8);
 }
-
 .lightbox .close{
   position:absolute;
   top:25px;
@@ -207,46 +193,21 @@ body{
   color:#fff;
   cursor:pointer;
 }
-/* ===== SCROLL ANIMATION ===== */
-.animate{
-  opacity:0;
-  transform:translateY(60px);
-  transition:all 0.9s ease;
-}
 
-.animate.show{
-  opacity:1;
-  transform:translateY(0);
-}
+/* ===== ANIMATION EXTRA ===== */
+.animate{opacity:0;transform:translateY(70px);transition:1s;}
+.animate.show{opacity:1;transform:translateY(0);}
+.hero,.story,.photo-collage{opacity:0;transform:translateY(70px);}
 
-/* ===== IMAGE AUTO SIZE ===== */
 .story-card img{
   max-width:100%;
   height:auto;
-  object-fit:cover;
-  transition:transform 0.6s ease, box-shadow 0.6s ease;
+  transition:0.6s;
 }
-
-/* Portrait photo (seedhi photo) */
-.story-card img.portrait{
-  width:240px;
-}
-
-/* Landscape photo (chodi photo) */
-.story-card img.landscape{
-  width:320px;
-}
-
-/* Hover effect */
 .story-card img:hover{
-  transform:scale(1.07);
-  box-shadow:0 0 40px rgba(0,229,255,0.8);
+  transform:scale(1.08);
+  box-shadow:0 0 40px rgba(0,229,255,0.9);
 }
-
-/* Mobile fix */
-@media(max-width:768px){
-  .stor
-  
 </style>
 </head>
 
@@ -266,122 +227,58 @@ body{
   <div class="container">
     <div class="story-card">
       <p>Hi, I’m <span>Rajat Singh Gaur</span>.</p>
-      <p>I am currently studying MBA in Business Analytics. I like working with data and understanding how businesses make decisions. I am learning skills related to data analysis, finance, and business management.
-
-I always try to improve myself by learning new things and practicing my skills. I believe in honesty, discipline, and continuous learning. My goal is to build a successful career and contribute positively to the organization I work with..</p>
+      <p>I am currently studying MBA in Business Analytics. I like working with data and understanding how businesses make decisions. I believe in continuous learning and growth.</p>
       <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
   </div>
 </section>
+
 <!-- DELHI AI SUMMIT -->
 <section class="story">
   <div class="container">
     <div class="story-card">
-      <p>
-        I attended a <span>Global Summit on Productivity in the Age of AI</span>
-        held in <span>New Delhi</span>.
-      </p>
-
-      <p>
-        I participated as a <span>Delegate</span> 
-        This event helped me understand how Artificial Intelligence is used
-        to improve productivity in business and industry.
-      </p>
-
-      <p>
-        I learned from industry leaders, experts, and professionals.
-        This experience gave me real exposure to modern technology
-        and future business trends.
-      </p>
-
-      <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:30px;">
-        <img src="IMG20250820182519.jpg" alt="Delhi AI Summit ID"
-             style="width:260px; border-radius:18px; box-shadow:0 0 25px rgba(245,197,24,0.6);">
-
-        <img src="IMG_20250820_225451~2.jpg" alt="AI Summit Delhi"
-             style="width:260px; border-radius:18px; box-shadow:0 0 25px rgba(245,197,24,0.6);">
-        
-         <img src="IMG-20250821-WA0012.jpg" alt="AI Summit Delhi"
-             style="width:260px; border-radius:18px; box-shadow:0 0 25px rgba(245,197,24,0.6);">
-        
-         <img src="IMG-20250821-WA0017.jpg" alt="AI Summit Delhi"
-           style="width:260px; border-radius:18px; box-shadow:0 0 25px rgba(245,197,24,0.6);">
+      <p>I attended a <span>Global Summit on Productivity in the Age of AI</span> in <span>New Delhi</span>.</p>
+      <p>I participated as a <span>Delegate</span> and learned how AI improves business productivity.</p>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+        <img src="IMG20250820182519.jpg">
+        <img src="IMG_20250820_225451~2.jpg">
+        <img src="IMG-20250821-WA0012.jpg">
+        <img src="IMG-20250821-WA0017.jpg">
       </div>
     </div>
   </div>
 </section>
 
-  <!-- WEWORK SUSTAINABILITY SUMMIT -->
+<!-- WEWORK -->
 <section class="story">
   <div class="container">
     <div class="story-card">
-
-      <p>
-        I attended the <span>WeWork Sustainability Summit</span>.
-      </p>
-
-      <p>
-        This summit focused on <span>sustainability, environment, and responsible business practices</span>.
-        Industry experts shared ideas on how companies can grow while protecting the environment.
-      </p>
-
-      <p>
-        This experience helped me understand the importance of
-        <span>sustainable development</span> and its role in modern business decisions.
-      </p>
-
-      <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:30px;">
-        <img src="IMG-20250924-WA0250.jpg" alt="WeWork Sustainability Summit"
-             style="width:260px; border-radius:18px; box-shadow:0 0 25px rgba(245,197,24,0.6);">
-
-        <img src="IMG-20250925-WA0111.jpg" alt="WeWork Summit Session"
-             style="width:260px; border-radius:18px; box-shadow:0 0 25px rgba(245,197,24,0.6);">
-        
-        <img src="IMG_20251115_185859.jpg" alt="WeWork Summit Session"
-             style="width:260px; border-radius:18px; box-shadow:0 0 25px rgba(245,197,24,0.6);">
-
-        <img src="IMG-20250924-WA0102.jpg" alt="WeWork Summit Session"
-             style="width:260px; border-radius:18px; box-shadow:0 0 25px rgba(245,197,24,0.6);">
+      <p>I attended the <span>WeWork Sustainability Summit</span>.</p>
+      <p>This event focused on sustainability and responsible business practices.</p>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+        <img src="IMG-20250924-WA0250.jpg">
+        <img src="IMG-20250925-WA0111.jpg">
+        <img src="IMG_20251115_185859.jpg">
+        <img src="IMG-20250924-WA0102.jpg">
       </div>
-
     </div>
   </div>
 </section>
 
-  <!-- AMUL INDUSTRIAL VISIT -->
+<!-- AMUL -->
 <section class="story">
   <div class="container">
     <div class="story-card">
-
-      <p>
-        I visited <span>Amul Dairy</span> as part of an <span>industrial visit</span>.
-      </p>
-
-      <p>
-        During this visit, I learned about <span>milk processing, supply chain,
-        quality control, and production management</span>.
-        It helped me understand how a large organization manages operations efficiently.
-      </p>
-
-      <p>
-        This visit gave me practical exposure to <span>real-world business operations</span>
-        and strengthened my understanding of industrial management.
-      </p>
-
-      <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:30px;">
-        <img src="IMG_20250901_211015.jpg" alt="Amul Dairy Visit"
-             style="width:260px; border-radius:18px; box-shadow:0 0 25px rgba(245,197,24,0.6);">
-
-        <img src="IMG-20250822-WA0027.jpg" alt="Amul Industrial Visit Group"
-             style="width:260px; border-radius:18px; box-shadow:0 0 25px rgba(245,197,24,0.6);">
+      <p>I visited <span>Amul Dairy</span> as part of an industrial visit.</p>
+      <p>I learned about supply chain, production, and quality control.</p>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+        <img src="IMG_20250901_211015.jpg">
+        <img src="IMG-20250822-WA0027.jpg">
       </div>
-
     </div>
   </div>
 </section>
 
-
-  
 <!-- PHOTO COLLAGE -->
 <section class="photo-collage">
   <h2>My Moments</h2>
@@ -411,9 +308,9 @@ document.querySelectorAll(".collage-item img").forEach(img=>{
   };
 });
 document.querySelector(".close").onclick=()=>lightbox.style.display="none";
-lightbox.onclick=e=>{ if(e.target===lightbox) lightbox.style.display="none"; };
+lightbox.onclick=e=>{if(e.target===lightbox)lightbox.style.display="none";};
 
-/* SCROLL REVEAL */
+/* COLLAGE REVEAL */
 const items=document.querySelectorAll(".collage-item");
 const reveal=()=>{
   items.forEach(i=>{
@@ -425,7 +322,7 @@ const reveal=()=>{
 window.addEventListener("scroll",reveal);
 reveal();
 
-/* ❤️ LIKE ANIMATION */
+/* LIKE */
 document.querySelectorAll(".collage-item").forEach(item=>{
   item.addEventListener("click",()=>{
     const heart=item.querySelector(".heart");
@@ -433,26 +330,19 @@ document.querySelectorAll(".collage-item").forEach(item=>{
     setTimeout(()=>heart.classList.remove("show"),1000);
   });
 });
-<script>
-/* ===== SCROLL ANIMATION ===== */
-const sections = document.querySelectorAll(".story-card, .hero, .photo-collage");
 
-const revealOnScroll = () => {
-  sections.forEach(sec => {
-    if(sec.getBoundingClientRect().top < window.innerHeight - 120){
-      sec.classList.add("animate","show");
+/* GLOBAL SCROLL */
+const sections=document.querySelectorAll(".hero,.story,.photo-collage");
+const revealAll=()=>{
+  sections.forEach(s=>{
+    if(s.getBoundingClientRect().top<window.innerHeight-120){
+      s.classList.add("animate","show");
     }
   });
 };
-
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-</script>  
+window.addEventListener("scroll",revealAll);
+revealAll();
 </script>
 
 </body>
 </html>
-
-
-
-
