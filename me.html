@@ -208,10 +208,61 @@ body{
   transform:scale(1.08);
   box-shadow:0 0 40px rgba(0,229,255,0.9);
 }
+
+/* ===== FIXED NAV PANEL ===== */
+.panel{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:10000;
+  background:rgba(5,5,8,0.95);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(245,197,24,0.3);
+}
+
+.panel .container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:18px 0;
+}
+
+.panel a{
+  margin:10px 18px;
+  text-decoration:none;
+  font-weight:600;
+  color:#e6e6e6;
+}
+
+.panel a:hover{
+  color:var(--primary);
+}
+
+/* space for fixed panel */
+body{
+  padding-top:90px;
+}
+
+
 </style>
 </head>
 
 <body>
+
+<!-- FIXED PANEL -->
+<div class="panel">
+  <div class="container">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="index.html#education">Education</a>
+    <a href="index.html#resume">Resume</a>
+    <a href="me.html">Me</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</div>
+
 
 <!-- HERO -->
 <section class="hero">
@@ -346,4 +397,3 @@ revealAll();
 
 </body>
 </html>
-
