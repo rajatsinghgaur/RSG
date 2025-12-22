@@ -32,7 +32,7 @@ body{
 
 /* HEADER */
 .header{
-  padding:80px 0;
+  padding:90px 0 70px;
   text-align:center;
 }
 .header h1{
@@ -45,13 +45,12 @@ body{
   opacity:0.85;
 }
 
-
 /* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
-  padding-bottom:100px;
+  padding-bottom:80px;
 }
 
 .card{
@@ -82,34 +81,12 @@ body{
 </head>
 
 <body>
-<!-- BACK TO HOME BUTTON (LAST) -->
-<div style="
-  text-align:center;
-  margin:80px 0 40px;
-">
-  <a href="../index.html" style="
-    display:inline-block;
-    padding:14px 36px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#f5c518,#00e5ff);
-    color:#000;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow:0 0 25px rgba(245,197,24,0.8);
-  ">
-    <i class="fas fa-home"></i> Back to Home
-  </a>
-</div>
-
 
 <!-- HEADER -->
 <section class="header">
   <div class="container">
     <h1>My Skills</h1>
     <p>Tools & technologies I work with</p>
-    <a href="../index.html" class="back-btn">
-      <i class="fas fa-arrow-left"></i> Back to Home
-    </a>
   </div>
 </section>
 
@@ -153,13 +130,29 @@ body{
         <h3>Business Analytics</h3>
         <p>Data-driven decision making & business insights</p>
       </div>
-      <a href="index.html" class="back-btn">← Back to Home</a>
+
     </div>
   </div>
 </section>
 
+<!-- BACK TO HOME (ONLY ONE – BOTTOM) -->
+<div style="
+  text-align:center;
+  margin:100px 0 50px;
+">
+  <a href="../index.html" style="
+    display:inline-block;
+    padding:14px 36px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#f5c518,#00e5ff);
+    color:#000;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 0 25px rgba(245,197,24,0.8);
+  ">
+    <i class="fas fa-home"></i> Back to Home
+  </a>
+</div>
+
 </body>
 </html>
-
-
-
