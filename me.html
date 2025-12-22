@@ -215,6 +215,52 @@ body{
     grid-auto-rows:180px;
   }
 }
+
+/* BATMAN THEME */
+.batman-overlay{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.batman-logo{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:220px;
+  font-weight:900;
+  color:rgba(255,255,255,0.03);
+  letter-spacing:20px;
+  text-shadow:0 0 40px rgba(0,0,0,0.9);
+}
+
+.bat{
+  position:absolute;
+  width:30px;
+  height:15px;
+  background:#000;
+  clip-path:polygon(
+    0% 50%, 20% 0%, 40% 50%,
+    60% 0%, 80% 50%, 100% 50%,
+    50% 100%
+  );
+  opacity:0.6;
+  animation: flyBat linear infinite;
+}
+
+@keyframes flyBat{
+  from{
+    transform:translateX(-120px) translateY(0) scale(0.8);
+    opacity:0;
+  }
+  to{
+    transform:translateX(120vw) translateY(-200px) scale(1.2);
+    opacity:0.8;
+  }
+}
+
 </style>
 </head>
 
@@ -222,6 +268,15 @@ body{
 
 <!-- HERO -->
 <section class="hero">
+<div class="batman-overlay">
+  <div class="batman-logo">BATMAN</div>
+
+  <span class="bat" style="top:20%; animation-duration:18s;"></span>
+  <span class="bat" style="top:35%; animation-duration:22s;"></span>
+  <span class="bat" style="top:55%; animation-duration:26s;"></span>
+  <span class="bat" style="top:70%; animation-duration:30s;"></span>
+</div>
+
   <div class="container">
     <img src="IMG_20251115_185859.jpg">
     <h1>This Is Me</h1>
@@ -310,3 +365,4 @@ document.querySelectorAll(".collage-item").forEach(item=>{
 
 </body>
 </html>
+
