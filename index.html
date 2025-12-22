@@ -221,6 +221,121 @@ h2{
   background:#050507;
   border-top:1px solid rgba(245,197,24,0.2);
 }
+/* ===== CONTACTS SECTION ===== */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:30px;
+  text-align:center;
+}
+
+.contact-card{
+  background:rgba(15,17,22,0.9);
+  padding:35px 25px;
+  border-radius:18px;
+  border:1px solid rgba(245,197,24,0.2);
+  transition:0.3s;
+}
+
+.contact-card i{
+  font-size:32px;
+  margin-bottom:15px;
+  color:var(--primary);
+}
+
+.contact-card a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:600;
+}
+
+.contact-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 35px rgba(245,197,24,0.8);
+}
+
+/* ===== ACHIEVEMENTS & EXTRA CURRICULAR ===== */
+.achievements{
+  padding:100px 0;
+  text-align:center;
+}
+
+.achievements h2{
+  color:var(--primary);
+  font-size:36px;
+  margin-bottom:50px;
+  text-shadow:0 0 15px rgba(245,197,24,0.8);
+}
+
+.achieve-grid{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.achieve-card{
+  background:rgba(15,17,22,0.9);
+  padding:35px 30px;
+  border-radius:18px;
+  border:1px solid rgba(245,197,24,0.2);
+  transition:0.3s;
+}
+
+.achieve-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 35px rgba(245,197,24,0.8);
+}
+
+.achieve-card h3{
+  color:var(--primary);
+  margin-bottom:15px;
+}
+
+.achieve-card p{
+  font-size:16px;
+  opacity:0.9;
+  line-height:1.6;
+}
+
+/* ===== ABOUT ME PHOTO STYLE ===== */
+.about-wrap{
+  display:flex;
+  align-items:center;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.about-text{
+  flex:1;
+  font-size:17px;
+  line-height:1.8;
+  opacity:0.95;
+}
+
+.about-photo{
+  flex:0.8;
+  text-align:center;
+}
+
+.about-photo img{
+  width:280px;
+  max-width:100%;
+  border-radius:18px;
+  opacity:0.35;        /* 👈 halki dikhegi */
+  filter:grayscale(20%);
+  box-shadow:0 0 35px rgba(245,197,24,0.4);
+  transition:0.6s;
+}
+
+.about-photo img:hover{
+  opacity:0.7;         /* hover pe thodi clear */
+  filter:grayscale(0%);
+}
+
+
 </style>
 </head>
 
@@ -256,6 +371,31 @@ h2{
   <div class="container">
     <h2>About Me</h2>
     <div class="card">
+      <div class="about-wrap">
+
+  <div class="about-text">
+    <p>
+      Hi, I’m <strong>Rajat Singh Gaur</strong>, an MBA (Business Analytics) student.
+      I enjoy working with data and solving business problems in a practical
+     and logical manner.
+    </p>
+
+    <p>
+      I use tools such as Microsoft Excel, Power BI, and Python to transform
+       raw data into meaningful insights that support better decision-making.
+    </p>
+
+    <p>
+      My focus on real-world learning and continuous growth.
+    </p>
+  </div>
+
+  <div class="about-photo">
+    <img src="WhatsApp Image 2025-12-22 at 2.40.20 PM.jpeg" alt="Rajat Singh Gaur">
+  </div>
+
+</div>
+
       MBA (Business Analytics) student interested in data analysis, finance & business intelligence.
     </div>
   </div>
@@ -272,6 +412,58 @@ h2{
   </div>
 </section>
 
+<!-- ACHIEVEMENTS & EXTRA CURRICULAR -->
+<section class="achievements" id="achievements">
+  <div class="container">
+    <h2>Achievements & Extra-Curricular Activities</h2>
+
+    <div class="achieve-grid">
+
+      <div class="achieve-card">
+        <h3>🏅 NCC “A” Certificate</h3>
+        <p>
+          Achieved NCC “A” Certificate, showcasing discipline,
+          leadership qualities, and commitment to national service.
+        </p>
+      </div>
+
+      <div class="achieve-card">
+        <h3>🌱 NSS Volunteer</h3>
+        <p>
+          Actively participated in National Service Scheme (NSS),
+          contributing to community welfare and social activities.
+        </p>
+      </div>
+
+      <div class="achieve-card">
+        <h3>🥈 Innovation Nexus – 2nd Position</h3>
+        <p>
+          Secured second position in Innovation Nexus competition
+          conducted at Amity University.
+        </p>
+      </div>
+
+      <div class="achieve-card">
+        <h3>🤖 AI & Industry Conferences</h3>
+        <p>
+          Attended and volunteered in multiple industry events,
+          including AI and sustainability summits.
+        </p>
+      </div>
+
+      <div class="achieve-card">
+        <h3>🏛️ Student Union Member</h3>
+        <p>
+          Member of college student union, involved in coordination,
+          leadership, and student representation.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <!-- RESUME -->
 <section id="resume">
   <div class="container resume-section">
@@ -286,6 +478,36 @@ h2{
 <section id="contact">
   <div class="container">
     <h2>Contact Me</h2>
+    <div class="contact-grid">
+
+  <div class="contact-card">
+    <i class="fas fa-envelope"></i><br>
+    <a href="mailto:gaurrajat58@gmail.com">gaurrajat58@gmail.com</a>
+  </div>
+
+  <div class="contact-card">
+    <i class="fab fa-linkedin"></i><br>
+    <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank">
+      LinkedIn
+    </a>
+  </div>
+
+  <div class="contact-card">
+    <i class="fab fa-instagram"></i><br>
+    <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank">
+      Instagram
+    </a>
+  </div>
+
+  <div class="contact-card">
+    <i class="fab fa-github"></i><br>
+    <a href="https://github.com/rajatsinghgaur" target="_blank">
+      GitHub
+    </a>
+  </div>
+
+</div>
+
   </div>
 </section>
 
@@ -295,4 +517,3 @@ h2{
 
 </body>
 </html>
-
