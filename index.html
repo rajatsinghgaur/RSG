@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E5PSCKY5BN');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Me | Rajat Singh Gaur</title>
+<title>Rajat Singh Gaur | Business Analytics</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
@@ -16,31 +26,122 @@
   --text:#f1f1f1;
 }
 
-/* 🔥 BODY PADDING FOR FIXED PANEL */
+html{ scroll-behavior:smooth; }
 body{
   margin:0;
-  padding-top:80px;
   font-family:'Inter',sans-serif;
   background:var(--bg);
   color:var(--text);
+  overflow-x:hidden;
+
+  /* 🔥 ADD: space for fixed panel */
+  padding-top:90px;
+}
+
+/* NEON PARTICLES */
+#neonParticles{
+  position:fixed;
+  inset:0;
+  z-index:-1;
 }
 
 .container{
   width:90%;
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
 }
+section{ padding:100px 0; }
 
-/* ===== FIXED TOP PANEL ===== */
+h2{
+  text-align:center;
+  margin-bottom:50px;
+  font-size:36px;
+  color:var(--primary);
+  text-shadow:0 0 15px rgba(245,197,24,0.8);
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(circle at top, rgba(245,197,24,0.15), transparent 60%),
+    linear-gradient(180deg,#020202,#060709);
+  padding:160px 0 120px;
+  text-align:center;
+  overflow:hidden;
+}
+
+.bg-text{
+  position:absolute;
+  top:65%;
+  left:50%;
+  transform:translate(-50%, 0);
+  font-size:180px;
+  font-weight:800;
+  letter-spacing:12px;
+  color:rgba(245,197,24,0.08);
+  text-transform:uppercase;
+  white-space:nowrap;
+  pointer-events:none;
+  text-shadow:
+    0 0 25px rgba(245,197,24,0.35),
+    0 0 60px rgba(245,197,24,0.25);
+}
+
+.hero .container{ position:relative; z-index:2; }
+
+.profile-pic{
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid var(--primary);
+  margin-bottom:25px;
+  box-shadow:
+    0 0 35px rgba(245,197,24,0.9),
+    0 0 70px rgba(0,229,255,0.6);
+}
+
+.hero h1{
+  font-size:60px;
+  text-shadow:
+    0 0 15px rgba(245,197,24,0.9),
+    0 0 35px rgba(0,229,255,0.7);
+}
+.hero p{ font-size:22px; }
+
+/* SOCIAL ICONS */
+.social-links a{
+  display:inline-block;
+  margin:0 10px;
+  font-size:22px;
+  width:45px;
+  height:45px;
+  line-height:45px;
+  border-radius:50%;
+  background:#111;
+  color:var(--primary);
+  box-shadow:0 0 15px rgba(245,197,24,0.7);
+  transition:0.3s;
+}
+.social-links a:hover{
+  transform:translateY(-6px);
+  background:var(--primary);
+  color:#000;
+}
+
+/* ================= PANEL ================= */
 .panel{
-  position:fixed;
+  background:rgba(5,5,8,0.9);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(245,197,24,0.3);
+
+  /* 🔥 ADD: FORCE FIXED */
+  position:fixed !important;
   top:0;
   left:0;
   width:100%;
-  z-index:9999;
-  background:rgba(5,5,8,0.95);
-  backdrop-filter:blur(15px);
-  box-shadow:0 8px 25px rgba(0,0,0,0.6);
+  z-index:10000;
 }
 
 .panel .container{
@@ -49,198 +150,100 @@ body{
   flex-wrap:wrap;
   padding:18px 0;
 }
-
 .panel a{
   margin:10px 18px;
   text-decoration:none;
   font-weight:600;
   color:#e6e6e6;
-  transition:0.3s;
 }
-.panel a:hover{
-  color:var(--primary);
-}
+.panel a:hover{ color:var(--primary); }
 
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:
-    radial-gradient(circle at top, rgba(245,197,24,0.15), transparent 60%),
-    linear-gradient(180deg,#020202,#060709);
+/* GRID / CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
-
-.hero img{
-  width:260px;
-  height:260px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid var(--primary);
-  box-shadow:
-    0 0 35px rgba(245,197,24,0.9),
-    0 0 70px rgba(0,229,255,0.6);
-  margin-bottom:25px;
+.card{
+  background:rgba(15,17,22,0.9);
+  backdrop-filter:blur(20px);
+  padding:32px;
+  border-radius:18px;
+  border:1px solid rgba(245,197,24,0.15);
+}
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 35px rgba(245,197,24,0.8);
 }
 
-.hero h1{
-  font-size:48px;
-  margin-bottom:10px;
-  text-shadow:0 0 20px rgba(245,197,24,0.9);
-}
-
-.hero p{
-  font-size:18px;
-  opacity:0.9;
-}
-
-/* STORY */
-.story{ padding:100px 0; }
-
-.story-card{
-  background:rgba(15,17,22,0.95);
-  padding:45px;
-  border-radius:22px;
-  line-height:1.9;
-  font-size:18px;
-  border:1px solid rgba(245,197,24,0.2);
-  box-shadow:0 0 30px rgba(245,197,24,0.4);
-}
-
-.story-card span{
-  color:var(--primary);
-  font-weight:600;
-}
-
-/* BACK BUTTON */
-.back-btn{
+/* RESUME */
+.resume-section{ text-align:center; }
+.resume-btn{
   display:inline-block;
-  margin-top:40px;
-  padding:14px 35px;
-  border-radius:40px;
-  text-decoration:none;
+  padding:16px 40px;
+  font-size:18px;
   font-weight:600;
   background:linear-gradient(135deg,#f5c518,#00e5ff);
   color:#000;
-  box-shadow:0 0 25px rgba(245,197,24,0.9);
+  text-decoration:none;
+  border-radius:40px;
+  box-shadow:
+    0 0 30px rgba(245,197,24,0.9),
+    0 0 60px rgba(0,229,255,0.8);
 }
 
-/* PHOTO COLLAGE */
-.photo-collage{
-  padding:100px 0;
+/* CONTACT */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:30px;
   text-align:center;
 }
-
-.photo-collage h2{
-  color:var(--primary);
-  font-size:36px;
-  margin-bottom:50px;
-  text-shadow:0 0 15px rgba(245,197,24,0.8);
+.contact-card{
+  background:rgba(15,17,22,0.9);
+  padding:35px;
+  border-radius:18px;
+  border:1px solid rgba(245,197,24,0.2);
+  transition:0.3s;
+}
+.contact-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 35px rgba(245,197,24,0.8);
 }
 
-.collage-grid{
-  width:90%;
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-auto-rows:220px;
-  gap:20px;
+/* COPYRIGHT */
+.copyright{
+  text-align:center;
+  padding:25px 10px;
+  font-size:14px;
+  letter-spacing:1px;
+  color:rgba(245,197,24,0.8);
+  background:#050507;
+  border-top:1px solid rgba(245,197,24,0.2);
 }
-
-.collage-item{
-  position:relative;
-  overflow:hidden;
-  border-radius:20px;
-  box-shadow:0 0 25px rgba(245,197,24,0.4);
-  transition:0.5s;
-  opacity:0;
-  transform:translateY(60px);
-}
-
-.collage-item.show{
-  opacity:1;
-  transform:translateY(0);
-  transition:0.8s ease;
-}
-
-.collage-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:0.6s;
-  cursor:pointer;
-}
-
-.collage-item.big{ grid-column:span 2; grid-row:span 2; }
-.collage-item.wide{ grid-column:span 2; }
-
-.collage-item:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 40px rgba(0,229,255,0.8);
-}
-.collage-item:hover img{ transform:scale(1.15); }
-
-/* ❤️ LIKE */
-.heart{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%) scale(0);
-  font-size:80px;
-  color:#ff2d55;
-  opacity:0;
-  pointer-events:none;
-}
-.heart.show{ animation:likePop 1s ease forwards; }
-
-@keyframes likePop{
-  0%{transform:translate(-50%,-50%) scale(0.2);opacity:0;}
-  30%{transform:translate(-50%,-50%) scale(1.2);opacity:1;}
-  100%{transform:translate(-50%,-50%) scale(1.8);opacity:0;}
-}
-
-/* LIGHTBOX */
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
-.lightbox img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:20px;
-}
-.lightbox .close{
-  position:absolute;
-  top:25px;
-  right:35px;
-  font-size:40px;
-  color:#fff;
-  cursor:pointer;
-}
-
-/* ===== ANIMATION EXTRA ===== */
-.animate{opacity:0;transform:translateY(70px);transition:1s;}
-.animate.show{opacity:1;transform:translateY(0);}
-.hero,.story,.photo-collage{opacity:0;transform:translateY(70px);}
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 FIXED PANEL -->
+<canvas id="neonParticles"></canvas>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="bg-text">ANALYTICS</div>
+  <div class="container">
+    <img src="IMG_20251115_185859.jpg" class="profile-pic">
+    <h1>Rajat Singh Gaur</h1>
+    <p>Business Analytics</p>
+  </div>
+</section>
+
+<!-- FIXED PANEL -->
 <div class="panel">
   <div class="container">
     <a href="#home">Home</a>
     <a href="#about">About</a>
-    <a href="#skills">Skills</a>
+    <a href="skills">Skills</a>
     <a href="#education">Education</a>
     <a href="#resume">Resume</a>
     <a href="me.html">Me</a>
@@ -248,81 +251,47 @@ body{
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="home">
+<!-- ABOUT -->
+<section id="about">
   <div class="container">
-    <img src="IMG_20251115_185859.jpg">
-    <h1>This Is Me</h1>
-    <p>Not just a resume — this is my journey.</p>
-  </div>
-</section>
-
-<!-- STORY -->
-<section class="story" id="about">
-  <div class="container">
-    <div class="story-card">
-      <p>Hi, I’m <span>Rajat Singh Gaur</span>.</p>
-      <p>I am currently studying MBA in Business Analytics. I like working with data and understanding how businesses make decisions.</p>
-      <a href="index.html" class="back-btn">← Back to Home</a>
+    <h2>About Me</h2>
+    <div class="card">
+      MBA (Business Analytics) student interested in data analysis, finance & business intelligence.
     </div>
   </div>
 </section>
 
-<!-- PHOTO COLLAGE -->
-<section class="photo-collage">
-  <h2>My Moments</h2>
-  <div class="collage-grid">
-    <div class="collage-item big"><img src="IMG_20250901_211015.jpg"><div class="heart">❤️</div></div>
-    <div class="collage-item"><img src="IMG_20250926_185321.jpg"><div class="heart">❤️</div></div>
-    <div class="collage-item"><img src="IMG_20251115_185859.jpg"><div class="heart">❤️</div></div>
-    <div class="collage-item wide"><img src="IMG_20250820_225451~2.jpg"><div class="heart">❤️</div></div>
-    <div class="collage-item"><img src="IMG-20250924-WA0250.jpg"><div class="heart">❤️</div></div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <h2>Education</h2>
+    <div class="grid">
+      <div class="card">MBA – Business Analytics (2024–2026)</div>
+      <div class="card">B.Sc. Computer Science (2021–2024)</div>
+    </div>
   </div>
 </section>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="close">&times;</span>
-  <img id="lightbox-img">
-</div>
+<!-- RESUME -->
+<section id="resume">
+  <div class="container resume-section">
+    <h2>Download Resume</h2>
+    <a href="RAJAT SINGH GAUR Resume update.pdf" download class="resume-btn">
+      <i class="fas fa-download"></i> Download Resume
+    </a>
+  </div>
+</section>
 
-<script>
-/* LIGHTBOX */
-const lightbox=document.getElementById("lightbox");
-const lightboxImg=document.getElementById("lightbox-img");
-document.querySelectorAll(".collage-item img").forEach(img=>{
-  img.onclick=()=>{
-    lightbox.style.display="flex";
-    lightboxImg.src=img.src;
-  };
-});
-document.querySelector(".close").onclick=()=>lightbox.style.display="none";
-lightbox.onclick=e=>{if(e.target===lightbox)lightbox.style.display="none";};
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact Me</h2>
+  </div>
+</section>
 
-/* COLLAGE REVEAL */
-const items=document.querySelectorAll(".collage-item");
-const reveal=()=>{
-  items.forEach(i=>{
-    if(i.getBoundingClientRect().top<window.innerHeight-100){
-      i.classList.add("show");
-    }
-  });
-};
-window.addEventListener("scroll",reveal);
-reveal();
-
-/* GLOBAL SCROLL */
-const sections=document.querySelectorAll(".hero,.story,.photo-collage");
-const revealAll=()=>{
-  sections.forEach(s=>{
-    if(s.getBoundingClientRect().top<window.innerHeight-120){
-      s.classList.add("animate","show");
-    }
-  });
-};
-window.addEventListener("scroll",revealAll);
-revealAll();
-</script>
+<footer class="copyright">
+  © 2025 Rajat Singh Gaur. All Rights Reserved.
+</footer>
 
 </body>
 </html>
