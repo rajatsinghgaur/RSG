@@ -65,9 +65,7 @@ body{
 }
 
 /* STORY */
-.story{
-  padding:100px 0;
-}
+.story{ padding:100px 0; }
 
 .story-card{
   background:rgba(15,17,22,0.95);
@@ -121,12 +119,12 @@ body{
 }
 
 .collage-item{
+  position:relative;
   overflow:hidden;
   border-radius:20px;
   box-shadow:0 0 25px rgba(245,197,24,0.4);
   transition:0.5s;
 
-  /* SCROLL REVEAL DEFAULT */
   opacity:0;
   transform:translateY(60px);
 }
@@ -162,11 +160,26 @@ body{
   transform:scale(1.15);
 }
 
-@media(max-width:768px){
-  .collage-grid{
-    grid-template-columns:repeat(2,1fr);
-    grid-auto-rows:180px;
-  }
+/* ❤️ LIKE HEART */
+.heart{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:80px;
+  color:#ff2d55;
+  opacity:0;
+  pointer-events:none;
+}
+
+.heart.show{
+  animation: likePop 1s ease forwards;
+}
+
+@keyframes likePop{
+  0%{ transform:translate(-50%,-50%) scale(0.2); opacity:0; }
+  30%{ transform:translate(-50%,-50%) scale(1.2); opacity:1; }
+  100%{ transform:translate(-50%,-50%) scale(1.8); opacity:0; }
 }
 
 /* LIGHTBOX */
@@ -196,6 +209,12 @@ body{
   cursor:pointer;
 }
 
+@media(max-width:768px){
+  .collage-grid{
+    grid-template-columns:repeat(2,1fr);
+    grid-auto-rows:180px;
+  }
+}
 </style>
 </head>
 
@@ -204,7 +223,7 @@ body{
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <img src="IMG_20251115_185859.jpg" alt="Rajat Singh Gaur">
+    <img src="IMG_20251115_185859.jpg">
     <h1>This Is Me</h1>
     <p>Not just a resume — this is my journey.</p>
   </div>
@@ -215,21 +234,7 @@ body{
   <div class="container">
     <div class="story-card">
       <p>Hi, I’m <span>Rajat Singh Gaur</span>.</p>
-
-      <p>
-        Main ek normal background se aata hoon, jahan opportunities limited thi,
-        lekin curiosity unlimited.
-      </p>
-
-      <p>
-        College ke time se hi maine Excel, Python, Power BI jaise tools ke saath kaam
-        karna start kiya.
-      </p>
-
-      <p>
-        Aaj main MBA (Business Analytics) pursue kar raha hoon.
-      </p>
-
+      <p>Ye page meri kahani ka ek chapter hai.</p>
       <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
   </div>
@@ -238,51 +243,69 @@ body{
 <!-- PHOTO COLLAGE -->
 <section class="photo-collage">
   <h2>My Moments</h2>
-
   <div class="collage-grid">
-    <div class="collage-item big"><img src="photo1.jpg"></div>
-    <div class="collage-item"><img src="photo2.jpg"></div>
-    <div class="collage-item"><img src="photo3.jpg"></div>
-    <div class="collage-item wide"><img src="photo4.jpg"></div>
-    <div class="collage-item"><img src="photo5.jpg"></div>
+    <div class="collage-item big">
+      <img src="photo1.jpg">
+      <div class="heart">❤️</div>
+    </div>
+    <div class="collage-item">
+      <img src="photo2.jpg">
+      <div class="heart">❤️</div>
+    </div>
+    <div class="collage-item">
+      <img src="photo3.jpg">
+      <div class="heart">❤️</div>
+    </div>
+    <div class="collage-item wide">
+      <img src="photo4.jpg">
+      <div class="heart">❤️</div>
+    </div>
+    <div class="collage-item">
+      <img src="photo5.jpg">
+      <div class="heart">❤️</div>
+    </div>
   </div>
 </section>
 
-<!-- LIGHTBOX HTML -->
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <span class="close">&times;</span>
   <img id="lightbox-img">
 </div>
 
-<!-- JS -->
 <script>
 /* LIGHTBOX */
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.querySelector(".lightbox .close");
-
 document.querySelectorAll(".collage-item img").forEach(img=>{
-  img.addEventListener("click",()=>{
+  img.onclick=()=>{
     lightbox.style.display="flex";
-    lightboxImg.src = img.src;
-  });
+    lightboxImg.src=img.src;
+  };
 });
-
-closeBtn.onclick = ()=> lightbox.style.display="none";
-lightbox.onclick = (e)=>{ if(e.target===lightbox) lightbox.style.display="none"; };
+document.querySelector(".close").onclick=()=>lightbox.style.display="none";
+lightbox.onclick=e=>{ if(e.target===lightbox) lightbox.style.display="none"; };
 
 /* SCROLL REVEAL */
-const items = document.querySelectorAll(".collage-item");
-const reveal = ()=>{
-  items.forEach(item=>{
-    const rect = item.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 100){
-      item.classList.add("show");
+const items=document.querySelectorAll(".collage-item");
+const reveal=()=>{
+  items.forEach(i=>{
+    if(i.getBoundingClientRect().top<window.innerHeight-100){
+      i.classList.add("show");
     }
   });
 };
-window.addEventListener("scroll", reveal);
+window.addEventListener("scroll",reveal);
 reveal();
+
+/* ❤️ LIKE ANIMATION */
+document.querySelectorAll(".collage-item").forEach(item=>{
+  item.addEventListener("click",()=>{
+    const heart=item.querySelector(".heart");
+    heart.classList.add("show");
+    setTimeout(()=>heart.classList.remove("show"),1000);
+  });
+});
 </script>
 
 </body>
