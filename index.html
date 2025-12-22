@@ -1,20 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-E5PSCKY5BN');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajat Singh Gaur | Business Analytics</title>
+<title>Me | Rajat Singh Gaur</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
@@ -25,313 +16,231 @@
   --text:#f1f1f1;
 }
 
-html{ scroll-behavior:smooth; }
+/* 🔥 BODY PADDING FOR FIXED PANEL */
 body{
   margin:0;
+  padding-top:80px;
   font-family:'Inter',sans-serif;
   background:var(--bg);
   color:var(--text);
-  overflow-x:hidden;
-}
-
-/* NEON PARTICLES */
-#neonParticles{
-  position:fixed;
-  inset:0;
-  z-index:-1;
 }
 
 .container{
   width:90%;
-  max-width:1100px;
+  max-width:1000px;
   margin:auto;
 }
-section{ padding:100px 0; }
 
-h2{
-  text-align:center;
-  margin-bottom:50px;
-  font-size:36px;
-  color:var(--primary);
-  text-shadow:0 0 15px rgba(245,197,24,0.8);
-}
-
-/* HERO */
-.hero{
-  position:relative;
-  background:
-    radial-gradient(circle at top, rgba(245,197,24,0.15), transparent 60%),
-    linear-gradient(180deg,#020202,#060709);
-  padding:160px 0 120px;
-  text-align:center;
-  overflow:hidden;
-}
-
-.bg-text{
-  position:absolute;
-  top:65%;
-  left:50%;
-  transform:translate(-50%, 0);
-  font-size:180px;
-  font-weight:800;
-  letter-spacing:12px;
-  color:rgba(245,197,24,0.08);
-  text-transform:uppercase;
-  white-space:nowrap;
-  pointer-events:none;
-  text-shadow:
-    0 0 25px rgba(245,197,24,0.35),
-    0 0 60px rgba(245,197,24,0.25);
-
-  /* 🔥 NEW ANIMATION */
-  animation: verticalFloat 30s linear infinite;
-}
-
-}
-100%{
-  transform:translate(-50%, 1600px);
-  opacity:0.4;
-}
-
-}
-
-  }
-}
-
-}
-
-}
-
-.hero .container{ position:relative; z-index:2; }
-
-.profile-pic{
-  width:320px;
-  height:320px;
-  border-radius:50%;
-  object-fit:cover;
-  border:5px solid var(--primary);
-  margin-bottom:25px;
-  box-shadow:
-    0 0 35px rgba(245,197,24,0.9),
-    0 0 70px rgba(0,229,255,0.6);
-}
-
-.hero h1{
-  font-size:60px;
-  text-shadow:
-    0 0 15px rgba(245,197,24,0.9),
-    0 0 35px rgba(0,229,255,0.7);
-}
-.hero p{ font-size:22px; }
-
-/* SOCIAL ICONS */
-.social-links a{
-  display:inline-block;
-  margin:0 10px;
-  font-size:22px;
-  width:45px;
-  height:45px;
-  line-height:45px;
-  border-radius:50%;
-  background:#111;
-  color:var(--primary);
-  box-shadow:0 0 15px rgba(245,197,24,0.7);
-  transition:0.3s;
-}
-.social-links a:hover{
-  transform:translateY(-6px);
-  background:var(--primary);
-  color:#000;
-}
-
-/* PANEL */
+/* ===== FIXED TOP PANEL ===== */
 .panel{
-  background:rgba(5,5,8,0.9);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(245,197,24,0.3);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:9999;
+  background:rgba(5,5,8,0.95);
+  backdrop-filter:blur(15px);
+  box-shadow:0 8px 25px rgba(0,0,0,0.6);
 }
+
 .panel .container{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
   padding:18px 0;
 }
+
 .panel a{
   margin:10px 18px;
   text-decoration:none;
   font-weight:600;
   color:#e6e6e6;
-}
-.panel a:hover{ color:var(--primary); }
-
-/* GRID / CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-.card{
-  background:rgba(15,17,22,0.9);
-  backdrop-filter:blur(20px);
-  padding:32px;
-  border-radius:18px;
-  border:1px solid rgba(245,197,24,0.15);
-}
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 35px rgba(245,197,24,0.8);
-}
-
-/* RESUME */
-.resume-section{ text-align:center; }
-.resume-btn{
-  display:inline-block;
-  padding:16px 40px;
-  font-size:18px;
-  font-weight:600;
-  background:linear-gradient(135deg,#f5c518,#00e5ff);
-  color:#000;
-  text-decoration:none;
-  border-radius:40px;
-  box-shadow:
-    0 0 30px rgba(245,197,24,0.9),
-    0 0 60px rgba(0,229,255,0.8);
-}
-
-/* CONTACTS */
-.contact-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-  gap:30px;
-  text-align:center;
-}
-.contact-card{
-  background:rgba(15,17,22,0.9);
-  padding:35px;
-  border-radius:18px;
-  border:1px solid rgba(245,197,24,0.2);
   transition:0.3s;
 }
-.contact-card i{
-  font-size:32px;
-  margin-bottom:15px;
+.panel a:hover{
   color:var(--primary);
 }
-.contact-card a{
-  color:var(--text);
-  text-decoration:none;
-  font-weight:600;
-}
-.contact-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 35px rgba(245,197,24,0.8);
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at top, rgba(245,197,24,0.15), transparent 60%),
+    linear-gradient(180deg,#020202,#060709);
 }
 
-/* MUSIC */
-.music-player{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  z-index:999;
-}
-.music-player button{
-  width:55px;
-  height:55px;
+.hero img{
+  width:260px;
+  height:260px;
   border-radius:50%;
-  border:none;
+  object-fit:cover;
+  border:4px solid var(--primary);
+  box-shadow:
+    0 0 35px rgba(245,197,24,0.9),
+    0 0 70px rgba(0,229,255,0.6);
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:48px;
+  margin-bottom:10px;
+  text-shadow:0 0 20px rgba(245,197,24,0.9);
+}
+
+.hero p{
+  font-size:18px;
+  opacity:0.9;
+}
+
+/* STORY */
+.story{ padding:100px 0; }
+
+.story-card{
+  background:rgba(15,17,22,0.95);
+  padding:45px;
+  border-radius:22px;
+  line-height:1.9;
+  font-size:18px;
+  border:1px solid rgba(245,197,24,0.2);
+  box-shadow:0 0 30px rgba(245,197,24,0.4);
+}
+
+.story-card span{
+  color:var(--primary);
+  font-weight:600;
+}
+
+/* BACK BUTTON */
+.back-btn{
+  display:inline-block;
+  margin-top:40px;
+  padding:14px 35px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
   background:linear-gradient(135deg,#f5c518,#00e5ff);
   color:#000;
-  font-size:20px;
-  cursor:pointer;
   box-shadow:0 0 25px rgba(245,197,24,0.9);
 }
 
-/* COPYRIGHT */
-.copyright{
-  text-align:center;
-  padding:25px 10px;
-  font-size:14px;
-  letter-spacing:1px;
-  color:rgba(245,197,24,0.8);
-  background:#050507;
-  border-top:1px solid rgba(245,197,24,0.2);
-}
-/* ACHIEVEMENTS & EXTRA CURRICULAR */
-.achievements, .extra{
+/* PHOTO COLLAGE */
+.photo-collage{
   padding:100px 0;
   text-align:center;
 }
 
-.achievements h2, .extra h2{
+.photo-collage h2{
   color:var(--primary);
   font-size:36px;
   margin-bottom:50px;
   text-shadow:0 0 15px rgba(245,197,24,0.8);
 }
 
-.achieve-grid{
+.collage-grid{
   width:90%;
   max-width:1100px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:220px;
+  gap:20px;
 }
 
-.achieve-card{
-  background:rgba(15,17,22,0.95);
-  padding:35px 30px;
-  border-rad
-/* STICKY NAV PANEL */
-.panel{
-  position:sticky;
-  top:0;
+.collage-item{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(245,197,24,0.4);
+  transition:0.5s;
+  opacity:0;
+  transform:translateY(60px);
+}
+
+.collage-item.show{
+  opacity:1;
+  transform:translateY(0);
+  transition:0.8s ease;
+}
+
+.collage-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.6s;
+  cursor:pointer;
+}
+
+.collage-item.big{ grid-column:span 2; grid-row:span 2; }
+.collage-item.wide{ grid-column:span 2; }
+
+.collage-item:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 40px rgba(0,229,255,0.8);
+}
+.collage-item:hover img{ transform:scale(1.15); }
+
+/* ❤️ LIKE */
+.heart{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:80px;
+  color:#ff2d55;
+  opacity:0;
+  pointer-events:none;
+}
+.heart.show{ animation:likePop 1s ease forwards; }
+
+@keyframes likePop{
+  0%{transform:translate(-50%,-50%) scale(0.2);opacity:0;}
+  30%{transform:translate(-50%,-50%) scale(1.2);opacity:1;}
+  100%{transform:translate(-50%,-50%) scale(1.8);opacity:0;}
+}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
   z-index:9999;
-  transition:0.3s;
+}
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:20px;
+}
+.lightbox .close{
+  position:absolute;
+  top:25px;
+  right:35px;
+  font-size:40px;
+  color:#fff;
+  cursor:pointer;
 }
 
-/* scroll ke baad thoda compact look */
-.panel.scrolled{
-  background:rgba(5,5,8,0.95);
-  backdrop-filter:blur(15px);
-  box-shadow:0 8px 25px rgba(0,0,0,0.6);
-}
-
+/* ===== ANIMATION EXTRA ===== */
+.animate{opacity:0;transform:translateY(70px);transition:1s;}
+.animate.show{opacity:1;transform:translateY(0);}
+.hero,.story,.photo-collage{opacity:0;transform:translateY(70px);}
 </style>
 </head>
 
 <body>
 
-<canvas id="neonParticles"></canvas>
-
-<!-- MUSIC -->
-<audio id="bgMusic" autoplay loop muted>
-  <source src="Pixies_Where_Is_My_Mind_Ringtone_(by Fringster.com).mp3" type="audio/mpeg">
-</audio>
-<div class="music-player">
-  <button id="muteBtn"><i class="fas fa-volume-mute"></i></button>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="bg-text">ANALYTICS</div>
-  <div class="container">
-    <img src="IMG_20251115_185859.jpg" class="profile-pic">
-    <h1>Rajat Singh Gaur</h1>
-    <p>Business Analytics</p>
-
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
-</section>
-
+<!-- 🔥 FIXED PANEL -->
 <div class="panel">
   <div class="container">
     <a href="#home">Home</a>
     <a href="#about">About</a>
-    <a href="skills">Skills</a>
+    <a href="#skills">Skills</a>
     <a href="#education">Education</a>
     <a href="#resume">Resume</a>
     <a href="me.html">Me</a>
@@ -339,186 +248,81 @@ h2{
   </div>
 </div>
 
-<!-- ABOUT -->
-<section id="about">
+<!-- HERO -->
+<section class="hero" id="home">
   <div class="container">
-    <h2>About Me</h2>
-    <div class="card">
-      MBA (Business Analytics) student interested in data analysis, finance & business intelligence.
-    </div>
+    <img src="IMG_20251115_185859.jpg">
+    <h1>This Is Me</h1>
+    <p>Not just a resume — this is my journey.</p>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
+<!-- STORY -->
+<section class="story" id="about">
   <div class="container">
-    <h2>Skills</h2>
-    <div class="grid">
-      <div class="card">Advanced Microsoft Excel</div>
-      <div class="card">Power BI</div>
-      <div class="card">Tableau</div>
-      <div class="card">Python</div>
-    </div>
-  </div>
-</section>
-  
-  <!-- ACHIEVEMENTS & EXTRA CURRICULAR ACTIVITIES -->
-<section class="achievements" id="achievements">
-  <h2>Achievements & Extra-Curricular Activities</h2>
-
-  <div class="achieve-grid">
-
-    <div class="achieve-card">
-      <h3>🏅 NCC “A” Certificate</h3>
-      <p>
-        Awarded NCC “A” Certificate by the Government of India, reflecting
-        discipline, leadership, and commitment to national service.
-      </p>
-    </div>
-
-    <div class="achieve-card">
-      <h3>🌱 NSS Certificate & Volunteer</h3>
-      <p>
-        Certified and actively involved in National Service Scheme (NSS),
-        contributing to community service and social development activities.
-      </p>
-    </div>
-
-    <div class="achieve-card">
-      <h3>🥈 Innovation Nexus – 2nd Position</h3>
-      <p>
-        Secured second place in Innovation Nexus competition held at
-        Amity University (September 2024).
-      </p>
-    </div>
-
-    <div class="achieve-card">
-      <h3>🤖 Google AI Conference Volunteer</h3>
-      <p>
-        Volunteered in a two-day International Conference on AI Revolution
-        organized at Amity University, Gurugram.
-      </p>
-    </div>
-
-    <div class="achieve-card">
-      <h3>🏛️ Student Union Member</h3>
-      <p>
-        Member of Vaish College Student Union, responsible for handling
-        student concerns and administrative coordination.
-      </p>
-    </div>
-
-    <div class="achieve-card">
-      <h3>🧑‍✈️ NCC Cadet Experience</h3>
-      <p>
-        Served as an NCC Cadet, focusing on character building,
-        teamwork, discipline, and leadership development.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <h2>Education</h2>
-    <div class="grid">
-      <div class="card">MBA – Business Analytics (2024–2026)</div>
-      <div class="card">B.Sc. Computer Science (2021–2024)</div>
+    <div class="story-card">
+      <p>Hi, I’m <span>Rajat Singh Gaur</span>.</p>
+      <p>I am currently studying MBA in Business Analytics. I like working with data and understanding how businesses make decisions.</p>
+      <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
   </div>
 </section>
 
-<!-- RESUME -->
-<section id="resume">
-  <div class="container resume-section">
-    <h2>Download Resume</h2>
-    <a href="RAJAT SINGH GAUR Resume update.pdf" download class="resume-btn">
-      <i class="fas fa-download"></i> Download Resume
-    </a>
+<!-- PHOTO COLLAGE -->
+<section class="photo-collage">
+  <h2>My Moments</h2>
+  <div class="collage-grid">
+    <div class="collage-item big"><img src="IMG_20250901_211015.jpg"><div class="heart">❤️</div></div>
+    <div class="collage-item"><img src="IMG_20250926_185321.jpg"><div class="heart">❤️</div></div>
+    <div class="collage-item"><img src="IMG_20251115_185859.jpg"><div class="heart">❤️</div></div>
+    <div class="collage-item wide"><img src="IMG_20250820_225451~2.jpg"><div class="heart">❤️</div></div>
+    <div class="collage-item"><img src="IMG-20250924-WA0250.jpg"><div class="heart">❤️</div></div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <h2>Contact Me</h2>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <i class="fas fa-envelope"></i><br>
-        <a href="mailto:gaurrajat58@gmail.com">Gmail</a>
-      </div>
-      <div class="contact-card">
-        <i class="fab fa-github"></i><br>
-        <a href="https://github.com/" target="_blank">GitHub</a>
-      </div>
-      <div class="contact-card">
-        <i class="fab fa-instagram"></i><br>
-        <a href="https://www.instagram.com/gaurrajatsinghh" target="_blank">Instagram</a>
-      </div>
-      <div class="contact-card">
-        <i class="fab fa-linkedin"></i><br>
-        <a href="https://www.linkedin.com/in/rajat-singh-gaur-28360423b" target="_blank">LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <img id="lightbox-img">
+</div>
 
 <script>
-/* PARTICLES */
-const canvas=document.getElementById("neonParticles");
-const ctx=canvas.getContext("2d");
-function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
-resize();addEventListener("resize",resize);
-const particles=Array.from({length:80},()=>({
-x:Math.random()*canvas.width,y:Math.random()*canvas.height,
-r:Math.random()*2+1,dx:(Math.random()-0.5),dy:(Math.random()-0.5)
-}));
-function animate(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-particles.forEach(p=>{
-p.x+=p.dx;p.y+=p.dy;
-if(p.x<0||p.x>canvas.width)p.dx*=-1;
-if(p.y<0||p.y>canvas.height)p.dy*=-1;
-ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fillStyle="rgba(245,197,24,0.8)";
-ctx.shadowBlur=15;ctx.shadowColor="#f5c518";ctx.fill();
+/* LIGHTBOX */
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightbox-img");
+document.querySelectorAll(".collage-item img").forEach(img=>{
+  img.onclick=()=>{
+    lightbox.style.display="flex";
+    lightboxImg.src=img.src;
+  };
 });
-requestAnimationFrame(animate);
-}
-animate();
+document.querySelector(".close").onclick=()=>lightbox.style.display="none";
+lightbox.onclick=e=>{if(e.target===lightbox)lightbox.style.display="none";};
 
-/* MUSIC */
-const music=document.getElementById("bgMusic");
-const muteBtn=document.getElementById("muteBtn");
-document.addEventListener("click",()=>{music.muted=false;music.play();},{once:true});
-muteBtn.addEventListener("click",()=>{
-music.muted=!music.muted;
-muteBtn.innerHTML = music.muted
-? '<i class="fas fa-volume-mute"></i>'
-: '<i class="fas fa-volume-up"></i>';
-});
+/* COLLAGE REVEAL */
+const items=document.querySelectorAll(".collage-item");
+const reveal=()=>{
+  items.forEach(i=>{
+    if(i.getBoundingClientRect().top<window.innerHeight-100){
+      i.classList.add("show");
+    }
+  });
+};
+window.addEventListener("scroll",reveal);
+reveal();
 
-/* STICKY PANEL ON SCROLL */
-const panel = document.querySelector(".panel");
-
-window.addEventListener("scroll", ()=>{
-  if(window.scrollY > 50){
-    panel.classList.add("scrolled");
-  }else{
-    panel.classList.remove("scrolled");
-  }
-});
+/* GLOBAL SCROLL */
+const sections=document.querySelectorAll(".hero,.story,.photo-collage");
+const revealAll=()=>{
+  sections.forEach(s=>{
+    if(s.getBoundingClientRect().top<window.innerHeight-120){
+      s.classList.add("animate","show");
+    }
+  });
+};
+window.addEventListener("scroll",revealAll);
+revealAll();
 </script>
-
-<!-- COPYRIGHT -->
-<footer class="copyright">
-  © 2025 Rajat Singh Gaur. All Rights Reserved.
-</footer>
 
 </body>
 </html>
-
-
-
