@@ -9,40 +9,27 @@
   gtag('js', new Date());
   
   gtag('config', 'G-E5PSCKY5BN');
-<!-- MIXPANEL -->
+
+<!-- MIXPANEL TRACKING START -->
 <script type="text/javascript">
-(function(f,b){
-  if(!b.__SV){
-    var e,g,i,h;
-    window.mixpanel=b;
-    b._i=[];
-    b.init=function(e,f,c){
-      function g(a,d){
-        var b=d.split(".");
-        if(b.length==2){a=a[b[0]];d=b[1]}
-        a[d]=function(){
-          a.push([d].concat(Array.prototype.slice.call(arguments,0)))
-        }
-      }
-      var a=b;
-      a.people=a.people||[];
-      var i=["track","identify","people.set"];
-      for(h=0;h<i.length;h++) g(a,i[h]);
-      b._i.push([e,f,c])
+  (function(c,a){
+    window.mixpanel=a;
+    a._i=[];
+    a.init=function(t){
+      a._i.push(["init",t]);
     };
-    b.__SV=1.2;
-    e=f.createElement("script");
-    e.type="text/javascript";
+    var d=document,e=d.createElement("script");
     e.async=true;
     e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
-    g=f.getElementsByTagName("script")[0];
-    g.parentNode.insertBefore(e,g)
-  }
-})(document,window.mixpanel||[]);
+    var s=d.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(e,s);
+  })(document, window.mixpanel||[]);
 
-mixpanel.init("f4feec239cd869aa2718ba7106429bf4");
-mixpanel.track("Page View");
+  mixpanel.init("f4feec239cd869aa2718ba7106429bf4");
+  mixpanel.track("Page View");
 </script>
+<!-- MIXPANEL TRACKING END -->
+
 
 </script>
 
@@ -674,6 +661,7 @@ function closeLogoPopup(){
 
 </body>
 </html>
+
 
 
 
