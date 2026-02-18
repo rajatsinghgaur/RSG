@@ -10,27 +10,6 @@
   
   gtag('config', 'G-E5PSCKY5BN');
 
-<!-- MIXPANEL TRACKING START -->
-<script type="text/javascript">
-  (function(c,a){
-    window.mixpanel=a;
-    a._i=[];
-    a.init=function(t){
-      a._i.push(["init",t]);
-    };
-    var d=document,e=d.createElement("script");
-    e.async=true;
-    e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
-    var s=d.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(e,s);
-  })(document, window.mixpanel||[]);
-
-  mixpanel.init("f4feec239cd869aa2718ba7106429bf4");
-  mixpanel.track("Page View");
-</script>
-<!-- MIXPANEL TRACKING END -->
-
-
 </script>
 
 <meta charset="UTF-8">
@@ -443,6 +422,29 @@ h2{
   transform:translateY(-4px);
   box-shadow:0 15px 30px rgba(0,0,0,0.25);
 }
+<!-- MIXPANEL TRACKING START -->
+<script type="text/javascript">
+  (function(f,b){
+      if(!b.__SV){
+          var e,g,i,h;
+          window.mixpanel=b;
+          b._i=[];
+          b.init=function(e){
+              b._i.push(["init",e]);
+          };
+          e=f.createElement("script");
+          e.type="text/javascript";
+          e.async=true;
+          e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+          g=f.getElementsByTagName("script")[0];
+          g.parentNode.insertBefore(e,g);
+      }
+  })(document, window.mixpanel||[]);
+
+  mixpanel.init("f4feec239cd869aa2718ba7106429bf4");
+  mixpanel.track("Page View");
+</script>
+<!-- MIXPANEL TRACKING END -->
 
 
 </style>
@@ -661,6 +663,7 @@ function closeLogoPopup(){
 
 </body>
 </html>
+
 
 
 
