@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- MIXPANEL TRACKING START -->
+<!-- MIXPANEL WITH USER IDENTIFY -->
 <script src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script>
+
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    if (typeof mixpanel !== "undefined") {
-      mixpanel.init("f4feec239cd869aa2718ba7106429bf4");
-      mixpanel.track("Page View");
-    } else {
-      console.log("Mixpanel didn’t load");
-    }
+document.addEventListener("DOMContentLoaded", function () {
+
+  mixpanel.init("f4feec239cd869aa2718ba7106429bf4");
+
+  // Unique visitor ID create
+  let userId = localStorage.getItem("mp_user_id");
+
+  if (!userId) {
+    userId = "user_" + Math.random().toString(36).substring(2, 10);
+    localStorage.setItem("mp_user_id", userId);
+  }
+
+  // Identify user
+  mixpanel.identify(userId);
+
+  mixpanel.people.set({
+    "First Visit": new Date().toISOString(),
+    "Portfolio Visitor": true
   });
+
+  mixpanel.track("Page View");
+
+});
 </script>
-<!-- MIXPANEL TRACKING END -->
+
 
   
 <!-- Google Analytics 4 -->
@@ -654,6 +670,7 @@ function closeLogoPopup(){
 
 </body>
 </html>
+
 
 
 
