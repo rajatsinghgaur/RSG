@@ -461,6 +461,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   mixpanel.identify(userId);
+  // Get precise location
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+
+    mixpanel.people.set({
+      "Latitude": position.coords.latitude,
+      "Longitude": position.coords.longitude
+    });
+
+    mixpanel.track("Location Captured", {
+      "Latitude": position.coords.latitude,
+      "Longitude": position.coords.longitude
+    });
+
+  });
+}
+
 
   mixpanel.people.set({
     "Portfolio Visitor": true,
@@ -686,6 +703,7 @@ function closeLogoPopup(){
 
 </body>
 </html>
+
 
 
 
