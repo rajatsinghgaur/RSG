@@ -10,41 +10,26 @@
   
   gtag('config', 'G-E5PSCKY5BN');
 
-  <!-- MIXPANEL START -->
-<script type="text/javascript">
-(function(f,b){
-if(!b.__SV){
-var e,g,i,h;
-window.mixpanel=b;
-b._i=[];
-b.init=function(e,f,c){
-function g(a,d){
-var b=d.split(".");
-2==b.length&&(a=a[b[0]],d=b[1]);
-a[d]=function(){
-a.push([d].concat(Array.prototype.slice.call(arguments,0)))
-}}
-var a=b;
-"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";
-a.people=a.people||[];
-i="track".split(" ");
-for(h=0;h<i.length;h++)g(a,i[h]);
-b._i.push([e,f,c])
-};
-b.__SV=1.2;
-e=f.createElement("script");
-e.type="text/javascript";
-e.async=!0;
-e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
-g=f.getElementsByTagName("script")[0];
-g.parentNode.insertBefore(e,g)
-}})(document,window.mixpanel||[]);
-
-mixpanel.init("f4feec239cd869aa2718ba7106429bf4");
-mixpanel.track("Page View");
+  <script>
+  (function(f,b){
+    if(!b.__SV){
+      var e;
+      window.mixpanel=b;
+      b._i=[];
+      b.init=function(e){
+        b._i.push(e);
+      };
+      e=f.createElement("script");
+      e.type="text/javascript";
+      e.async=true;
+      e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+      f.getElementsByTagName("head")[0].appendChild(e);
+    }
+  })(document,window.mixpanel||[]);
+  
+  mixpanel.init("f4feec239cd869aa2718ba7106429bf4");
+  mixpanel.track("Test Event");
 </script>
-<!-- MIXPANEL END -->
-
 
 </script>
 
@@ -676,6 +661,7 @@ function closeLogoPopup(){
 
 </body>
 </html>
+
 
 
 
