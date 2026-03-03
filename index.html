@@ -38,34 +38,53 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* ===== 3D PROJECT CARD ===== */
+/* ===== ULTRA 3D PROJECT CARD ===== */
 
 .project-card{
   background: linear-gradient(145deg,#0f1116,#141821);
   border-radius:20px;
   overflow:hidden;
-  transition:0.5s;
+  transition:0.4s ease;
   transform-style:preserve-3d;
+  perspective:1000px;
   box-shadow:
-    10px 10px 25px rgba(0,0,0,0.6),
+    10px 10px 30px rgba(0,0,0,0.6),
     -5px -5px 15px rgba(245,197,24,0.1);
 }
 
 .project-card:hover{
-  transform: rotateY(8deg) rotateX(5deg) scale(1.03);
-  box-shadow:
-    0 25px 50px rgba(245,197,24,0.4);
+  box-shadow: 0 25px 50px rgba(245,197,24,0.4);
+}
+
+.project-img{
+  position:relative;
+  overflow:hidden;
 }
 
 .project-img img{
   width:100%;
   height:220px;
   object-fit:cover;
+  transition:0.5s;
+}
+
+.project-card:hover img{
+  transform:scale(1.1);
+}
+
+.project-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
   transition:0.4s;
 }
 
-.project-card:hover .project-img img{
-  transform:scale(1.08);
+.project-card:hover .project-overlay{
+  opacity:1;
 }
 
 .project-content{
@@ -74,45 +93,23 @@
 
 .project-content h3{
   color:var(--primary);
-  margin-bottom:15px;
+  margin-bottom:10px;
 }
 
-.project-content p{
-  font-size:15px;
-  opacity:0.9;
-  line-height:1.6;
-}
-.project-btn{
-  display:inline-block;
+.tech-stack{
   margin-top:15px;
-  padding:10px 20px;
-  background:linear-gradient(135deg,#f5c518,#00e5ff);
-  color:#000;
-  font-weight:600;
-  text-decoration:none;
-  border-radius:30px;
-  transition:0.3s;
 }
 
-.project-btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 20px rgba(245,197,24,0.8);
+.tech-stack span{
+  display:inline-block;
+  background:#111;
+  color:var(--primary);
+  padding:6px 12px;
+  margin:4px;
+  border-radius:20px;
+  font-size:13px;
+  border:1px solid rgba(245,197,24,0.3);
 }
-:root{
-  --primary:#f5c518;
-  --accent:#00e5ff;
-  --bg:#060709;
-  --card:#0f1116;
-  --text:#f1f1f1;
-}
-
-html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
 
   /* 🔥 ADD: space for fixed panel */
   padding-top:90px;
@@ -587,26 +584,35 @@ if (navigator.geolocation) {
     <h2>My Projects</h2>
 
     <div class="grid">
-
       <div class="project-card">
-  
+
   <div class="project-img">
-    <img src="stock-project.jpg" alt="Stock Price Prediction">
+    <img src="rajat.png" alt="Stock Price Prediction">
+    <div class="project-overlay">
+      <a href="rajat.png" target="_blank" class="project-btn">
+        📄 View Report
+      </a>
+    </div>
   </div>
 
   <div class="project-content">
     <h3>📈 Stock Price Prediction</h3>
     <p>
-      Machine Learning model using Python for predicting stock prices.
-      Included EDA, preprocessing and regression modeling.
+      Machine Learning model using Python with EDA,
+      preprocessing and regression modeling.
     </p>
 
-    <a href="Stock_Price_Prediction_Report.pdf" target="_blank" class="project-btn">
-      📄 View Report
-    </a>
+    <div class="tech-stack">
+      <span>Python</span>
+      <span>ML</span>
+      <span>Pandas</span>
+      <span>Scikit-Learn</span>
+    </div>
   </div>
 
 </div>
+
+     
 
       <div class="card">
         <h3>📊 Power BI Sales Dashboard</h3>
@@ -809,10 +815,31 @@ function closeLogoPopup(){
   document.getElementById("logoPopup").style.display = "none";
 }
 </script>
+<script>
+document.querySelectorAll(".project-card").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    let rect = card.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
 
+    let centerX = rect.width / 2;
+    let centerY = rect.height / 2;
+
+    let rotateX = -(y - centerY) / 20;
+    let rotateY = (x - centerX) / 20;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateX(0) rotateY(0)";
+  });
+});
+</script>
 
 </body>
 </html>
+
 
 
 
