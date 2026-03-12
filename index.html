@@ -821,71 +821,7 @@ and building analytics solutions that support decision making.
 
 </section>
 
-<div id="aiButton">🤖 Ask Rajat AI</div>
 
-<script>
-
-document.getElementById("aiButton").onclick=function(){
-
-alert("Hi! I'm Rajat's AI assistant. Ask me about projects, skills, or contact information.");
-
-}
-
-</script>
-<!-- Voice AI Assistant -->
-
-<button id="voiceAI" style="
-position:fixed;
-bottom:20px;
-right:20px;
-background:#2563eb;
-color:white;
-padding:12px 18px;
-border:none;
-border-radius:30px;
-cursor:pointer;
-font-weight:bold;
-z-index:999;
-">
-🎤 Talk to Rajat AI
-</button>
-
-<script>
-
-const button = document.getElementById("voiceAI");
-
-button.onclick = function(){
-
-const recognition = new webkitSpeechRecognition();
-recognition.lang = "en-US";
-
-recognition.start();
-
-recognition.onresult = function(event){
-
-let text = event.results[0][0].transcript.toLowerCase();
-
-let reply="";
-
-if(text.includes("project"))
-reply="Rajat has worked on stock price prediction and business analytics projects.";
-
-else if(text.includes("skills"))
-reply="Rajat works with Excel, Power BI, Tableau, Python and Data Analytics.";
-
-else if(text.includes("contact"))
-reply="You can contact Rajat using the contact section of this website.";
-
-else
-reply="You can ask about Rajat's projects, skills or resume.";
-
-const speech = new SpeechSynthesisUtterance(reply);
-
-speechSynthesis.speak(speech);
-
-};
-
-}
 
 </script>
 </body>
@@ -893,6 +829,7 @@ speechSynthesis.speak(speech);
 
 </body>
 </html>
+
 
 
 
