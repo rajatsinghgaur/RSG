@@ -638,110 +638,6 @@ document.addEventListener("DOMContentLoaded", function () {
 </footer>
 
 <script>
-const music = document.getElementById("bgMusic");
-const muteBtn = document.getElementById("muteBtn");
-
-/* browser policy fix */
-document.addEventListener("click", () => {
-  music.muted = false;
-  music.play();
-}, { once:true });
-
-muteBtn.addEventListener("click", () => {
-  music.muted = !music.muted;
-  muteBtn.innerText = music.muted ? "🔇" : "🔊";
-});
-</script>
-
-<script>
-function openLogo(){
-  document.getElementById("logoModal").style.display = "flex";
-}
-
-function closeLogo(){
-  document.getElementById("logoModal").style.display = "none";
-}
-</script>
-
-<script>
-function openLogoPopup(){
-  document.getElementById("logoPopup").style.display = "flex";
-}
-
-function closeLogoPopup(){
-  document.getElementById("logoPopup").style.display = "none";
-}
-</script>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajat Singh Gaur | Portfolio</title>
-
-<style>
-
-body{
-font-family: Arial;
-margin:0;
-background:#0f172a;
-color:white;
-}
-
-header{
-padding:40px;
-text-align:center;
-background:#1e293b;
-}
-
-header h1{
-font-size:40px;
-}
-
-section{
-padding:50px;
-}
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-.skills span{
-background:#2563eb;
-padding:8px 12px;
-margin:5px;
-display:inline-block;
-border-radius:5px;
-}
-
-.contact{
-text-align:center;
-}
-
-#aiButton{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#2563eb;
-padding:12px 18px;
-border-radius:30px;
-cursor:pointer;
-font-weight:bold;
-}
 
 </style>
 </head>
@@ -759,6 +655,7 @@ font-weight:bold;
 
 </body>
 </html>
+
 
 
 
