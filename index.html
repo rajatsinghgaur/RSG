@@ -673,99 +673,172 @@ function closeLogoPopup(){
 }
 </script>
 
-<!-- AI Portfolio Assistant -->
-<script>
-(function () {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajat Singh Gaur | Portfolio</title>
 
-const chatButton = document.createElement("div");
-chatButton.innerHTML = "💬 Ask Rajat AI";
-chatButton.style.position = "fixed";
-chatButton.style.bottom = "20px";
-chatButton.style.right = "20px";
-chatButton.style.background = "#4CAF50";
-chatButton.style.color = "white";
-chatButton.style.padding = "12px 18px";
-chatButton.style.borderRadius = "30px";
-chatButton.style.cursor = "pointer";
-chatButton.style.fontWeight = "bold";
-chatButton.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
-document.body.appendChild(chatButton);
+<style>
 
-const chatBox = document.createElement("div");
-chatBox.style.position = "fixed";
-chatBox.style.bottom = "80px";
-chatBox.style.right = "20px";
-chatBox.style.width = "300px";
-chatBox.style.height = "380px";
-chatBox.style.background = "white";
-chatBox.style.borderRadius = "10px";
-chatBox.style.boxShadow = "0 5px 20px rgba(0,0,0,0.3)";
-chatBox.style.display = "none";
-chatBox.style.flexDirection = "column";
-chatBox.innerHTML = `
-<div style="background:#4CAF50;color:white;padding:10px;font-weight:bold">
-Rajat AI Assistant
-</div>
-
-<div id="chatMessages" style="flex:1;padding:10px;overflow-y:auto;font-size:14px">
-Hello 👋 I'm Rajat's AI assistant.  
-You can ask me about:
-• Projects  
-• Skills  
-• Resume  
-• Contact
-</div>
-
-<input id="userInput" placeholder="Ask something..."
-style="border:none;border-top:1px solid #ddd;padding:10px;width:100%">
-`;
-document.body.appendChild(chatBox);
-
-chatButton.onclick = () => {
-chatBox.style.display =
-chatBox.style.display === "none" ? "flex" : "none";
-};
-
-document
-.getElementById("userInput")
-.addEventListener("keypress", function(e){
-
-if(e.key === "Enter"){
-
-let input = this.value.toLowerCase();
-let reply = "";
-
-if(input.includes("project"))
-reply = "Rajat has worked on Stock Price Prediction and Data Analysis projects using Python.";
-
-else if(input.includes("skill"))
-reply = "Rajat's main skills are Excel, Power BI, Tableau, Python and Data Analytics.";
-
-else if(input.includes("resume"))
-reply = "You can download Rajat's resume from the Resume section of this website.";
-
-else if(input.includes("contact"))
-reply = "You can contact Rajat through the contact form on this website.";
-
-else
-reply = "You can ask me about Rajat's projects, skills, or how to contact him.";
-
-document.getElementById("chatMessages").innerHTML +=
-"<div style='margin-top:10px'><b>You:</b> "+this.value+"</div>";
-
-document.getElementById("chatMessages").innerHTML +=
-"<div style='margin-top:5px;color:#4CAF50'><b>AI:</b> "+reply+"</div>";
-
-this.value="";
+body{
+font-family: Arial;
+margin:0;
+background:#0f172a;
+color:white;
 }
 
-});
+header{
+padding:40px;
+text-align:center;
+background:#1e293b;
+}
 
-})();
+header h1{
+font-size:40px;
+}
+
+section{
+padding:50px;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.skills span{
+background:#2563eb;
+padding:8px 12px;
+margin:5px;
+display:inline-block;
+border-radius:5px;
+}
+
+.contact{
+text-align:center;
+}
+
+#aiButton{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#2563eb;
+padding:12px 18px;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>Rajat Singh Gaur</h1>
+
+<p>MBA Business Analytics | Data Analyst</p>
+
+<p>Excel • Power BI • Tableau • Python</p>
+
+</header>
+
+<section>
+
+<h2>About Me</h2>
+
+<p>
+I am currently pursuing an MBA in Business Analytics. 
+I enjoy working with data, understanding business problems, 
+and building analytics solutions that support decision making.
+</p>
+
+</section>
+
+<section>
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+<h3>Stock Price Prediction</h3>
+<p>Machine learning model using Python to predict stock prices.</p>
+</div>
+
+<div class="card">
+<h3>Business Data Analysis</h3>
+<p>Data analysis using Excel, Python and visualization tools.</p>
+</div>
+
+<div class="card">
+<h3>Dashboard Project</h3>
+<p>Power BI dashboard for business insights.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Skills</h2>
+
+<div class="skills">
+
+<span>Excel</span>
+<span>Power BI</span>
+<span>Tableau</span>
+<span>Python</span>
+<span>Data Analysis</span>
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2>Contact</h2>
+
+<p>Email: your-email@gmail.com</p>
+
+<p>LinkedIn: linkedin.com/in/yourprofile</p>
+
+</section>
+
+<div id="aiButton">🤖 Ask Rajat AI</div>
+
+<script>
+
+document.getElementById("aiButton").onclick=function(){
+
+alert("Hi! I'm Rajat's AI assistant. Ask me about projects, skills, or contact information.");
+
+}
+
 </script>
 
 </body>
 </html>
+
+</body>
+</html>
+
 
 
 
