@@ -672,6 +672,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   </div>
 </section>
+</section>
+
+<!-- LEAD CAPTURE FORM -->
+
+<section id="leadbot">
+  <div class="container">
+
+<h2>Let's Connect</h2>
+
+<form id="leadForm">
+
+<input type="text" placeholder="Your Name" required><br><br>
+
+<input type="email" placeholder="Your Email" required><br><br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+</section>
 
 <footer class="copyright">
   © 2025 Rajat Singh Gaur. All Rights Reserved.
@@ -689,6 +710,28 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <elevenlabs-convai agent-id="agent_3301kkhacgyyea1vcgattzpxf52q"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+<script>
+
+document.getElementById("leadForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let name = this.querySelector("input[type=text]").value;
+let email = this.querySelector("input[type=email]").value;
+
+mixpanel.track("Lead Captured", {
+name: name,
+email: email
+});
+
+alert("Thanks! Rajat will contact you soon.");
+
+this.reset();
+
+});
+
+</script>   
 </body>
 </html>
 
