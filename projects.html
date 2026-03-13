@@ -10,59 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* POPUP */
-
-.popup{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-}
-
-.popup-content{
-background:#0f1116;
-padding:40px;
-border-radius:15px;
-max-width:600px;
-text-align:center;
-}
-
-.close{
-font-size:30px;
-cursor:pointer;
-float:right;
-color:white;
-}
-/* SCROLL ANIMATION */
-
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:all 0.8s ease;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-.projects-video{
-width:100%;
-max-width:900px;
-margin:30px auto;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 0 40px rgba(245,197,24,0.7);
-}
-
-.projects-video video{
-width:100%;
-display:block;
-}
 
 body{
 margin:0;
@@ -80,6 +27,7 @@ top:0;
 width:100%;
 background:#060709;
 border-bottom:1px solid rgba(245,197,24,0.2);
+z-index:1000;
 }
 
 .panel .container{
@@ -114,7 +62,23 @@ color:#f5c518;
 font-size:40px;
 }
 
-/* PROJECT GRID */
+/* VIDEO */
+
+.projects-video{
+width:100%;
+max-width:900px;
+margin:30px auto;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 40px rgba(245,197,24,0.7);
+}
+
+.projects-video video{
+width:100%;
+display:block;
+}
+
+/* GRID */
 
 .grid{
 display:grid;
@@ -126,14 +90,29 @@ margin-top:50px;
 /* CARD */
 
 .card{
-.project-card{
-transition: transform 0.4s ease, box-shadow 0.4s ease;
+background:#0f1116;
+padding:30px;
+border-radius:16px;
+transition:0.3s;
+border:1px solid rgba(245,197,24,0.2);
 }
 
-.project-card:hover{
-transform: scale(1.05);
-box-shadow:0 0 40px rgba(245,197,24,0.9);
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px rgba(245,197,24,0.7);
 }
+
+.card h3{
+color:#f5c518;
+}
+
+.card p{
+opacity:0.9;
+line-height:1.6;
+}
+
+/* BUTTONS */
+
 .project-buttons{
 margin-top:15px;
 display:flex;
@@ -154,50 +133,47 @@ font-weight:600;
 .project-buttons a:hover{
 background:#00e5ff;
 }
+
+/* POPUP */
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.popup-content{
 background:#0f1116;
-padding:30px;
-border-radius:16px;
-transition:0.3s;
-border:1px solid rgba(245,197,24,0.2);
+padding:40px;
+border-radius:15px;
+max-width:600px;
+text-align:center;
 }
 
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 25px rgba(245,197,24,0.7);
-}
-
-.card h3{
-color:#f5c518;
-}
-
-.card p{
-opacity:0.9;
-line-height:1.6;
-}
-
-/* BUTTONS */
-
-.buttons{
-margin-top:20px;
-}
-
-.btn{
-display:inline-block;
-padding:10px 18px;
-margin-right:10px;
-border-radius:20px;
-text-decoration:none;
-font-size:14px;
-}
-
-.github{
-background:#111;
+.close{
+font-size:30px;
+cursor:pointer;
+float:right;
 color:white;
 }
 
-.demo{
-background:#f5c518;
-color:black;
+/* SCROLL ANIMATION */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }
 
 </style>
@@ -221,37 +197,30 @@ color:black;
 </div>
 </div>
 
-<!-- PAGE TITLE -->
-
 <div class="container">
 
 <h1>My Projects</h1>
 
-<!-- PROJECTS VIDEO PREVIEW -->
+<!-- VIDEO PREVIEW -->
 
 <div class="projects-video">
-
 <video autoplay muted loop playsinline>
-
-<source src="Predicting Stocks With Data (.mp4" type="video/mp4">
-
+<source src="projects-preview.mp4" type="video/mp4">
 </video>
-
 </div>
 
 <div class="grid">
 
 <!-- Project 1 -->
 
-<div class="card project-card reveal">
+<div class="card reveal">
 
 <img src="project1.jpg" style="width:100%;border-radius:10px;margin-bottom:10px;">
 
 <h3>Stock Price Prediction</h3>
 
 <p>
-Machine learning model using Python to predict stock prices
-using historical market data.
+Machine learning model using Python to predict stock prices using historical data.
 </p>
 
 <div class="project-buttons">
@@ -263,52 +232,44 @@ using historical market data.
 
 <!-- Project 2 -->
 
-<div class="card project-card">
+<div class="card reveal">
 
 <h3>Business Analytics Dashboard</h3>
 
 <p>
-Power BI dashboard visualizing business performance
-and insights for decision making.
+Power BI dashboard visualizing business performance insights.
 </p>
 
 <div class="project-buttons">
-
 <a href="https://github.com/rajatsinghgaur" target="_blank">GitHub</a>
-
 <a href="#">View Dashboard</a>
-
 </div>
 
 </div>
-
 
 <!-- Project 3 -->
 
-<div class="card project-card">
+<div class="card reveal">
 
 <h3>AI Chatbot Automation</h3>
 
 <p>
-AI chatbot that automates customer communication
-for websites and businesses.
+AI chatbot that automates customer communication for businesses.
 </p>
 
 <div class="project-buttons">
-
 <a href="https://github.com/rajatsinghgaur" target="_blank">GitHub</a>
-
 <a onclick="openProject('project1')">Details</a>
-
 </div>
 
 </div>
 
 </div>
+</div>
+
 <!-- PROJECT POPUP -->
 
 <div id="projectPopup" class="popup">
-
 <div class="popup-content">
 
 <span class="close" onclick="closeProject()">&times;</span>
@@ -316,8 +277,8 @@ for websites and businesses.
 <div id="popupContent"></div>
 
 </div>
-
 </div>
+
 <script>
 
 /* SCROLL ANIMATION */
@@ -330,9 +291,8 @@ for(let i=0;i<reveals.length;i++){
 
 let windowHeight = window.innerHeight;
 let elementTop = reveals[i].getBoundingClientRect().top;
-let elementVisible = 100;
 
-if(elementTop < windowHeight - elementVisible){
+if(elementTop < windowHeight - 100){
 reveals[i].classList.add("active");
 }
 
@@ -342,22 +302,23 @@ reveals[i].classList.add("active");
 
 window.addEventListener("scroll", reveal);
 
-
 /* PROJECT POPUP */
 
 function openProject(project){
 
-let content = "";
+let content="";
 
-if(project === "project1"){
-content = `
+if(project==="project1"){
+
+content=`
 <h2>Stock Price Prediction</h2>
-<p>Machine learning model built using Python to analyze historical stock data.</p>
+<p>Machine learning model built using Python to analyze stock data.</p>
 <a href="https://github.com/rajatsinghgaur" target="_blank">View GitHub</a>
 `;
+
 }
 
-document.getElementById("popupContent").innerHTML = content;
+document.getElementById("popupContent").innerHTML=content;
 document.getElementById("projectPopup").style.display="flex";
 
 }
@@ -367,13 +328,12 @@ document.getElementById("projectPopup").style.display="none";
 }
 
 </script>
+
 <!-- ElevenLabs AI Assistant -->
 
 <elevenlabs-convai agent-id="agent_3301kkhacgyyea1vcgattzpxf52q"></elevenlabs-convai>
 
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed"
-async
-type="text/javascript"></script>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
 
 </body>
 </html>
