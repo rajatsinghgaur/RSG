@@ -462,11 +462,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   mixpanel.identify(userId);
   // Get precise location
+mixpanel.people.set({
+  "Portfolio Visitor": true,
+  "First Visit": new Date().toISOString()
+});
 
-  mixpanel.people.set({
-    "Portfolio Visitor": true,
-    "First Visit": new Date().toISOString()
-  });
+fetch("https://ipapi.co/json/")
+.then(res => res.json())
+.then(data => {
+
+mixpanel.people.set({
+  "City": data.city,
+  "Region": data.region,
+  "Country": data.country_name,
+  "IP Address": data.ip
+});
+
+mixpanel.track("Visitor Location", {
+  city: data.city,
+  country: data.country_name
+});
 
 });
 </script>
@@ -485,6 +500,9 @@ document.addEventListener("DOMContentLoaded", function () {
     <img src="IMG_20251115_185859.jpg" class="profile-pic">
     <h1>Rajat Singh Gaur</h1>
     <p>Business Analytics</p>
+    <div style="text-align:center;margin-top:20px;font-size:18px;">
+👁 Visitors: <span id="visitorCount">0</span>
+</div>
   </div>
 </section>
 
@@ -679,7 +697,9 @@ document.addEventListener("DOMContentLoaded", function () {
 <footer class="copyright">
   © 2025 Rajat Singh Gaur. All Rights Reserved.
 </footer>
+<elevenlabs-convai agent-id="agent_3301kkhacgyyea1vcgattzpxf52q"></elevenlabs-convai>
 
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
 <script>
 
 </style>
@@ -693,9 +713,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <elevenlabs-convai agent-id="agent_3301kkhacgyyea1vcgattzpxf52q"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
+</script>  
+<script>
 
+let count = localStorage.getItem("visitorCount");
 
-</script>   
+if(!count){
+count = 1;
+}else{
+count = parseInt(count) + 1;
+}
+
+localStorage.setItem("visitorCount", count);
+
+document.getElementById("visitorCount").innerText = count;
+
+</script>      
 </body>
 </html>
 
