@@ -73,6 +73,34 @@ margin-top:50px;
 /* CARD */
 
 .card{
+.project-card{
+transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover{
+transform: scale(1.05);
+box-shadow:0 0 40px rgba(245,197,24,0.9);
+}
+.project-buttons{
+margin-top:15px;
+display:flex;
+gap:10px;
+}
+
+.project-buttons a{
+flex:1;
+text-align:center;
+padding:10px;
+background:#f5c518;
+color:black;
+text-decoration:none;
+border-radius:20px;
+font-weight:600;
+}
+
+.project-buttons a:hover{
+background:#00e5ff;
+}
 background:#0f1116;
 padding:30px;
 border-radius:16px;
@@ -148,72 +176,69 @@ color:black;
 
 <div class="grid">
 
-<!-- PROJECT 1 -->
+<!-- Project 1 -->
 
-<div class="card">
+<div class="card project-card">
+
+<img src="project1.jpg" style="width:100%;border-radius:10px;margin-bottom:10px;">
 
 <h3>Stock Price Prediction</h3>
 
 <p>
-Machine learning model built using Python to predict stock prices 
-using historical market data and regression algorithms.
+Machine learning model using Python to predict stock prices
+using historical market data.
 </p>
 
-<div class="buttons">
-
-<a href="https://github.com/rajatsinghgaur" class="btn github">GitHub</a>
-
-<a href="#" class="btn demo">Live Demo</a>
-
+<div class="project-buttons">
+<a href="https://github.com/rajatsinghgaur" target="_blank">GitHub</a>
+<a href="#">Live Demo</a>
 </div>
 
 </div>
 
-<!-- PROJECT 2 -->
+<!-- Project 2 -->
 
-<div class="card">
+<div class="card project-card">
 
 <h3>Business Analytics Dashboard</h3>
 
 <p>
-Interactive dashboard created using Power BI to visualize 
-business performance metrics and financial insights.
+Power BI dashboard visualizing business performance
+and insights for decision making.
 </p>
 
-<div class="buttons">
+<div class="project-buttons">
 
-<a href="https://github.com/rajatsinghgaur" class="btn github">GitHub</a>
+<a href="https://github.com/rajatsinghgaur" target="_blank">GitHub</a>
 
-<a href="#" class="btn demo">Live Demo</a>
-
-</div>
+<a href="#">View Dashboard</a>
 
 </div>
 
-<!-- PROJECT 3 -->
+</div>
 
-<div class="card">
 
-<h3>AI Chatbot</h3>
+<!-- Project 3 -->
+
+<div class="card project-card">
+
+<h3>AI Chatbot Automation</h3>
 
 <p>
-AI powered chatbot that answers customer queries 
-and automates lead generation for businesses.
+AI chatbot that automates customer communication
+for websites and businesses.
 </p>
 
-<div class="buttons">
+<div class="project-buttons">
 
-<a href="https://github.com/rajatsinghgaur" class="btn github">GitHub</a>
+<a href="https://github.com/rajatsinghgaur" target="_blank">GitHub</a>
 
-<a href="#" class="btn demo">Live Demo</a>
-
-</div>
+<a href="#">Live Demo</a>
 
 </div>
 
 </div>
 
 </div>
-
 </body>
 </html>
