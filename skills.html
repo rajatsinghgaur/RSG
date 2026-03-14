@@ -1,292 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Paste this right before your closingtag -->
-<script type="text/javascript">
-  (function(e,c){if(!c.__SV){var l,h;window.mixpanel=c;c._i=[];c.init=function(q,r,f){function t(d,a){var g=a.split(".");2==g.length&&(d=d[g[0]],a=g[1]);d[a]=function(){d.push([a].concat(Array.prototype.slice.call(arguments,0)))}}var b=c;"undefined"!==typeof f?b=c[f]=[]:f="mixpanel";b.people=b.people||[];b.toString=function(d){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);d||(a+=" (stub)");return a};b.people.toString=function(){return b.toString(1)+".people (stub)"};l="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders start_session_recording stop_session_recording people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
-  for(h=0;h<l.length;h++)t(b,l[h]);var n="set set_once union unset remove delete".split(" ");b.get_group=function(){function d(p){a[p]=function(){b.push([g,[p].concat(Array.prototype.slice.call(arguments,0))])}}for(var a={},g=["get_group"].concat(Array.prototype.slice.call(arguments,0)),m=0;m<n.length;m++)d(n[m]);return a};c._i.push([q,r,f])};c.__SV=1.2;var k=e.createElement("script");k.type="text/javascript";k.async=!0;k.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===
-  e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=e.getElementsByTagName("script")[0];e.parentNode.insertBefore(k,e)}})(document,window.mixpanel||[])
 
-  
-  mixpanel.init('f4feec239cd869aa2718ba7106429bf4', {
-    autocapture: true,
-    record_sessions_percent: 100,
-    api_host: 'https://api-eu.mixpanel.com',
-  })
-
-</script>  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajat Singh Gaur | Skills</title>
+
+<title>Skills | Rajat Singh Gaur</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-:root{
-  --primary:#f5c518;
-  --accent:#00e5ff;
-  --bg:#060709;
-  --card:#0f1116;
-  --text:#f1f1f1;
-}
 
 body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
+margin:0;
+font-family:Inter;
+background:linear-gradient(180deg,#05060a,#0d1117);
+color:white;
+overflow-x:hidden;
 }
 
-.container{
-  width:90%;
-  max-width:1100px;
-  margin:auto;
+header{
+display:flex;
+justify-content:space-between;
+padding:25px 80px;
+align-items:center;
 }
 
-/* HEADER */
-.header{
-  padding:90px 0 70px;
-  text-align:center;
-}
-.header h1{
-  font-size:48px;
-  color:var(--primary);
-  text-shadow:0 0 20px rgba(245,197,24,0.8);
-}
-.header p{
-  font-size:20px;
-  opacity:0.85;
+.logo{
+font-weight:700;
+font-size:22px;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-  padding-bottom:80px;
+nav a{
+color:#aaa;
+text-decoration:none;
+margin-left:30px;
+transition:0.3s;
 }
 
-.card{
-  background:rgba(15,17,22,0.95);
-  padding:35px;
-  border-radius:20px;
-  border:1px solid rgba(245,197,24,0.2);
-  transition:0.3s;
-  text-align:center;
-}
-.card i{
-  font-size:38px;
-  color:var(--primary);
-  margin-bottom:15px;
-}
-.card h3{
-  margin:10px 0;
-}
-.card p{
-  opacity:0.8;
-  font-size:15px;
-}
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 35px rgba(245,197,24,0.8);
+nav a:hover{
+color:white;
 }
 
-/* ===== FIXED NAV PANEL ===== */
-.panel{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:10000;
-
-  /* 🔥 SMOOTH BLENDED LOOK */
-  background:rgba(6,7,9,0.65);
-  border-bottom:1px solid rgba(245,197,24,0.15);
-  box-shadow:0 8px 25px rgba(0,0,0,0.6);
+.hero{
+text-align:center;
+padding:80px 20px;
 }
 
-
-.panel .container{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  padding:18px 0;
+.hero h1{
+font-size:50px;
+background:linear-gradient(90deg,#00f0ff,#8a2eff);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-.panel a{
-  margin:10px 18px;
-  text-decoration:none;
-  font-weight:600;
-  color:#e6e6e6;
+.hero p{
+color:#aaa;
+margin-top:10px;
 }
 
-.panel a:hover{
-  color:var(--primary);
+.skills{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
 
-/* space for fixed panel */
-body{
-  padding-top:90px;
+.skill-card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:25px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+transition:0.4s;
 }
 
-/* ===== SIMPLE RSG LOGO ===== */
-.rsg-logo{
-  position:fixed;
-  top:1px;
-  left:05px;
-  z-index:10001;
-
-  font-size:18px;
-  font-weight:800;
-  letter-spacing:2px;
-
-  color:var(--primary);
-  text-decoration:none;
-
-  text-shadow:0 0 10px rgba(245,197,24,0.8);
-}
-/* ===== COMMON COPYRIGHT (ALL PAGES) ===== */
-.copyright{
-  text-align:center;
-  padding:25px 10px;
-  font-size:14px;
-  letter-spacing:1px;
-  color:rgba(116, 106, 70, 0.8);
-  background:#050507;
- border-top:1px solid rgba(245,197,24,0.2);
-
+.skill-card:hover{
+transform:translateY(-10px);
+border-color:#00eaff;
 }
 
+.skill-title{
+font-size:20px;
+margin-bottom:15px;
+}
+
+.progress{
+background:#111;
+height:8px;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+background:linear-gradient(90deg,#00eaff,#6a00ff);
+width:0%;
+animation:load 2s forwards;
+}
+
+@keyframes load{
+from{width:0}
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#777;
+font-size:14px;
+}
 
 </style>
 
-<script src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  mixpanel.init("f4feec239cd869aa2718ba7106429bf4", {
-    autocapture: true,
-    record_sessions_percent: 100
-  });
-
-  // Generate unique ID per visitor
-  let userId = localStorage.getItem("mp_user_id");
-
-  if (!userId) {
-    userId = "visitor_" + Math.random().toString(36).substring(2, 10);
-    localStorage.setItem("mp_user_id", userId);
-  }
-
-  mixpanel.identify(userId);
-
-  mixpanel.people.set({
-    "Portfolio Visitor": true,
-    "First Visit": new Date().toISOString()
-  });
-
-});
-</script>  
 </head>
 
 <body>
 
-<body>
+<header>
 
-<!-- SIMPLE LOGO -->
-<a href="index.html" class="rsg-logo">R$G</a>
+<div class="logo">RSG</div>
 
-<!-- FIXED PANEL -->
-<div class="panel">
-  <div class="container">
-    <a href="#home">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="services.html">Services</a>
-    <a href="skills.html">Skills</a>
-    <a href="me.html">Me</a>
-    <a href="#contact">Contact</a>
-  </div>
-</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="projects.html">Projects</a>
+<a href="skills.html">Skills</a>
+<a href="contact.html">Contact</a>
+</nav>
 
+</header>
 
-<!-- HEADER -->
-<section class="header">
-  <div class="container">
-    <h1>My Skills</h1>
-    <p>Tools & technologies I work with</p>
-  </div>
+<section class="hero">
+
+<h1>My Skills</h1>
+<p>Technologies and tools I use to build data-driven solutions.</p>
+
 </section>
 
-<!-- SKILLS GRID -->
-<section>
-  <div class="container">
-    <div class="grid">
+<section class="skills">
 
-      <div class="card">
-        <i class="fas fa-file-excel"></i>
-        <h3>Microsoft Excel</h3>
-        <p>Advanced formulas, Pivot Tables, dashboards & data analysis</p>
-      </div>
+<div class="skill-card">
 
-      <div class="card">
-        <i class="fas fa-chart-line"></i>
-        <h3>Power BI</h3>
-        <p>Interactive dashboards, DAX basics, business reporting</p>
-      </div>
+<div class="skill-title">Python</div>
 
-      <div class="card">
-        <i class="fas fa-chart-pie"></i>
-        <h3>Tableau</h3>
-        <p>Data visualization, charts & storytelling with data</p>
-      </div>
-
-      <div class="card">
-        <i class="fab fa-python"></i>
-        <h3>Python</h3>
-        <p>Data cleaning, analysis, automation & basics of ML</p>
-      </div>
-
-      <div class="card">
-        <i class="fas fa-database"></i>
-        <h3>SQL</h3>
-        <p>Queries, joins, filtering & database handling</p>
-      </div>
-
-      <div class="card">
-        <i class="fas fa-briefcase"></i>
-        <h3>Business Analytics</h3>
-        <p>Data-driven decision making & business insights</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
- <!-- BACK TO HOME (ONLY ONE – BOTTOM) -->
-  <div style="
-  text-align:center;
-   margin:100px 0 50px;
-   ">
-   <a href="../" style="
-  
-   ">
-   <a href="index.html" class="back-btn">← Back to Home</a>
-  </a>
+<div class="progress">
+<div class="progress-bar" style="width:90%"></div>
 </div>
 
-<footer class="copyright">
-  © 2025 Rajat Singh Gaur. All Rights Reserved.
+</div>
+
+<div class="skill-card">
+
+<div class="skill-title">SQL</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:85%"></div>
+</div>
+
+</div>
+
+<div class="skill-card">
+
+<div class="skill-title">Power BI</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:80%"></div>
+</div>
+
+</div>
+
+<div class="skill-card">
+
+<div class="skill-title">Tableau</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:75%"></div>
+</div>
+
+</div>
+
+<div class="skill-card">
+
+<div class="skill-title">Excel</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:95%"></div>
+</div>
+
+</div>
+
+<div class="skill-card">
+
+<div class="skill-title">Machine Learning</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:70%"></div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Rajat Singh Gaur
+
 </footer>
 
-<!-- ElevenLabs AI Assistant -->
-
-<elevenlabs-convai agent-id="agent_3301kkhacgyyea1vcgattzpxf52q"></elevenlabs-convai>
-
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed"
-async
-type="text/javascript"></script>
 </body>
 </html>
-
-
