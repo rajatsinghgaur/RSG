@@ -19,32 +19,6 @@ color:white;
 padding-top:90px;
 }
 
-.github-section{
-text-align:center;
-margin:100px auto;
-max-width:1100px;
-}
-
-.github-section h2{
-font-size:42px;
-margin-bottom:40px;
-background:linear-gradient(90deg,#f5c518,#00e5ff);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.github-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-gap:30px;
-}
-
-.github-grid img{
-width:100%;
-border-radius:18px;
-box-shadow:0 0 30px rgba(0,0,0,0.7);
-}
-
 /* ===== GITHUB STATS SECTION ===== */
 
 .github-section{
@@ -346,32 +320,6 @@ AI chatbot that automates customer communication for businesses.
 </div>
 </div>
 
-
-
-<!-- ===== GITHUB STATS SECTION ===== -->
-
-<section class="github-section">
-
-<h2>GitHub Activity</h2>
-
-<div class="github-grid">
-
-<img src="https://github-readme-stats.vercel.app/api?username=rajatsinghgaur&show_icons=true&theme=tokyonight&hide_border=true">
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rajatsinghgaur&layout=compact&theme=tokyonight&hide_border=true">
-
-</div>
-
-<br><br>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=rajatsinghgaur&theme=tokyo-night">
-
-</section>
-  
-<footer class="copyright">
-© 2025 Rajat Singh Gaur
-</footer>
-
 <!-- PROJECT POPUP -->
 
 <div id="projectPopup" class="popup">
@@ -431,56 +379,6 @@ document.getElementById("projectPopup").style.display="flex";
 function closeProject(){
 document.getElementById("projectPopup").style.display="none";
 }
-
-</script>
-
-<script>
-
-async function loadGitHubProjects(){
-
-const username = "rajatsinghgaur";
-
-try{
-
-const response = await fetch(`https://api.github.com/users/${username}/repos`);
-
-const repos = await response.json();
-
-const container = document.getElementById("projects-container");
-
-repos.slice(0,4).forEach(repo=>{
-
-const card = document.createElement("div");
-
-card.className = "card reveal";
-
-card.innerHTML = `
-<h3>${repo.name}</h3>
-
-<p>${repo.description || "GitHub repository project"}</p>
-
-<div class="project-buttons">
-
-<a href="${repo.html_url}" target="_blank">GitHub</a>
-
-<a href="${repo.homepage || repo.html_url}" target="_blank">View Project</a>
-
-</div>
-`;
-
-container.appendChild(card);
-
-});
-
-}catch(error){
-
-console.log("GitHub projects load error",error);
-
-}
-
-}
-
-loadGitHubProjects();
 
 </script>
 
