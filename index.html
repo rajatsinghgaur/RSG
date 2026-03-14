@@ -4,192 +4,138 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajat Singh Gaur | Business Analytics</title>
+
+<title>Rajat Singh Gaur | Developer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
 <style>
 
-:root{
---primary:#f5c518;
---accent:#00e5ff;
---bg:#060709;
---card:#0f1116;
---text:#f1f1f1;
-}
-
 body{
 margin:0;
-font-family:'Inter',sans-serif;
-background:var(--bg);
-color:var(--text);
-padding-top:90px;
-overflow-x:hidden;
+font-family:Inter;
+background:radial-gradient(circle at top,#0f2027,#050608);
+color:white;
+overflow:hidden;
 }
 
-/* Background particles */
-#neonParticles{
-position:fixed;
-inset:0;
-z-index:-1;
+/* NAVBAR */
+
+nav{
+position:absolute;
+top:30px;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:0 80px;
+box-sizing:border-box;
+z-index:2;
 }
 
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
+nav .logo{
+font-weight:700;
+letter-spacing:2px;
+font-size:20px;
 }
 
-section{
-padding:100px 0;
+nav ul{
+list-style:none;
+display:flex;
+gap:40px;
 }
 
-h2{
-text-align:center;
-margin-bottom:50px;
-font-size:36px;
-color:var(--primary);
+nav ul li{
+cursor:pointer;
+opacity:.8;
+}
+
+nav ul li:hover{
+opacity:1;
 }
 
 /* HERO */
 
 .hero{
-text-align:center;
-padding:160px 0 120px;
-}
-
-.profile-pic{
-width:280px;
-height:280px;
-border-radius:50%;
-object-fit:cover;
-border:5px solid var(--primary);
-box-shadow:0 0 35px rgba(245,197,24,0.9);
-}
-
-.hero h1{
-font-size:60px;
-}
-
-.hero p{
-font-size:22px;
-}
-
-/* PANEL */
-
-.panel{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:rgba(6,7,9,0.8);
-border-bottom:1px solid rgba(245,197,24,0.2);
-z-index:1000;
-}
-
-.panel .container{
+height:100vh;
 display:flex;
+align-items:center;
 justify-content:center;
+}
+
+/* LEFT TEXT */
+
+.left{
+position:absolute;
+left:120px;
+}
+
+.left h3{
+color:#00e5ff;
+font-weight:400;
+}
+
+.left h1{
+font-size:65px;
+line-height:1.1;
+}
+
+/* RIGHT TEXT */
+
+.right{
+position:absolute;
+right:120px;
+text-align:right;
+}
+
+.right h3{
+color:#00e5ff;
+font-weight:400;
+}
+
+.right h1{
+font-size:65px;
+}
+
+/* SOCIAL */
+
+.social{
+position:absolute;
+left:40px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
 gap:25px;
-padding:18px;
+z-index:2;
 }
 
-.panel a{
-color:#eee;
+.social a{
+color:white;
+font-size:22px;
 text-decoration:none;
-font-weight:600;
+opacity:.7;
 }
 
-.panel a:hover{
-color:var(--primary);
+.social a:hover{
+opacity:1;
 }
 
-/* GRID */
+/* 3D CANVAS */
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
+#threeCanvas{
+position:absolute;
+width:500px;
+height:500px;
 }
 
-.card{
-background:var(--card);
-padding:32px;
-border-radius:18px;
-border:1px solid rgba(245,197,24,0.15);
-transition:0.3s;
-}
+/* GLOW TEXT */
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(245,197,24,0.7);
-}
-
-/* PROJECT BUTTON */
-
-.resume-btn{
-display:inline-block;
-margin-top:15px;
-padding:10px 20px;
-background:var(--primary);
-color:#000;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-}
-
-/* CONTACT */
-
-.contact-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:30px;
-text-align:center;
-}
-
-.contact-card{
-background:var(--card);
-padding:30px;
-border-radius:15px;
-border:1px solid rgba(245,197,24,0.2);
-}
-
-.contact-card i{
-font-size:28px;
-color:var(--primary);
-margin-bottom:10px;
-}
-
-/* CTA */
-
-.cta-section{
-text-align:center;
-padding:70px;
-background:linear-gradient(135deg,#1a73e8,#34a853);
-border-radius:15px;
-margin:80px auto;
-max-width:900px;
-}
-
-.cta-btn{
-display:inline-block;
-padding:15px 30px;
-background:#fff;
-color:#1a73e8;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
-}
-
-/* Footer */
-
-.copyright{
-text-align:center;
-padding:25px;
-background:#050507;
-border-top:1px solid rgba(245,197,24,0.2);
-font-size:14px;
+h1{
+background:linear-gradient(90deg,#00e5ff,#f5c518);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 </style>
@@ -198,235 +144,102 @@ font-size:14px;
 
 <body>
 
-<canvas id="neonParticles"></canvas>
+<nav>
 
-<!-- NAVIGATION -->
+<div class="logo">RSG</div>
 
-<div class="panel">
-<div class="container">
+<ul>
+<li>ABOUT</li>
+<li>WORK</li>
+<li>CONTACT</li>
+</ul>
 
-<a href="#home">Home</a>
-<a href="#projects">Projects</a>
-<a href="#education">Education</a>
-<a href="#contact">Contact</a>
+</nav>
 
-</div>
-</div>
+<div class="social">
 
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-<div class="container">
-
-<img src="IMG_20251115_185859.jpg" class="profile-pic">
-
-<h1>Rajat Singh Gaur</h1>
-
-<p>Business Analytics</p>
-
-<p>Visitors: <span id="visitorCount">0</span></p>
-
-</div>
-
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-<div class="container">
-
-<h2>Featured Projects</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>Stock Price Prediction</h3>
-
-<p>Machine learning model using Python to predict stock prices.</p>
-
-<a href="projects.html" class="resume-btn">View Project</a>
-
-</div>
-
-<div class="card">
-
-<h3>Business Analytics Dashboard</h3>
-
-<p>Power BI dashboard visualizing business performance metrics.</p>
-
-<a href="projects.html" class="resume-btn">View Project</a>
-
-</div>
-
-<div class="card">
-
-<h3>AI Chatbot</h3>
-
-<p>AI chatbot automating customer communication.</p>
-
-<a href="projects.html" class="resume-btn">View Project</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- EDUCATION -->
-
-<section id="education">
-
-<div class="container">
-
-<h2>Education</h2>
-
-<div class="grid">
-
-<div class="card">MBA – Business Analytics (2024–2026)</div>
-
-<div class="card">B.Sc Computer Science (2021–2024)</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta-section">
-
-<h2>Let's Work Together</h2>
-
-<p>I am open to Business Analyst opportunities, internships, and freelance projects.</p>
-
-<a href="mailto:gaurrajatmail@gmail.com" class="cta-btn">Contact Me</a>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<div class="container">
-
-<h2>Contact Me</h2>
-
-<div class="contact-grid">
-
-<div class="contact-card">
-<i class="fas fa-envelope"></i><br>
-<a href="mailto:gaurrajat58@gmail.com">Email</a>
-</div>
-
-<div class="contact-card">
-<i class="fab fa-linkedin"></i><br>
-<a href="https://linkedin.com">LinkedIn</a>
-</div>
-
-<div class="contact-card">
-<i class="fab fa-github"></i><br>
 <a href="https://github.com">GitHub</a>
-</div>
-
-<div class="contact-card">
-<i class="fab fa-instagram"></i><br>
+<a href="https://linkedin.com">LinkedIn</a>
 <a href="https://instagram.com">Instagram</a>
-</div>
 
 </div>
+
+<section class="hero">
+
+<div class="left">
+
+<h3>Hello I'm</h3>
+<h1>RAJAT<br>SINGH GAUR</h1>
+
+</div>
+
+<div id="threeCanvas"></div>
+
+<div class="right">
+
+<h3>Business Analytics</h3>
+<h1>DEVELOPER</h1>
 
 </div>
 
 </section>
 
-<footer class="copyright">
-
-© 2025 Rajat Singh Gaur. All Rights Reserved.
-
-</footer>
-
-<!-- AI Assistant -->
-
-<elevenlabs-convai agent-id="agent_3301kkhacgyyea1vcgattzpxf52q"></elevenlabs-convai>
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
-
-<!-- Visitor Counter -->
-
 <script>
 
-let count = localStorage.getItem("visitorCount");
+/* THREE JS SCENE */
 
-if(!count){
-count = 1;
-}else{
-count = parseInt(count)+1;
-}
+const scene = new THREE.Scene()
 
-localStorage.setItem("visitorCount",count);
+const camera = new THREE.PerspectiveCamera(
+75,
+500/500,
+0.1,
+1000
+)
 
-document.getElementById("visitorCount").innerText = count;
+const renderer = new THREE.WebGLRenderer({alpha:true})
 
-</script>
+renderer.setSize(500,500)
 
-<!-- Neon particles -->
+document.getElementById("threeCanvas").appendChild(renderer.domElement)
 
-<script>
+/* GEOMETRY */
 
-const canvas = document.getElementById("neonParticles");
-const ctx = canvas.getContext("2d");
+const geometry = new THREE.IcosahedronGeometry(2,1)
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const material = new THREE.MeshStandardMaterial({
+color:0x00e5ff,
+wireframe:true
+})
 
-let particles = [];
+const sphere = new THREE.Mesh(geometry,material)
 
-for(let i=0;i<70;i++){
+scene.add(sphere)
 
-particles.push({
+/* LIGHT */
 
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2+1,
-d:Math.random()*1
+const light = new THREE.PointLight(0xffffff,1)
 
-});
+light.position.set(5,5,5)
 
-}
+scene.add(light)
 
-function draw(){
+camera.position.z = 5
 
-ctx.clearRect(0,0,canvas.width,canvas.height);
+/* ANIMATION */
 
-ctx.fillStyle="#f5c518";
+function animate(){
 
-particles.forEach(p=>{
+requestAnimationFrame(animate)
 
-ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fill();
+sphere.rotation.x += 0.01
+sphere.rotation.y += 0.01
 
-p.y+=p.d;
-
-if(p.y>canvas.height){
-
-p.y=0;
-p.x=Math.random()*canvas.width;
+renderer.render(scene,camera)
 
 }
 
-});
-
-requestAnimationFrame(draw);
-
-}
-
-draw();
+animate()
 
 </script>
 
