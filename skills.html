@@ -5,111 +5,242 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Skills | Rajat Singh Gaur</title>
+<title>Rajat Singh Gaur | Skills</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
+:root{
+--primary:#f5c518;
+--accent:#00e5ff;
+--bg:#050507;
+--card:#0f1116;
+--text:#f1f1f1;
+}
+
+*{
+box-sizing:border-box;
+}
+
 body{
 margin:0;
-font-family:Inter;
-background:linear-gradient(180deg,#05060a,#0d1117);
-color:white;
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--text);
 overflow-x:hidden;
 }
 
-header{
-display:flex;
-justify-content:space-between;
-padding:25px 80px;
-align-items:center;
+/* ===== Animated Background ===== */
+
+body::before{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#f5c51830,transparent 70%);
+top:-200px;
+right:-200px;
+filter:blur(120px);
+z-index:-1;
 }
 
-.logo{
-font-weight:700;
-font-size:22px;
+body::after{
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+background:radial-gradient(circle,#00e5ff30,transparent 70%);
+bottom:-150px;
+left:-150px;
+filter:blur(120px);
+z-index:-1;
 }
 
-nav a{
-color:#aaa;
+.container{
+width:90%;
+max-width:1150px;
+margin:auto;
+}
+
+/* ===== LOGO ===== */
+
+.rsg-logo{
+position:fixed;
+top:10px;
+left:15px;
+z-index:10001;
+font-size:20px;
+font-weight:800;
+letter-spacing:2px;
+color:var(--primary);
 text-decoration:none;
-margin-left:30px;
+text-shadow:0 0 12px rgba(245,197,24,0.8);
+}
+
+/* ===== NAV PANEL ===== */
+
+.panel{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:10000;
+background:rgba(6,7,9,0.65);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(245,197,24,0.2);
+}
+
+.panel .container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+padding:18px 0;
+}
+
+.panel a{
+margin:10px 18px;
+text-decoration:none;
+font-weight:600;
+color:#ddd;
 transition:0.3s;
 }
 
-nav a:hover{
-color:white;
+.panel a:hover{
+color:var(--primary);
 }
 
-.hero{
+body{
+padding-top:90px;
+}
+
+/* ===== HEADER ===== */
+
+.header{
+padding:90px 0 60px;
 text-align:center;
-padding:80px 20px;
 }
 
-.hero h1{
-font-size:50px;
-background:linear-gradient(90deg,#00f0ff,#8a2eff);
+.header h1{
+font-size:54px;
+background:linear-gradient(90deg,#f5c518,#00e5ff);
 -webkit-background-clip:text;
 color:transparent;
+text-shadow:0 0 40px rgba(245,197,24,0.4);
 }
 
-.hero p{
-color:#aaa;
-margin-top:10px;
+.header p{
+font-size:18px;
+opacity:0.8;
 }
 
-.skills{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
+/* ===== GRID ===== */
+
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+padding-bottom:90px;
 }
 
-.skill-card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-padding:25px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-transition:0.4s;
-}
+/* ===== SKILL CARD ===== */
 
-.skill-card:hover{
-transform:translateY(-10px);
-border-color:#00eaff;
-}
-
-.skill-title{
-font-size:20px;
-margin-bottom:15px;
-}
-
-.progress{
-background:#111;
-height:8px;
-border-radius:20px;
+.card{
+background:rgba(15,17,22,0.7);
+padding:35px;
+border-radius:18px;
+border:1px solid rgba(245,197,24,0.15);
+text-align:center;
+transition:0.45s;
+backdrop-filter:blur(14px);
+position:relative;
 overflow:hidden;
 }
 
-.progress-bar{
-height:100%;
-background:linear-gradient(90deg,#00eaff,#6a00ff);
-width:0%;
-animation:load 2s forwards;
+.card::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(120deg,transparent,rgba(245,197,24,0.2),transparent);
+opacity:0;
+transition:0.5s;
 }
 
-@keyframes load{
+.card:hover::before{
+opacity:1;
+}
+
+.card:hover{
+transform:translateY(-12px) scale(1.04);
+box-shadow:0 0 45px rgba(245,197,24,0.9);
+}
+
+.card i{
+font-size:40px;
+color:var(--primary);
+margin-bottom:15px;
+}
+
+.card h3{
+margin:12px 0;
+font-size:20px;
+}
+
+.card p{
+opacity:0.75;
+font-size:14px;
+}
+
+/* ===== SKILL BAR ===== */
+
+.skill-bar{
+margin-top:15px;
+width:100%;
+height:6px;
+background:#111;
+border-radius:10px;
+overflow:hidden;
+}
+
+.skill-fill{
+height:100%;
+background:linear-gradient(90deg,#f5c518,#00e5ff);
+animation:fill 2s ease forwards;
+}
+
+@keyframes fill{
 from{width:0}
 }
 
-footer{
+/* ===== BACK BUTTON ===== */
+
+.back-btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 25px;
+border-radius:10px;
+border:1px solid rgba(245,197,24,0.3);
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.back-btn:hover{
+background:var(--primary);
+color:black;
+}
+
+/* ===== FOOTER ===== */
+
+.copyright{
 text-align:center;
-padding:40px;
-color:#777;
+padding:25px 10px;
 font-size:14px;
+letter-spacing:1px;
+color:rgba(116,106,70,0.8);
+background:#050507;
+border-top:1px solid rgba(245,197,24,0.2);
 }
 
 </style>
@@ -118,95 +249,92 @@ font-size:14px;
 
 <body>
 
-<header>
+<a href="index.html" class="rsg-logo">R$G</a>
 
-<div class="logo">RSG</div>
+<div class="panel">
+<div class="container">
 
-<nav>
 <a href="index.html">Home</a>
 <a href="projects.html">Projects</a>
+<a href="services.html">Services</a>
 <a href="skills.html">Skills</a>
-<a href="contact.html">Contact</a>
-</nav>
+<a href="me.html">Me</a>
 
-</header>
+</div>
+</div>
 
-<section class="hero">
-
+<section class="header">
+<div class="container">
 <h1>My Skills</h1>
-<p>Technologies and tools I use to build data-driven solutions.</p>
-
+<p>Tools & technologies I work with</p>
+</div>
 </section>
 
-<section class="skills">
+<section>
+<div class="container">
+<div class="grid">
 
-<div class="skill-card">
+<div class="card">
+<i class="fas fa-file-excel"></i>
+<h3>Microsoft Excel</h3>
+<p>Advanced formulas & dashboards</p>
+<div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+</div>
 
-<div class="skill-title">Python</div>
+<div class="card">
+<i class="fas fa-chart-line"></i>
+<h3>Power BI</h3>
+<p>Interactive dashboards & reporting</p>
+<div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+</div>
 
-<div class="progress">
-<div class="progress-bar" style="width:90%"></div>
+<div class="card">
+<i class="fas fa-chart-pie"></i>
+<h3>Tableau</h3>
+<p>Visual analytics & storytelling</p>
+<div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+</div>
+
+<div class="card">
+<i class="fab fa-python"></i>
+<h3>Python</h3>
+<p>Data analysis & ML basics</p>
+<div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+</div>
+
+<div class="card">
+<i class="fas fa-database"></i>
+<h3>SQL</h3>
+<p>Queries, joins & data handling</p>
+<div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+</div>
+
+<div class="card">
+<i class="fas fa-briefcase"></i>
+<h3>Business Analytics</h3>
+<p>Data-driven insights</p>
+<div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
 </div>
 
 </div>
-
-<div class="skill-card">
-
-<div class="skill-title">SQL</div>
-
-<div class="progress">
-<div class="progress-bar" style="width:85%"></div>
 </div>
-
-</div>
-
-<div class="skill-card">
-
-<div class="skill-title">Power BI</div>
-
-<div class="progress">
-<div class="progress-bar" style="width:80%"></div>
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<div class="skill-title">Tableau</div>
-
-<div class="progress">
-<div class="progress-bar" style="width:75%"></div>
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<div class="skill-title">Excel</div>
-
-<div class="progress">
-<div class="progress-bar" style="width:95%"></div>
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<div class="skill-title">Machine Learning</div>
-
-<div class="progress">
-<div class="progress-bar" style="width:70%"></div>
-</div>
-
-</div>
-
 </section>
 
-<footer>
+<div style="text-align:center;margin:100px 0 50px;">
+<a href="index.html" class="back-btn">← Back to Home</a>
+</div>
 
-© 2026 Rajat Singh Gaur
-
+<footer class="copyright">
+© 2025 Rajat Singh Gaur. All Rights Reserved.
 </footer>
+
+<!-- ElevenLabs AI Assistant -->
+
+<elevenlabs-convai agent-id="agent_3301kkhacgyyea1vcgattzpxf52q"></elevenlabs-convai>
+
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+async
+type="text/javascript"></script>
 
 </body>
 </html>
