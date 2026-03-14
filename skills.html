@@ -11,7 +11,41 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+<style>
+.ai-button{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#f5c518;
+color:black;
+border-radius:50px;
+padding:14px 22px;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 0 20px rgba(245,197,24,0.8);
+z-index:9999;
+}
+</style>
 
+<div class="ai-button" onclick="openAI()">
+AI Assistant
+</div>
+
+<script>
+function openAI(){
+document.querySelector("elevenlabs-convai").style.display="block";
+}
+</script>
+
+.card{
+transform-style:preserve-3d;
+perspective:1000px;
+}
+
+.card:hover{
+transform:rotateX(6deg) rotateY(-6deg) scale(1.05);
+}
+  
 :root{
 --primary:#f5c518;
 --accent:#00e5ff;
@@ -335,6 +369,80 @@ border-top:1px solid rgba(245,197,24,0.2);
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed"
 async
 type="text/javascript"></script>
+<canvas id="matrix"></canvas>
 
+<style>
+#matrix{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+opacity:0.15;
+}
+</style>
+
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "01AI DATA ML SQL PYTHON".split("");
+
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+for(let x = 0; x < columns; x++)
+drops[x] = 1;
+
+function draw(){
+
+ctx.fillStyle="rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#f5c518";
+ctx.font=fontSize+"px monospace";
+
+for(let i=0;i<drops.length;i++){
+
+const text=letters[Math.floor(Math.random()*letters.length)];
+
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+drops[i]=0;
+
+drops[i]++;
+
+}
+
+}
+
+setInterval(draw,33);
+</script>
+
+<script>
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.opacity = 1;
+entry.target.style.transform = "translateY(0)";
+}
+});
+});
+
+document.querySelectorAll(".card").forEach(el=>{
+el.style.opacity=0;
+el.style.transform="translateY(40px)";
+el.style.transition="all 0.8s ease";
+observer.observe(el);
+});
+
+</script>
 </body>
 </html>
