@@ -19,34 +19,7 @@ color:white;
 padding-top:90px;
 }
 
-/* ===== GITHUB STATS SECTION ===== */
-
-.github-section{
-text-align:center;
-margin:100px auto;
-max-width:1100px;
-}
-
-.github-section h2{
-font-size:42px;
-margin-bottom:40px;
-background:linear-gradient(90deg,#f5c518,#00e5ff);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.github-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-gap:30px;
-}
-
-.github-grid img{
-width:100%;
-border-radius:18px;
-box-shadow:0 0 30px rgba(0,0,0,0.7);
-}
-/* PANEL */
+/* NAV PANEL */
 
 .panel{
 position:fixed;
@@ -229,11 +202,7 @@ transform:translateY(0);
 
 <body>
 
-<!-- LOGO -->
-
 <a href="index.html" class="rsg-logo">R$G</a>
-
-<!-- NAVIGATION -->
 
 <div class="panel">
 <div class="container">
@@ -252,8 +221,6 @@ transform:translateY(0);
 
 <h1>My Projects</h1>
 
-<!-- VIDEO PREVIEW -->
-
 <div class="projects-video">
 
 <video autoplay muted loop playsinline>
@@ -268,7 +235,7 @@ transform:translateY(0);
 
 <div class="card reveal">
 
-<img src="project1.jpg" style="width:100%;border-radius:10px;margin-bottom:10px;">
+<img src="https://picsum.photos/400/200" style="width:100%;border-radius:10px;margin-bottom:10px;">
 
 <h3>Stock Price Prediction</h3>
 
@@ -312,10 +279,11 @@ AI chatbot that automates customer communication for businesses.
 
 <div class="project-buttons">
 <a href="https://github.com/rajatsinghgaur" target="_blank">GitHub</a>
-<a onclick="openProject('project1')">Details</a>
+<a onclick="openProject('project3')">Details</a>
 </div>
 
 </div>
+
 <!-- Project 4 -->
 
 <div class="card reveal">
@@ -323,8 +291,7 @@ AI chatbot that automates customer communication for businesses.
 <h3>AI Voice Assistant Website</h3>
 
 <p>
-Voice assistant integrated into my portfolio website using ElevenLabs
-allowing visitors to interact with the website using voice.
+Voice assistant integrated into my portfolio website using ElevenLabs.
 </p>
 
 <div class="project-buttons">
@@ -333,12 +300,15 @@ allowing visitors to interact with the website using voice.
 </div>
 
 </div>
+
+<!-- Project 5 -->
+
 <div class="card reveal">
 
 <h3>Python Data Analysis</h3>
 
 <p>
-Data cleaning and analysis project using Python and Pandas to extract insights.
+Data cleaning and analysis project using Python and Pandas.
 </p>
 
 <div class="project-buttons">
@@ -347,6 +317,8 @@ Data cleaning and analysis project using Python and Pandas to extract insights.
 </div>
 
 </div>
+
+<!-- Project 6 -->
 
 <div class="card reveal">
 
@@ -362,10 +334,9 @@ AI system that answers clinic calls and automatically books appointments.
 </div>
 
 </div>
-</div>
-</div>
 
-<!-- PROJECT POPUP -->
+</div>
+</div>
 
 <div id="projectPopup" class="popup">
 <div class="popup-content">
@@ -399,26 +370,48 @@ reveals[i].classList.add("active");
 }
 
 window.addEventListener("scroll", reveal);
+reveal();
 
-/* PROJECT POPUP */
+/* POPUP */
 
 function openProject(project){
 
 let content="";
 
-if(project==="project4"){
-content=`
-<h2>AI Voice Assistant</h2>
-<p>Voice assistant integrated using ElevenLabs.</p>
-`;
-}
-
+if(project==="project1"){
 content=`
 <h2>Stock Price Prediction</h2>
 <p>Machine learning model built using Python to analyze stock data.</p>
 <a href="https://github.com/rajatsinghgaur" target="_blank">View GitHub</a>
 `;
+}
 
+else if(project==="project3"){
+content=`
+<h2>AI Chatbot Automation</h2>
+<p>AI chatbot that automates customer communication for businesses.</p>
+`;
+}
+
+else if(project==="project4"){
+content=`
+<h2>AI Voice Assistant</h2>
+<p>Voice assistant integrated using ElevenLabs on my portfolio website.</p>
+`;
+}
+
+else if(project==="project5"){
+content=`
+<h2>Python Data Analysis</h2>
+<p>Data cleaning and analysis using Python and Pandas.</p>
+`;
+}
+
+else if(project==="project6"){
+content=`
+<h2>AI Voice Agent</h2>
+<p>AI system that answers clinic calls and books appointments automatically.</p>
+`;
 }
 
 document.getElementById("popupContent").innerHTML=content;
