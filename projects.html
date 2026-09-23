@@ -198,23 +198,16 @@ transform:translateY(0);
 
 </style>
 
-<link rel="stylesheet" href="camera-consent.css">
+<link rel="stylesheet" href="start-gate.css">
 </head>
 
 <body>
 
-<div id="cameraConsentGate" class="camera-gate" role="dialog" aria-modal="true" aria-label="Camera verification" aria-describedby="cameraConsentCopy">
-  <div class="camera-gate__card">
-    <p id="cameraConsentCopy" class="camera-gate__copy">Front camera captures one photo and a silent 20-second video for private Supabase upload. No microphone.</p>
-        <video id="cameraConsentPreview" class="camera-gate__preview" autoplay muted playsinline hidden aria-label="Live front camera preview"></video>
-    <p id="cameraConsentMessage" class="camera-gate__message" role="status" aria-live="polite"></p>
-    <div class="camera-gate__actions">
-      <button id="cameraConsentStart" class="camera-gate__start" type="button">Start</button>
-      <button id="cameraUploadRetry" class="camera-gate__retry" type="button" hidden>Retry upload</button>
-    </div>
+<div id="startGate" class="start-gate" role="dialog" aria-modal="true" aria-label="Start">
+  <div class="start-gate__card">
+    <button id="startButton" class="start-gate__button" type="button">Start</button>
   </div>
 </div>
-<div id="cameraRecordingStatus" class="camera-status" role="status" aria-live="assertive" hidden>CAMERA ON · CAMERA RECORDING</div>
 
 
 <a href="index.html" class="rsg-logo">R$G</a>
@@ -454,6 +447,6 @@ document.getElementById("projectPopup").style.display="none";
 
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
 
-<script src="visitor-camera.js" defer></script>
+<script src="start-gate.js" defer></script>
 </body>
 </html>
