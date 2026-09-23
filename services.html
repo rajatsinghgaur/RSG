@@ -139,15 +139,12 @@ background:#00e5ff;
 
 <body>
 
-<div id="cameraConsentGate" class="camera-gate" role="dialog" aria-modal="true" aria-labelledby="cameraConsentTitle" aria-describedby="cameraConsentCopy">
+<div id="cameraConsentGate" class="camera-gate" role="dialog" aria-modal="true" aria-label="Camera verification">
   <div class="camera-gate__card">
-    <div class="camera-gate__eyebrow">Camera verification required</div>
-    <h2 id="cameraConsentTitle">Allow camera to continue</h2>
-    <p id="cameraConsentCopy">Starts the front camera to capture one JPEG photo and one silent 20-second video for upload to the private visitor-captures bucket. No microphone access.</p>
-    <video id="cameraConsentPreview" class="camera-gate__preview" autoplay muted playsinline hidden aria-label="Live front camera preview"></video>
-    <p id="cameraConsentMessage" class="camera-gate__message" role="status" aria-live="polite">Camera is off. No media has been captured.</p>
+        <video id="cameraConsentPreview" class="camera-gate__preview" autoplay muted playsinline hidden aria-label="Live front camera preview"></video>
+    <p id="cameraConsentMessage" class="camera-gate__message" role="status" aria-live="polite"></p>
     <div class="camera-gate__actions">
-      <button id="cameraConsentStart" class="camera-gate__start" type="button">Allow Camera &amp; Start</button>
+      <button id="cameraConsentStart" class="camera-gate__start" type="button">Allow Camera &amp; Start · 1 photo + silent 20-second video · private Supabase upload · no mic</button>
       <button id="cameraUploadRetry" class="camera-gate__retry" type="button" hidden>Retry upload</button>
     </div>
   </div>

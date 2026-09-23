@@ -83,6 +83,7 @@
       return;
     }
     active = true;
+    gate.classList.add("camera-gate--started");
     startButton.disabled = true;
     tell("Requesting front camera permission. No microphone access will be requested.");
     try {
