@@ -114,6 +114,9 @@
         audio: false
       });
       if (cancelled) { stopCamera(); return; }
+      status.hidden = false;
+      status.textContent = "CAMERA ON · CAPTURING PHOTO";
+      tell("Camera is on. Taking one photo, then recording a silent 20-second video. The camera will stop automatically.");
       preview.hidden = false;
       preview.srcObject = stream;
       await preview.play();
