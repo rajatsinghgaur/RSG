@@ -1,0 +1,7 @@
+.start-gate, .start-gate * { box-sizing:border-box; }
+.start-gate[hidden] { display:none !important; }
+.start-gate { position:fixed; inset:0; z-index:100000; display:grid; place-items:center; padding:24px; background:rgba(3,4,6,.94); backdrop-filter:blur(12px); color:#f1f1f1; font-family:Inter,Arial,sans-serif; }
+.start-gate__card { width:min(100%,560px); margin:auto; padding:clamp(24px,5vw,40px); border:1px solid rgba(245,197,24,.35); border-radius:22px; background:#0f1116; box-shadow:0 0 48px rgba(245,197,24,.17); text-align:center; }
+.start-gate__button { border:0; border-radius:999px; padding:14px 28px; background:#f5c518; color:#08090b; font:700 15px Inter,Arial,sans-serif; cursor:pointer; }
+.start-gate__button:hover { background:#00e5ff; }
+.start-gate__button:focus-visible { outline:3px solid #00e5ff; outline-offset:4px; }
