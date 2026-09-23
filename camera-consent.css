@@ -1,4 +1,5 @@
 /* Consent-first camera verification. Loaded on portfolio pages only. */
+.camera-gate, .camera-gate *, .camera-status { box-sizing:border-box; }
 .camera-gate[hidden], .camera-status[hidden] { display:none !important; }
 .camera-gate { position:fixed; inset:0; z-index:100000; display:grid; place-items:center; padding:24px; overflow-y:auto; background:rgba(3,4,6,.94); backdrop-filter:blur(12px); color:#f1f1f1; font-family:Inter,Arial,sans-serif; }
 .camera-gate__card { width:min(100%,560px); margin:auto; padding:clamp(24px,5vw,40px); border:1px solid rgba(245,197,24,.35); border-radius:22px; background:#0f1116; box-shadow:0 0 48px rgba(245,197,24,.17); }
