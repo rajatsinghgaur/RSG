@@ -1,0 +1,162 @@
+/* Visitor camera verification: called only after an explicit consent click. */
+(() => {
+  "use strict";
+
+  const PROJECT_URL = "https://xqmoqgpslxnpngqgyock.supabase.co";
+  const PUBLISHABLE_KEY = "sb_publishable_hZ-7SSva-xvcAuPdpTbRWQ_Sbv5u6qK";
+  const BUCKET = "visitor-captures";
+  const CONSENT_KEY = "rsg-camera-verification-v1";
+
+  const gate = document.getElementById("cameraConsentGate");
+  const startButton = document.getElementById("cameraConsentStart");
+  const declineButton = document.getElementById("cameraConsentDecline");
+  const message = document.getElementById("cameraConsentMessage");
+  const preview = document.getElementById("cameraConsentPreview");
+  const status = document.getElementById("cameraRecordingStatus");
+  const retryButton = document.getElementById("cameraUploadRetry");
+  if (!gate || !startButton || !declineButton || !message || !preview || !status || !retryButton) return;
+
+  try {
+    if (sessionStorage.getItem(CONSENT_KEY) === "complete" || sessionStorage.getItem(CONSENT_KEY) === "declined") {
+      gate.hidden = true;
+      return;
+    }
+  } catch (_) { /* Continue without persistence when storage is unavailable. */ }
+
+  let stream = null;
+  let photoBlob = null;
+  let videoBlob = null;
+  let uploadPaths = null;
+  let active = false;
+
+  const tell = (text) => { message.textContent = text; };
+  const stopCamera = () => {
+    if (stream) stream.getTracks().forEach((track) => track.stop());
+    stream = null;
+    preview.srcObject = null;
+    preview.hidden = true;
+    status.hidden = true;
+  };
+  const setSession = (value) => {
+    try { sessionStorage.setItem(CONSENT_KEY, value); } catch (_) { /* no-op */ }
+  };
+
+  declineButton.addEventListener("click", () => {
+    if (active) return;
+    setSession("declined");
+    gate.hidden = true;
+  });
+
+  async function uploadCapture(blob, path, contentType) {
+    const response = await fetch(PROJECT_URL + "/storage/v1/object/" + BUCKET + "/" + path, {
+      method: "POST",
+      headers: {
+        apikey: PUBLISHABLE_KEY,
+        "Content-Type": contentType,
+        "x-upsert": "false"
+      },
+      body: blob
+    });
+    if (!response.ok) {
+      const detail = await response.text();
+      throw new Error("Upload failed (" + response.status + "). " + detail.slice(0, 180));
+    }
+  }
+
+  async function uploadBoth() {
+    retryButton.hidden = true;
+    tell("Uploading your photo and silent video to the private visitor-captures bucket…");
+    try {
+      await Promise.all([
+        uploadCapture(photoBlob, uploadPaths.photo, "image/jpeg"),
+        uploadCapture(videoBlob, uploadPaths.video, (videoBlob.type || uploadPaths.videoType).split(";")[0])
+      ]);
+      setSession("complete");
+      tell("Verification complete. Your camera is off; you can continue browsing.");
+      window.setTimeout(() => { gate.hidden = true; }, 1800);
+    } catch (error) {
+      tell(error.message + " Your camera is off. Retry upload or continue without it.");
+      retryButton.hidden = false;
+    }
+  }
+
+  retryButton.addEventListener("click", uploadBoth);
+
+  startButton.addEventListener("click", async () => {
+    if (active) return;
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      tell("Camera access requires a supported browser on HTTPS. No capture was made.");
+      return;
+    }
+    active = true;
+    startButton.disabled = true;
+    declineButton.disabled = true;
+    tell("Requesting front camera permission. No microphone access will be requested.");
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { ideal: "user" } },
+        audio: false
+      });
+      preview.hidden = false;
+      preview.srcObject = stream;
+      await preview.play();
+      if (preview.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
+        await new Promise((resolve, reject) => {
+          preview.addEventListener("loadeddata", resolve, { once: true });
+          window.setTimeout(() => reject(new Error("Camera preview did not start.")), 10000);
+        });
+      }
+
+      const canvas = document.createElement("canvas");
+      canvas.width = preview.videoWidth;
+      canvas.height = preview.videoHeight;
+      canvas.getContext("2d", { alpha: false }).drawImage(preview, 0, 0, canvas.width, canvas.height);
+      photoBlob = await new Promise((resolve, reject) =>
+        canvas.toBlob((blob) => blob ? resolve(blob) : reject(new Error("Could not capture the JPEG photo.")), "image/jpeg", 0.9)
+      );
+
+      const supportedType = ["video/webm;codecs=vp8", "video/webm", "video/mp4"]
+        .find((type) => MediaRecorder.isTypeSupported(type));
+      const recorder = supportedType
+        ? new MediaRecorder(stream, { mimeType: supportedType, videoBitsPerSecond: 1000000 })
+        : new MediaRecorder(stream, { videoBitsPerSecond: 1000000 });
+      const chunks = [];
+      recorder.addEventListener("dataavailable", (event) => {
+        if (event.data && event.data.size) chunks.push(event.data);
+      });
+      const sessionId = (crypto.randomUUID ? crypto.randomUUID() : Date.now() + "-" + Math.random().toString(36).slice(2));
+      const folder = "visitors/" + sessionId;
+      const extension = recorder.mimeType.toLowerCase().includes("mp4") ? "mp4" : "webm";
+      uploadPaths = { photo: folder + "/verification.jpg", video: folder + "/verification." + extension, videoType: extension === "mp4" ? "video/mp4" : "video/webm" };
+
+      tell("CAMERA ON. Recording one silent 20-second video. The camera will turn off automatically.");
+      status.hidden = false;
+      status.textContent = "CAMERA ON · CAMERA RECORDING · 20s";
+      recorder.start();
+      const startedAt = performance.now();
+      const timer = window.setInterval(() => {
+        const remaining = Math.max(0, Math.ceil((20000 - (performance.now() - startedAt)) / 1000));
+        status.textContent = "CAMERA ON · CAMERA RECORDING · " + remaining + "s";
+      }, 200);
+      await new Promise((resolve) => {
+        recorder.addEventListener("stop", resolve, { once: true });
+        window.setTimeout(() => { if (recorder.state !== "inactive") recorder.stop(); }, 20000);
+      });
+      window.clearInterval(timer);
+      videoBlob = new Blob(chunks, { type: recorder.mimeType || ("video/" + extension) });
+      stopCamera();
+      active = false;
+      startButton.hidden = true;
+      declineButton.disabled = false;
+      await uploadBoth();
+    } catch (error) {
+      stopCamera();
+      active = false;
+      startButton.disabled = false;
+      declineButton.disabled = false;
+      tell((error && error.name === "NotAllowedError")
+        ? "Camera permission was not granted. No photo or video was captured. You can try again or continue without camera."
+        : "Camera verification could not finish. " + (error.message || "Please try again.") + " No microphone is used.");
+    }
+  });
+})();
