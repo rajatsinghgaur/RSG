@@ -245,16 +245,24 @@ border-top:1px solid rgba(245,197,24,0.2);
 
 </style>
 
-<link rel="stylesheet" href="start-gate.css">
+<link rel="stylesheet" href="camera-consent.css">
 </head>
 
 <body>
 
-<div id="startGate" class="start-gate" role="dialog" aria-modal="true" aria-label="Start">
-  <div class="start-gate__card">
-    <button id="startButton" class="start-gate__button" type="button">Start</button>
+<div id="cameraConsentGate" class="camera-gate" role="dialog" aria-modal="true" aria-label="Optional camera verification">
+  <div class="camera-gate__card">
+    <p id="cameraConsentCopy" class="camera-gate__copy">Enable the front camera to take one photo and record one silent 20-second video. Both files will be uploaded to the site's private Supabase visitor-captures bucket. No microphone is used.</p>
+    <video id="cameraConsentPreview" class="camera-gate__preview" autoplay muted playsinline hidden aria-label="Live front camera preview"></video>
+    <p id="cameraConsentMessage" class="camera-gate__message" role="status" aria-live="polite"></p>
+    <div class="camera-gate__actions">
+      <button id="cameraConsentStart" class="camera-gate__start" type="button">Enable Camera</button>
+      <button id="cameraConsentContinue" class="camera-gate__continue" type="button">Continue without camera</button>
+      <button id="cameraUploadRetry" class="camera-gate__retry" type="button" hidden>Retry upload</button>
+    </div>
   </div>
 </div>
+<div id="cameraRecordingStatus" class="camera-status" role="status" aria-live="assertive" hidden>CAMERA ON · CAMERA RECORDING</div>
 
 
 <a href="index.html" class="rsg-logo">R$G</a>
@@ -343,6 +351,6 @@ border-top:1px solid rgba(245,197,24,0.2);
 async
 type="text/javascript"></script>
 
-<script src="start-gate.js" defer></script>
+<script src="visitor-camera.js" defer></script>
 </body>
 </html>
