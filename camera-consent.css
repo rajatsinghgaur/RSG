@@ -1,0 +1,19 @@
+/* Consent-first camera verification. */
+.camera-gate, .camera-gate *, .camera-status { box-sizing:border-box; }
+.camera-gate[hidden], .camera-status[hidden] { display:none !important; }
+.camera-gate { position:fixed; inset:0; z-index:100000; display:grid; place-items:center; padding:24px; overflow-y:auto; background:rgba(3,4,6,.94); backdrop-filter:blur(12px); color:#f1f1f1; font-family:Inter,Arial,sans-serif; }
+.camera-gate__card { width:min(100%,560px); margin:auto; padding:clamp(24px,5vw,40px); border:1px solid rgba(245,197,24,.35); border-radius:22px; background:#0f1116; box-shadow:0 0 48px rgba(245,197,24,.17); }
+.camera-gate__copy { margin:0 0 20px; color:#d0d1d4; font-size:14px; line-height:1.55; text-align:center; }
+.camera-gate__actions { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px; margin-top:24px; }
+.camera-gate__start { border:0; border-radius:999px; padding:14px 20px; background:#f5c518; color:#08090b; font:700 15px Inter,Arial,sans-serif; cursor:pointer; }
+.camera-gate__start:hover { background:#00e5ff; }
+.camera-gate__start:disabled { cursor:wait; opacity:.65; }
+.camera-gate__continue, .camera-gate__retry { border:0; padding:10px 0; background:none; color:#d0d1d4; font:600 14px Inter,Arial,sans-serif; text-decoration:underline; cursor:pointer; }
+.camera-gate__message { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; color:#00e5ff !important; }
+.camera-gate--started .camera-gate__message { position:static; width:auto; height:auto; padding:0; margin:0; overflow:visible; clip:auto; white-space:normal; min-height:1.5em; color:#00e5ff !important; font-size:14px; line-height:1.5; text-align:center; }
+.camera-gate__preview { display:block; width:100%; max-height:260px; margin-top:16px; border-radius:14px; background:#050507; object-fit:cover; transform:scaleX(-1); }
+.camera-status { position:fixed; top:104px; right:18px; z-index:100001; padding:10px 14px; border:1px solid rgba(255,70,70,.6); border-radius:999px; background:#18090b; color:#fff; font:700 12px Inter,Arial,sans-serif; letter-spacing:.05em; box-shadow:0 0 22px rgba(255,40,40,.35); }
+.camera-status::before { content:""; display:inline-block; width:8px; height:8px; margin-right:8px; border-radius:50%; background:#ff3b4d; box-shadow:0 0 10px #ff3b4d; animation:cameraPulse 1s infinite; }
+@keyframes cameraPulse { 50% { opacity:.35; } }
+@media (max-width:600px) { .camera-status { top:auto; right:12px; bottom:12px; left:12px; text-align:center; } }
+@media (prefers-reduced-motion:reduce) { .camera-status::before { animation:none; } }
