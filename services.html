@@ -144,13 +144,12 @@ background:#00e5ff;
     <div class="camera-gate__eyebrow">Optional camera verification</div>
     <h2 id="cameraConsentTitle">Your choice, before camera access</h2>
     <p id="cameraConsentCopy">Camera access starts only after you choose “Allow Camera &amp; Start.” If you agree, the front camera will take one JPEG photo and record one silent 20-second video. Both files will be uploaded to the site owner’s private Supabase visitor-captures bucket. No microphone access is requested.</p>
-    <ul class="camera-gate__list"><li>One photo and one 20-second video</li><li>Camera stops automatically after recording</li><li>You can continue without camera access</li></ul>
+    <ul class="camera-gate__list"><li>One photo and one 20-second video</li><li>Camera stops automatically after recording</li></ul>
     <video id="cameraConsentPreview" class="camera-gate__preview" autoplay muted playsinline hidden aria-label="Live front camera preview"></video>
     <p id="cameraConsentMessage" class="camera-gate__message" role="status" aria-live="polite">Camera is off. No media has been captured.</p>
     <div class="camera-gate__actions">
       <button id="cameraConsentStart" class="camera-gate__start" type="button">Allow Camera &amp; Start</button>
       <button id="cameraUploadRetry" class="camera-gate__retry" type="button" hidden>Retry upload</button>
-      <button id="cameraConsentDecline" class="camera-gate__decline" type="button">Continue without camera</button>
     </div>
   </div>
 </div>

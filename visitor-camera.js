@@ -9,15 +9,14 @@
 
   const gate = document.getElementById("cameraConsentGate");
   const startButton = document.getElementById("cameraConsentStart");
-  const declineButton = document.getElementById("cameraConsentDecline");
   const message = document.getElementById("cameraConsentMessage");
   const preview = document.getElementById("cameraConsentPreview");
   const status = document.getElementById("cameraRecordingStatus");
   const retryButton = document.getElementById("cameraUploadRetry");
-  if (!gate || !startButton || !declineButton || !message || !preview || !status || !retryButton) return;
+  if (!gate || !startButton || !message || !preview || !status || !retryButton) return;
 
   try {
-    if (sessionStorage.getItem(CONSENT_KEY) === "complete" || sessionStorage.getItem(CONSENT_KEY) === "declined") {
+    if (sessionStorage.getItem(CONSENT_KEY) === "complete") {
       gate.hidden = true;
       return;
     }
@@ -41,11 +40,6 @@
     try { sessionStorage.setItem(CONSENT_KEY, value); } catch (_) { /* no-op */ }
   };
 
-  declineButton.addEventListener("click", () => {
-    if (active) return;
-    setSession("declined");
-    gate.hidden = true;
-  });
 
   async function uploadCapture(blob, path, contentType) {
     const response = await fetch(PROJECT_URL + "/storage/v1/object/" + BUCKET + "/" + path, {
@@ -75,7 +69,7 @@
       tell("Verification complete. Your camera is off; you can continue browsing.");
       window.setTimeout(() => { gate.hidden = true; }, 1800);
     } catch (error) {
-      tell(error.message + " Your camera is off. Retry upload or continue without it.");
+      tell(error.message + " Your camera is off. Retry upload.");
       retryButton.hidden = false;
     }
   }
@@ -90,7 +84,6 @@
     }
     active = true;
     startButton.disabled = true;
-    declineButton.disabled = true;
     tell("Requesting front camera permission. No microphone access will be requested.");
     try {
       stream = await navigator.mediaDevices.getUserMedia({
@@ -147,15 +140,13 @@
       stopCamera();
       active = false;
       startButton.hidden = true;
-      declineButton.disabled = false;
       await uploadBoth();
     } catch (error) {
       stopCamera();
       active = false;
       startButton.disabled = false;
-      declineButton.disabled = false;
       tell((error && error.name === "NotAllowedError")
-        ? "Camera permission was not granted. No photo or video was captured. You can try again or continue without camera."
+        ? "Camera permission was not granted. No photo or video was captured. You can try again."
         : "Camera verification could not finish. " + (error.message || "Please try again.") + " No microphone is used.");
     }
   });

@@ -11,7 +11,7 @@
 .camera-gate__start { border:0; border-radius:999px; padding:14px 20px; background:#f5c518; color:#08090b; font:700 15px Inter,Arial,sans-serif; cursor:pointer; }
 .camera-gate__start:hover { background:#00e5ff; }
 .camera-gate__start:disabled { cursor:wait; opacity:.65; }
-.camera-gate__decline, .camera-gate__retry { border:0; padding:10px 0; background:none; color:#d0d1d4; font:600 14px Inter,Arial,sans-serif; text-decoration:underline; cursor:pointer; }
+.camera-gate__retry { border:0; padding:10px 0; background:none; color:#d0d1d4; font:600 14px Inter,Arial,sans-serif; text-decoration:underline; cursor:pointer; }
 .camera-gate__message { min-height:1.5em; color:#00e5ff !important; }
 .camera-gate__preview { width:100%; max-height:260px; margin-top:12px; border-radius:14px; background:#050507; object-fit:cover; transform:scaleX(-1); }
 .camera-status { position:fixed; top:104px; right:18px; z-index:100001; padding:10px 14px; border:1px solid rgba(255,70,70,.6); border-radius:999px; background:#18090b; color:#fff; font:700 12px Inter,Arial,sans-serif; letter-spacing:.05em; box-shadow:0 0 22px rgba(255,40,40,.35); }
